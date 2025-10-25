@@ -2,6 +2,9 @@ import Experiencia from "@/components/sections/experiencia";
 import Formacao from "@/components/sections/formacao";
 import Inicio from "@/components/sections/inicio";
 import Sobre from "@/components/sections/sobre";
+import Footer from "@/components/sections/footer";
+import BackToTop from "@/components/ui/back-to-top";
+import ScrollOpacity from "@/components/ui/scroll-opacity";
 import { getStaticProps } from "@/utils/getPageStaticProps";
 
 import { HomePageProps  } from "@/types";
@@ -18,11 +21,17 @@ export default function Home({ data }: { data: HomePageProps  }) {
   return (
     <div className="">
       <Header/>
-      <Inicio {...data.inicio} />
-      <Sobre {...data.sobre} />
-      <Formacao {...data.formacao} />
-      <Experiencia {...data.experiencia} />
-      <Contato />
+      <ScrollOpacity className="scroll-opacity-container">
+        <Inicio {...data.inicio} />
+      </ScrollOpacity>
+      <div className="main-content">
+        <Sobre {...data.sobre} />
+        <Formacao {...data.formacao} />
+        <Experiencia {...data.experiencia} />
+        <Contato />
+        <Footer />
+      </div>
+      <BackToTop />
     </div>
   );
 }

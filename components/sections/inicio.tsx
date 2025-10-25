@@ -1,5 +1,6 @@
 import { HomePageProps } from "@/types";
-
+import Button from "@/components/ui/button";
+import ButtonSecondary from "@/components/ui/button-secondary";
 
 export default function Inicio(data: HomePageProps["inicio"]) {
 
@@ -18,8 +19,8 @@ export default function Inicio(data: HomePageProps["inicio"]) {
         </h2>
 
         <div className="button-container">
-          <button className="button">Veja meu trabalho</button>
-          <button className="button-secondary">Entre em contato</button>
+          <Button href="#sobre">Veja meu trabalho</Button>
+          <ButtonSecondary href="#contato">Entre em contato</ButtonSecondary>
         </div>
       </div>
     </section>

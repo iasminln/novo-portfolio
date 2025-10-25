@@ -1,18 +1,38 @@
 {
-  "cursos": [
+  "intro": "Minha formação acadêmica combina graduações sólidas em áreas complementares, proporcionando uma base técnica robusta e uma visão ampla do mercado e gestão.",
+  "graduacoes": [
     {
       "nome": "Ciência da Computação",
-      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis, massa a fermentum bibendum, nisl eros condimentum sapien, in dictum lectus massa eu odio. Pellentesque maximus egestas lobortis. Maecenas vitae dui felis.",
-      "imagem": "",
       "universidade": "Universidade Federal de Minas Gerais",
-      "ano": "2024"
+      "ano": "2024",
+      "tipo": "graduacao",
+      "status": "concluida",
+      "descricao": "Formação sólida em fundamentos da computação, algoritmos, estruturas de dados, programação e desenvolvimento de software.",
+      "logo": "",
+      "destaques": ["Algoritmos e Estruturas de Dados", "Programação", "Desenvolvimento de Software", "Matemática Aplicada"]
     },
     {
-      "nome": "Ciência da Computação",
-      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis, massa a fermentum bibendum, nisl eros condimentum sapien, in dictum lectus massa eu odio. Pellentesque maximus egestas lobortis. Maecenas vitae dui felis.",
-      "imagem": "",
-      "universidade": "Universidade Federal de Minas Gerais",
-      "ano": "2024"
+      "nome": "Administração",
+      "universidade": "Pontifícia Universidade Católica de Minas Gerais",
+      "ano": "2022",
+      "tipo": "graduacao",
+      "status": "concluida",
+      "descricao": "Formação em gestão empresarial, estratégia, marketing e visão sistêmica dos negócios.",
+      "logo": "",
+      "destaques": ["Gestão Estratégica", "Marketing", "Finanças", "Gestão de Pessoas"]
+    }
+  ],
+  "pos_graduacoes": [
+    {
+      "nome": "Especialização em Desenvolvimento Web Full Stack",
+      "universidade": "Instituto de Educação Tecnológica",
+      "ano": "2023",
+      "tipo": "pos_graduacao",
+      "status": "concluida",
+      "descricao": "Especialização focada em tecnologias modernas de desenvolvimento web, incluindo React, Node.js, bancos de dados e metodologias ágeis. Aprofundamento em arquitetura de software, performance e boas práticas de desenvolvimento.",
+      "logo": "",
+      "destaques": ["React e Node.js", "Arquitetura de Software", "Metodologias Ágeis", "Performance Web"],
+      "carga_horaria": "360 horas"
     }
   ]
 }

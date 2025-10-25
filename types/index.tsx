@@ -4,28 +4,48 @@ export type SectionData = {
   }; 
   sobre: { 
     descricao: string; 
+    imagem?: string;
+    altImagem?: string;
     skills: string[]; 
   };
   formacao: { 
-    cursos: { 
+    intro: string;
+    pos_graduacoes: { 
+      nome: string;
+      descricao: string;
+      universidade: string;
+      ano: string;
+      tipo: string;
+      status: string;
+      logo: string;
+      destaques: string[];
+      carga_horaria: string;
+    }[];
+    graduacoes: { 
       nome: string; 
       descricao: string; 
       universidade: string; 
       ano: string; 
-      imagem: string 
+      tipo: string;
+      status: string;
+      logo: string;
+      destaques: string[];
     }[]; 
   };
-  experiencia: { 
+  experiencia: {
+    intro: string;
+    destaques: string[];
     empregos: { 
-      empresa: string; 
-      cargo: string; 
-      periodo: string; 
-      descricao: string 
-    }[]; 
-  };
-  contato: { 
-    email: string; 
-    telefone: string 
+      empresa: string;
+      cargo: string;
+      periodo: string;
+      duracao: string;
+      tipo: string;
+      descricao: string;
+      tecnologias: string[];
+      destaques: string[];
+      marcas: string[];
+    }[];
   };
 };
 
