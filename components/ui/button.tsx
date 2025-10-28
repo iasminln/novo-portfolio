@@ -7,6 +7,7 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   disabled?: boolean;
+  variant?: 'primary' | 'secondary';
 }
 
 export default function Button({ 
@@ -15,9 +16,10 @@ export default function Button({
   href, 
   type = 'button', 
   className = '', 
-  disabled = false 
+  disabled = false,
+  variant = 'primary'
 }: ButtonProps) {
-  const baseClasses = 'button';
+  const baseClasses = variant === 'secondary' ? 'button-secondary' : 'button';
   const combinedClasses = `${baseClasses} ${className}`.trim();
 
   if (href) {

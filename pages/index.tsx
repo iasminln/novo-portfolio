@@ -23,8 +23,8 @@ export default function Home({ data }: { data: HomePageProps  }) {
         <Inicio {...data.inicio} />
       <div className="main-content">
         <Sobre {...data.sobre} />
-        <Formacao {...data.formacao} />
         <Experiencia {...data.experiencia} />
+        <Formacao {...data.formacao} />
         <Contato />
         <Footer />
       </div>

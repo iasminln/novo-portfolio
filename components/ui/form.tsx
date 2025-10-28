@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import Button from "./button";
 
 export default function ContactForm() {
   const form = useRef<HTMLFormElement>(null);
@@ -99,7 +100,7 @@ export default function ContactForm() {
           </div>
         )}
 
-        <button 
+        <Button 
           type="submit" 
           disabled={isSubmitting}
           className="contact-form__button"
@@ -117,7 +118,7 @@ export default function ContactForm() {
               Enviar Mensagem
             </>
           )}
-        </button>
+        </Button>
       </form>
     </div>
   );

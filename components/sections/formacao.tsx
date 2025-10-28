@@ -12,12 +12,11 @@ export default function Formacao(data: HomePageProps["formacao"]) {
         </div>
 
         <div className="education-content">
-          {/* Pós-graduações - Destaque especial */}
           {data.pos_graduacoes && data.pos_graduacoes.length > 0 && (
             <div className="education-category">
               <h3 className="category-title">
                 <span className="category-icon">🎓</span>
-                Pós-graduações
+                Pós-graduação
               </h3>
               <div className="pos-graduation-grid">
                 {data.pos_graduacoes.map((pos: HomePageProps["formacao"]["pos_graduacoes"][number], index: number) => (

@@ -1,28 +1,8 @@
-import { HomePageProps } from "@/types";
+import { HomePageProps } from "@/types/index";
+
 
 // pages/experiencia.tsx
 export default function Experiencia(data: HomePageProps["experiencia"]) {
-
-  try {
-    if (!data) {
-      console.error('Erro: Dados de experiência não foram fornecidos');
-      return;
-    }
-
-    if (!data.empregos || !Array.isArray(data.empregos)) {
-      console.error('Erro: Propriedade "empregos" não encontrada ou não é um array nos dados de experiência');
-      return;
-    }
-
-    if (data.empregos.length === 0) {
-      console.warn('Aviso: Lista de empregos está vazia');
-      return;
-    }
-
-  } catch (error) {
-    console.error('Erro inesperado ao processar dados de experiência:', error);
-    return;
-  }
 
   return (
     <section id="experiencia" className="experience-section">
@@ -47,7 +27,7 @@ export default function Experiencia(data: HomePageProps["experiencia"]) {
         <div className="timeline">
           <div className="timeline-line-detail"></div>
           <div className="timeline-items">
-            {data.empregos.map((emprego: any, index: number) => (
+            {data.empregos.map((emprego: HomePageProps["experiencia"]["empregos"][number], index: number) => (
               <div key={`${emprego.empresa}-${index}`} className={`timeline-item ${emprego.tipo}`}>
                 <div className="timeline-marker-container">
                   <div className="timeline-marker">

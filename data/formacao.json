@@ -2,14 +2,14 @@
   "intro": "Minha formação acadêmica combina graduações sólidas em áreas complementares, proporcionando uma base técnica robusta e uma visão ampla do mercado e gestão.",
   "graduacoes": [
     {
-      "nome": "Ciência da Computação",
-      "universidade": "Universidade Federal de Minas Gerais",
-      "ano": "2024",
+      "nome": "Engenharia civil",
+      "universidade": "Universidade Tecnológica Federal do Paraná",
+      "ano": "2015 - 2020",
       "tipo": "graduacao",
       "status": "concluida",
-      "descricao": "Formação sólida em fundamentos da computação, algoritmos, estruturas de dados, programação e desenvolvimento de software.",
-      "logo": "",
-      "destaques": ["Algoritmos e Estruturas de Dados", "Programação", "Desenvolvimento de Software", "Matemática Aplicada"]
+      "descricao": "",
+      "logo": "/images/logo-utfpr.webp",
+      "destaques": []
     },
     {
       "nome": "Administração",
@@ -24,13 +24,13 @@
   ],
   "pos_graduacoes": [
     {
-      "nome": "Especialização em Desenvolvimento Web Full Stack",
-      "universidade": "Instituto de Educação Tecnológica",
-      "ano": "2023",
+      "nome": "Especialização em Desenvolvimento Full Stack",
+      "universidade": "Faculdade de Tecnologia Rocketseat",
+      "ano": "2025 - andamento",
       "tipo": "pos_graduacao",
       "status": "concluida",
       "descricao": "Especialização focada em tecnologias modernas de desenvolvimento web, incluindo React, Node.js, bancos de dados e metodologias ágeis. Aprofundamento em arquitetura de software, performance e boas práticas de desenvolvimento.",
-      "logo": "",
+      "logo": "/images/logo-rocketseat.webp",
       "destaques": ["React e Node.js", "Arquitetura de Software", "Metodologias Ágeis", "Performance Web"],
       "carga_horaria": "360 horas"
     }
