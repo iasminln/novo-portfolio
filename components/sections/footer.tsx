@@ -1,4 +1,7 @@
 import React from 'react';
+import { IconEmail } from '../icons/icon-email';
+import { IconLinkedin } from '../icons/icon-linkedin';
+import { IconGithub } from '../icons/icon-github';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,7 +23,7 @@ export default function Footer() {
                 className="footer__social-link"
                 aria-label="GitHub"
               >
-                <span className="footer__social-icon">📱</span>
+                <IconGithub color="var(--main-color)" size={22} />
                 GitHub
               </a>
               <a 
@@ -30,7 +33,7 @@ export default function Footer() {
                 className="footer__social-link"
                 aria-label="LinkedIn"
               >
-                <span className="footer__social-icon">💼</span>
+                <IconLinkedin color="var(--main-color)" size={22} />
                 LinkedIn
               </a>
               <a 
@@ -38,7 +41,7 @@ export default function Footer() {
                 className="footer__social-link"
                 aria-label="Email"
               >
-                <span className="footer__social-icon">✉️</span>
+                <IconEmail color="var(--main-color)" size={22} />
                 Email
               </a>
             </div>

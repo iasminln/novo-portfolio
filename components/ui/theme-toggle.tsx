@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { IconMoon } from '../icons/icon-moon';
+import { IconSun } from '../icons/icon-sun';
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
@@ -48,9 +50,7 @@ export default function ThemeToggle() {
     >
       <div className="theme-toggle__track">
         <div className={`theme-toggle__thumb ${isDark ? 'theme-toggle__thumb--dark' : ''}`}>
-          <span className="theme-toggle__icon">
-            {isDark ? '🌙' : '☀️'}
-          </span>
+          {!isDark ? <IconMoon color="var(--background-color)" size={20} /> : <IconSun color="var(--background-color)" size={20} />}
         </div>
       </div>
     </button>

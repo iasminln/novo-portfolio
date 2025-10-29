@@ -16,7 +16,6 @@ export type SectionData = {
       universidade: string;
       ano: string;
       tipo: string;
-      status: string;
       logo: string;
       destaques: string[];
       carga_horaria: string;
@@ -27,7 +26,6 @@ export type SectionData = {
       universidade: string; 
       ano: string; 
       tipo: string;
-      status: string;
       logo: string;
       destaques: string[];
     }[]; 

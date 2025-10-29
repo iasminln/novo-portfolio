@@ -1,4 +1,5 @@
 import { HomePageProps } from "@/types/index";
+import { IconCheck } from "../icons/icon-check";
 
 
 // pages/experiencia.tsx
@@ -16,7 +17,7 @@ export default function Experiencia(data: HomePageProps["experiencia"]) {
             <ul className="highlights-list">
               {data.destaques.map((destaque: string, index: number) => (
                 <li key={index} className="highlight-item">
-                  <span className="highlight-icon">✓</span>
+                  <span className="highlight-icon"><IconCheck color="var(--main-color)" size={20} /></span>
                   {destaque}
                 </li>
               ))}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { IconArrowUp } from '../icons/icon-arrow-up';
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,7 +48,7 @@ export default function BackToTop() {
       aria-label="Voltar ao topo"
       title="Voltar ao topo"
     >
-      <span className="back-to-top__icon">↑</span>
+      <IconArrowUp color="var(--background-color)" size={20} />
     </button>
   );
 }

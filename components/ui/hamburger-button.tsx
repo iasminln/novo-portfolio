@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { IconMenu } from '../icons/icon-menu';
 
 interface HamburgerButtonProps {
   isOpen: boolean;
@@ -21,9 +22,7 @@ export default function HamburgerButton({
       aria-expanded={isOpen}
       aria-controls="mobile-menu"
     >
-      <span className="hamburger__line"></span>
-      <span className="hamburger__line"></span>
-      <span className="hamburger__line"></span>
+      <IconMenu color="var(--text-color)" size={36} />
     </button>
   );
 }

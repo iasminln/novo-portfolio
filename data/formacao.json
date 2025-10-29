@@ -3,23 +3,21 @@
   "graduacoes": [
     {
       "nome": "Engenharia civil",
-      "universidade": "Universidade Tecnológica Federal do Paraná",
-      "ano": "2015 - 2020",
+      "universidade": "UTFPR - Universidade Tecnológica Federal do Paraná",
+      "ano": "2015 - 2019",
       "tipo": "graduacao",
-      "status": "concluida",
       "descricao": "",
       "logo": "/images/logo-utfpr.webp",
       "destaques": []
     },
     {
-      "nome": "Administração",
-      "universidade": "Pontifícia Universidade Católica de Minas Gerais",
-      "ano": "2022",
+      "nome": "Análise e Desenvolvimento de Sistemas",
+      "universidade": "Unicesumar - Centro Universitário de Maringá",
+      "ano": "2021",
       "tipo": "graduacao",
-      "status": "concluida",
-      "descricao": "Formação em gestão empresarial, estratégia, marketing e visão sistêmica dos negócios.",
-      "logo": "",
-      "destaques": ["Gestão Estratégica", "Marketing", "Finanças", "Gestão de Pessoas"]
+      "descricao": "",
+      "logo": "/images/logo-unicesumar.webp",
+      "destaques": []
     }
   ],
   "pos_graduacoes": [
@@ -28,7 +26,6 @@
       "universidade": "Faculdade de Tecnologia Rocketseat",
       "ano": "2025 - andamento",
       "tipo": "pos_graduacao",
-      "status": "concluida",
       "descricao": "Especialização focada em tecnologias modernas de desenvolvimento web, incluindo React, Node.js, bancos de dados e metodologias ágeis. Aprofundamento em arquitetura de software, performance e boas práticas de desenvolvimento.",
       "logo": "/images/logo-rocketseat.webp",
       "destaques": ["React e Node.js", "Arquitetura de Software", "Metodologias Ágeis", "Performance Web"],

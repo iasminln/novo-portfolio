@@ -1,5 +1,6 @@
 import { HomePageProps } from "@/types";
 import Image from "next/image";
+import { IconGraduation } from "../icons/icon-graduation";
 
 // pages/formacao.tsx
 export default function Formacao(data: HomePageProps["formacao"]) {
@@ -15,7 +16,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
           {data.pos_graduacoes && data.pos_graduacoes.length > 0 && (
             <div className="education-category">
               <h3 className="category-title">
-                <span className="category-icon">🎓</span>
+                <IconGraduation color="var(--main-color)" size={25} />
                 Pós-graduação
               </h3>
               <div className="pos-graduation-grid">
@@ -40,17 +41,19 @@ export default function Formacao(data: HomePageProps["formacao"]) {
                         </div>
                       </div>
                     </div>
-                    
-                    <p className="course-description">{pos.descricao}</p>
-                    
-                    <div className="course-highlights">
-                      <h5>Principais disciplinas:</h5>
-                      <div className="highlight-tags">
-                        {pos.destaques.map((destaque: string, destIndex: number) => (
-                          <span key={destIndex} className="highlight-tag">{destaque}</span>
-                        ))}
+
+                    {pos.descricao && <p className="course-description">{pos.descricao}</p>}
+
+                    {pos.destaques && pos.destaques.length > 0 && (
+                      <div className="course-highlights">
+                        <h5>Principais disciplinas:</h5>
+                        <div className="highlight-tags">
+                          {pos.destaques.map((destaque: string, destIndex: number) => (
+                            <span key={destIndex} className="highlight-tag">{destaque}</span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -61,7 +64,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
           {data.graduacoes && data.graduacoes.length > 0 && (
             <div className="education-category">
               <h3 className="category-title">
-                <span className="category-icon">🎓</span>
+                <IconGraduation color="var(--main-color)" size={25} />
                 Graduações
               </h3>
               <div className="graduation-grid">
@@ -80,21 +83,21 @@ export default function Formacao(data: HomePageProps["formacao"]) {
                         <p className="university-name">{graduacao.universidade}</p>
                         <div className="education-meta">
                           <span className="year">{graduacao.ano}</span>
-                          <span className="status">{graduacao.status}</span>
                         </div>
                       </div>
                     </div>
-                    
-                    <p className="course-description">{graduacao.descricao}</p>
-                    
-                    <div className="course-highlights">
-                      <h5>Áreas de estudo:</h5>
-                      <div className="highlight-tags">
-                        {graduacao.destaques.map((destaque: string, destIndex: number) => (
-                          <span key={destIndex} className="highlight-tag">{destaque}</span>
-                        ))}
+
+                    {graduacao.descricao && <p className="course-description">{graduacao.descricao}</p>}
+
+                    {graduacao.destaques && graduacao.destaques.length > 0 && (
+                      <div className="course-highlights">
+                        <h5>Áreas de estudo:</h5><div className="highlight-tags">
+                          {graduacao.destaques.map((destaque: string, destIndex: number) => (
+                            <span key={destIndex} className="highlight-tag">{destaque}</span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 ))}
               </div>
