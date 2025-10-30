@@ -40,7 +40,7 @@ export default function ContactForm() {
     <div className="contact-form">
       <h3 className="contact-form__title">Envie sua mensagem</h3>
       
-      <form ref={form} onSubmit={sendEmail}>
+      <form ref={form} onSubmit={sendEmail} className="contact-form__form">
         <div className="contact-form__field">
           <label htmlFor="from_name" className="contact-form__label">
             Nome *
@@ -114,7 +114,7 @@ export default function ContactForm() {
           ) : (
             <>
               <div className="contact-form__button-content">
-                <IconSendMessage color="var(--text-color)" size={20} />
+                <IconSendMessage color="var(--button-primary-text-color)" size={20} />
                 Enviar Mensagem
               </div>
             </>

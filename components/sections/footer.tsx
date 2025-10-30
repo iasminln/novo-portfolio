@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer__content">
           <div className="footer__main">
-            <h3 className="footer__title">Iasmin.</h3>
+            <h3 className="footer__title">Iasmin<span className="title-dot">.</span></h3>
             <p className="footer__description">
               Desenvolvedora Front-end especializada em React, TypeScript e otimização de performance.
             </p>

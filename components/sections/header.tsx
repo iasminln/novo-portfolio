@@ -20,7 +20,7 @@ export default function Header() {
     <>
       <header>
         <div className="header__content container">
-          <h2 className="header__title">Iasmin.</h2>
+          <h2 className="header__title">Iasmin<span className="title-dot">.</span></h2>
           <nav>
             <ul>
               <li><a href="#sobre">Sobre</a></li>

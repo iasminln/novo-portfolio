@@ -5,14 +5,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Main content wrapper for sliding effect */
-.main-content {
-  border-top: 1px solid #f4f4f4;
-  position: relative;
-  z-index: 1000;
-  background-color: var(--background-color);
-}
-
 /* Smooth scroll with conflict prevention */
 html.scroll-smooth {
   scroll-behavior: smooth;
@@ -24,23 +16,51 @@ html.scroll-auto {
 
 /* light mode */
 :root {
-  --main-color: #7C337D;
+  --font-heading: 'Lora', serif;
+  --font-body: 'Inter', sans-serif;
+  --main-color: #5B1D5F;
   --background-color: #FEFEFE;
   --background-color-secondary: #FAFAFA;
   --background-effect: #EDEDED;
   --text-color: #2D2C2E;
-  --font-lora: 'Lora', serif;
-  --font-inter: 'Inter', sans-serif;
+
+  --button-primary-text-color: #FEFEFE;
+  --button-primary-background-color: #5B1D5F;
+  --button-primary-text-color-hover: #2D2C2E;
+  --button-primary-background-color-hover: #B57EBC;
+
+  --button-secondary-text-color: #5B1D5F;
+  --button-secondary-background-color: #FEFEFE;
+  --button-secondary-text-color-hover: #FEFEFE;
+  --button-secondary-background-color-hover: #5B1D5F;
 }
 
 /* dark mode */
 
 :root.dark {
-  --main-color: #a35095;
-  --background-color: #111;
+  --main-color: #B57EBC;
+  --background-color: #111111;
   --background-color-secondary: #2D2C2E;
   --background-effect: #2D2C2E;
   --text-color: #FEFEFE;
+
+  --button-primary-text-color: #111111;
+  --button-primary-background-color: #B57EBC;
+  --button-primary-text-color-hover: #FEFEFE;
+  --button-primary-background-color-hover: #5B1D5F;
+
+  --button-secondary-text-color: #FEFEFE;
+  --button-secondary-background-color: #2D2C2E;
+  --button-secondary-text-color-hover: #2D2C2E;
+  --button-secondary-background-color-hover: #B57EBC;
+}
+
+/* Main content wrapper for sliding effect */
+.main-content {
+  border-top: 1px solid #f4f4f4;
+  position: relative;
+  z-index: 1000;
+  background-color: var(--background-color);
 }
 
 * {
@@ -51,7 +71,7 @@ html.scroll-auto {
 }
 
 body {
-  font-family: var(--font-inter), Arial, sans-serif;
+  font-family: var(--font-body), Arial, sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
   letter-spacing: .2px;
@@ -67,13 +87,13 @@ body {
 h1 {
   font-size: 2rem;
   margin-bottom: 10px;
-  font-family: var(--font-lora), serif;
+  font-family: var(--font-heading), serif;
 }
 
 h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;
-  font-family: var(--font-lora), serif;
+  font-family: var(--font-heading), serif;
 }
 
 p {
@@ -106,6 +126,12 @@ header {
 
 .header__title {
   margin: 0;
+  letter-spacing: .5px;
+}
+
+.title-dot {
+  color: var(--main-color);
+  font-size: 2rem;
 }
 
 header nav ul {
@@ -264,8 +290,8 @@ header nav ul li a:hover {
 }
 
 .button {
-  background-color: var(--main-color);
-  color: var(--text-color);
+  background-color: var(--button-primary-background-color);
+  color: var(--button-primary-text-color);
   padding: 10px 20px;
   border-radius: 8px;
   border: none;
@@ -277,43 +303,12 @@ header nav ul li a:hover {
   overflow: hidden;
 }
 
-.button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.button:hover {
-  color: var(--main-color);
-  background-color: var(--text-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(124, 51, 125, 0.3);
-}
-
-.button:hover svg path {
-  fill: var(--main-color);
-}
-
-.button:hover::before {
-  left: 100%;
-}
-
-.button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(124, 51, 125, 0.2);
-}
-
 .button-secondary {
-  background-color: var(--background-color);
-  color: var(--main-color);
+  background-color: var(--button-secondary-background-color);
+  color: var(--button-secondary-text-color);
   padding: 10px 20px;
   border-radius: 8px;
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--button-secondary-background-color-hover);
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
@@ -322,6 +317,13 @@ header nav ul li a:hover {
   overflow: hidden;
 }
 
+.button-secondary:hover {
+  color: var(--button-secondary-text-color-hover);
+  background-color: var(--button-secondary-background-color-hover);
+  transform: translateY(-2px);
+}
+
+.button::before,
 .button-secondary::before {
   content: '';
   position: absolute;
@@ -329,25 +331,37 @@ header nav ul li a:hover {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(124, 51, 125, 0.1), transparent);
   transition: left 0.5s ease;
 }
 
-.button-secondary:hover {
-  background-color: var(--main-color);
-  color: var(--background-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(124, 51, 125, 0.2);
-  border-color: var(--text-color);
+.button::before,
+.button-secondary::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
 }
 
-.button-secondary:hover::before {
+.button:hover {
+  color: var(--button-primary-text-color-hover);
+  background-color: var(--button-primary-background-color-hover);
+  transform: translateY(-2px);
+}
+
+.button:hover svg path {
+  fill: var(--button-primary-text-color-hover);
+}
+
+.button-secondary:hover svg path {
+  fill: var(--button-secondary-text-color-hover);
+}
+
+.button:hover::before,
+.button-secondary:hover::before  {
   left: 100%;
 }
 
+.button:active,
 .button-secondary:active {
   transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(124, 51, 125, 0.1);
+  box-shadow: 0 2px 6px rgba(124, 51, 125, 0.2);
 }
 
 .section__formacao {
@@ -407,7 +421,7 @@ header nav ul li a:hover {
 }
 
 .card .card-content h2 {
-  font-family: var(--font-lora), serif;
+  font-family: var(--font-heading), serif;
   font-size: 1.4rem;
   color: var(--text-color);
   margin: 0 0 8px 0;
@@ -415,7 +429,7 @@ header nav ul li a:hover {
 }
 
 .card .card-content h3 {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: 1.1rem;
   color: var(--main-color);
   margin: 0 0 8px 0;
@@ -518,9 +532,9 @@ header nav ul li a:hover {
   box-shadow: 0 0 8px rgba(124, 51, 125, 0.3);
 }
 
-.theme-toggle:focus {
+.theme-toggle:focus .theme-toggle__track {
   outline: 2px solid var(--main-color);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 /* Sobre Section Styles */
@@ -545,6 +559,7 @@ header nav ul li a:hover {
 }
 
 .sobre__text {
+  grid-column: 1 / 2;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -556,8 +571,20 @@ header nav ul li a:hover {
   color: var(--text-color);
 }
 
+.sobre__skills {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+@media (max-width: 768px) {
+  .sobre__skills {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+}
+
 .sobre__skills h3 {
-  font-family: var(--font-lora), serif;
+  font-family: var(--font-heading), serif;
   font-size: 1.3rem;
   margin-bottom: 20px;
   color: var(--text-color);
@@ -587,9 +614,18 @@ header nav ul li a:hover {
 }
 
 .sobre__image {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .sobre__image {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
 }
 
 .sobre__img {
@@ -734,7 +770,7 @@ header nav ul li a:hover {
 }
 
 .mobile-menu__title {
-  font-family: var(--font-lora), serif;
+  font-family: var(--font-heading), serif;
   font-size: 1.5rem;
   color: var(--text-color);
   margin: 0;
@@ -959,7 +995,7 @@ header nav ul li a:hover {
 }
 
 .footer__title {
-  font-family: var(--font-lora), serif;
+  font-family: var(--font-heading), serif;
   font-size: 1.8rem;
   color: var(--text-color);
   margin: 0;
@@ -1002,7 +1038,7 @@ header nav ul li a:hover {
 
 .footer__links-title,
 .footer__tech-title {
-  font-family: var(--font-lora), serif;
+  font-family: var(--font-heading), serif;
   font-size: 1.2rem;
   color: var(--text-color);
   margin: 0 0 15px 0;
@@ -1223,8 +1259,19 @@ header nav ul li a:hover {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
+.contact-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.contact-form__field {
+  width: 100%;
+}
+
 .contact-form__title {
-  font-family: var(--font-lora);
+  font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--text-color);
@@ -1239,13 +1286,9 @@ header nav ul li a:hover {
   justify-content: center;
 }
 
-.contact-form__field {
-  margin-bottom: 1.5rem;
-}
-
 .contact-form__label {
   display: block;
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-color);
@@ -1258,7 +1301,7 @@ header nav ul li a:hover {
   padding: 0.75rem 1rem;
   border: 2px solid #e1e5e9;
   border-radius: 8px;
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 1rem;
   color: var(--text-color);
   background: var(--background-color);
@@ -1308,7 +1351,7 @@ header nav ul li a:hover {
   padding: 0.75rem 1rem;
   border-radius: 8px;
   margin-bottom: 1rem;
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   display: flex;
   align-items: center;
@@ -1340,7 +1383,7 @@ header nav ul li a:hover {
 }
 
 .contact-section__title {
-  font-family: var(--font-lora);
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-color);
@@ -1349,7 +1392,7 @@ header nav ul li a:hover {
 }
 
 .contact-section__subtitle {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   color: var(--text-color);
   text-align: center;
@@ -1370,7 +1413,7 @@ header nav ul li a:hover {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--text-color);
   opacity: 0.8;
@@ -1397,7 +1440,7 @@ header nav ul li a:hover {
   gap: 0.75rem;
   padding: 0.875rem 1.5rem;
   border-radius: 8px;
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
@@ -1522,7 +1565,7 @@ header nav ul li a:hover {
 }
 
 .experience-title {
-  font-family: var(--font-lora);
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-color);
@@ -1530,7 +1573,7 @@ header nav ul li a:hover {
 }
 
 .experience-intro {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   color: var(--text-color);
   max-width: 800px;
@@ -1548,7 +1591,7 @@ header nav ul li a:hover {
 }
 
 .experience-highlights h3 {
-  font-family: var(--font-lora);
+  font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-color);
@@ -1566,7 +1609,7 @@ header nav ul li a:hover {
   display: flex;
   align-items: flex-start;
   margin-bottom: 0.75rem;
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   color: var(--text-color);
   text-align: left;
 }
@@ -1636,7 +1679,7 @@ header nav ul li a:hover {
   width: 100%;
   display: flex;
   align-items: flex-end;
-  font-family: var(--font-lora);
+  font-family: var(--font-heading);
   font-size: 1.5rem;
   color: var(--main-color);
 }
@@ -1685,7 +1728,7 @@ header nav ul li a:hover {
 }
 
 .company-name {
-  font-family: var(--font-lora);
+  font-family: var(--font-heading);
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--text-color);
@@ -1693,7 +1736,7 @@ header nav ul li a:hover {
 }
 
 .job-title {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 1rem;
   color: var(--main-color);
   font-weight: 500;
@@ -1708,7 +1751,7 @@ header nav ul li a:hover {
 }
 
 .period-text {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--text-color);
   opacity: 0.8;
@@ -1716,7 +1759,7 @@ header nav ul li a:hover {
 
 .duration-badge {
   background: var(--main-color);
-  color: white;
+  color: var(--background-color);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -1724,7 +1767,7 @@ header nav ul li a:hover {
 }
 
 .job-description {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   color: var(--text-color);
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -1738,7 +1781,7 @@ header nav ul li a:hover {
 .technologies h5,
 .highlights h5,
 .brands h5 {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-color);
@@ -1764,7 +1807,7 @@ header nav ul li a:hover {
 }
 
 .brands-text {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   color: var(--text-color);
   opacity: 0.8;
   font-style: italic;
@@ -1782,7 +1825,7 @@ header nav ul li a:hover {
 }
 
 .education-title {
-  font-family: var(--font-lora);
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-color);
@@ -1790,7 +1833,7 @@ header nav ul li a:hover {
 }
 
 .education-intro {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   color: var(--text-color);
   max-width: 800px;
@@ -1809,7 +1852,7 @@ header nav ul li a:hover {
 }
 
 .category-title {
-  font-family: var(--font-lora);
+  font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--text-color);
@@ -1905,14 +1948,14 @@ header nav ul li a:hover {
 }
 
 .course-name {
-  font-family: var(--font-lora);
+  font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-color);
 }
 
 .university-name {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: .9rem;
   color: var(--main-color);
   font-weight: 500;
@@ -1926,7 +1969,7 @@ header nav ul li a:hover {
 
 .year,
 .workload {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 0.8rem;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
@@ -1945,13 +1988,13 @@ header nav ul li a:hover {
 }
 
 .course-description {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   color: var(--text-color);
   line-height: 1.6;
 }
 
 .course-highlights h5 {
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-color);

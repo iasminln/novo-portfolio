@@ -12,15 +12,11 @@ import Contato from "@/components/sections/contato";
 
 export { getStaticProps };
 
-
 export default function Home({ data }: { data: HomePageProps  }) {
-
-  console.log("data.inicio", {data})
-
   return (
     <div className="">
-        <Header/>
-        <Inicio {...data.inicio} />
+      <Header/>
+      <Inicio {...data.inicio} />
       <div className="main-content">
         <Sobre {...data.sobre} />
         <Experiencia {...data.experiencia} />
