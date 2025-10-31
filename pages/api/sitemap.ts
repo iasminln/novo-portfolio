@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iasmin.dev';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const currentDate = new Date().toISOString().split('T')[0];
 
   const pages = [
