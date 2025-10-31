@@ -9,7 +9,7 @@ export default function Experiencia(data: HomePageProps["experiencia"]) {
     <section id="experiencia" className="experience-section">
       <div className="container">
         <div className="experience-header">
-          <h2 className="experience-title">Minha Trajetória</h2>
+          <h2 className="experience-title">Trajetória</h2>
           <p className="experience-intro">{data.intro}</p>
           
           <div className="experience-highlights">
@@ -17,7 +17,7 @@ export default function Experiencia(data: HomePageProps["experiencia"]) {
             <ul className="highlights-list">
               {data.destaques.map((destaque: string, index: number) => (
                 <li key={index} className="highlight-item">
-                  <span className="highlight-icon"><IconCheck color="var(--main-color)" size={20} /></span>
+                  <span className="highlight-icon"><IconCheck color="var(--main-color-stronger)" size={20} /></span>
                   {destaque}
                 </li>
               ))}
@@ -54,16 +54,18 @@ export default function Experiencia(data: HomePageProps["experiencia"]) {
                     <p className="job-description">{emprego.descricao}</p>
                     
                     <div className="job-details">
-                      <div className="technologies">
-                        <h5>Tecnologias:</h5>
-                        <div className="tech-tags">
-                          {emprego.tecnologias.map((tech: string, techIndex: number) => (
-                            <span key={techIndex} className="tech-tag">{tech}</span>
-                          ))}
+                      {emprego.tecnologias && emprego.tecnologias.length > 0 && (
+                        <div className="technologies">
+                          <h5>Tecnologias:</h5>
+                          <div className="tech-tags">
+                            {emprego.tecnologias.map((tech: string, techIndex: number) => (
+                              <span key={techIndex} className="tech-tag">{tech}</span>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                      
-                      {emprego.destaques && (
+                      )}
+                         
+                      {emprego.destaques && emprego.destaques.length > 0 && (
                         <div className="highlights">
                           <h5>Destaques:</h5>
                           <div className="highlight-tags">
@@ -74,7 +76,7 @@ export default function Experiencia(data: HomePageProps["experiencia"]) {
                         </div>
                       )}
                       
-                      {emprego.marcas && (
+                      {emprego.marcas && emprego.marcas.length > 0 && (
                         <div className="brands">
                           <h5>Marcas atendidas:</h5>
                           <p className="brands-text">{emprego.marcas.join(", ")}</p>

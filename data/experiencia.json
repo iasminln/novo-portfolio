@@ -1,10 +1,9 @@
 {
-  "intro": "Com mais de 4 anos de experiência em desenvolvimento front-end, tenho trabalhado com grandes marcas e plataformas de e-commerce, sempre focando em performance, usabilidade e experiência do usuário. Minha trajetória inclui projetos desafiadores e tecnologias modernas.",
+  "intro": "Com mais de 4 anos de experiência em desenvolvimento front-end, tenho trabalhado com grandes marcas e plataformas de e-commerce, sempre focando em performance, usabilidade e experiência do usuário.",
   "destaques": [
-    "Desenvolvimento de e-commerces para marcas como Olympikus, Smiles e Stanley",
-    "Especialização em VTEX IO e Shopify",
-    "Auditorias de SEO técnico e otimização de performance",
-    "Experiência com React, TypeScript e metodologias ágeis"
+    "Desenvolvimento de e-commerces para marcas como Boca Rosa, Stanley e Olympikus",
+    "Esperiência em VTEX IO e Shopify",
+    "Auditora de SEO técnico e otimização de performance"
   ],
   "empregos": [
     {
@@ -13,9 +12,10 @@
       "periodo": "set de 2025 - atual",
       "duracao": "Atual",
       "tipo": "atual",
-      "descricao": "Desenvolvimento front-end com foco em soluções inovadoras e performance.",
-      "tecnologias": ["React", "TypeScript", "Next.js"],
-      "destaques": ["Projetos inovadores", "Performance", "Tecnologias modernas"]
+      "descricao": "Desenvolvimento front-end e manutenção de soluções em lojas Shopify, com ênfase em performance, responsividade, fidelidade ao design e experiência do usuário.",
+      "tecnologias": ["Shopify", "Liquid", "JavaScript", "CSS"],
+      "destaques": [],
+      "marcas": ["Rove Lab"]
     },
     {
       "empresa": "Check",
@@ -23,10 +23,10 @@
       "periodo": "set de 2023 - set de 2025",
       "duracao": "2 anos e 1 mês",
       "tipo": "passado",
-      "descricao": "Desenvolvimento front-end e evolução de lojas virtuais na plataforma Shopify, com atenção especial à performance, responsividade e usabilidade. Responsável por auditorias de SEO técnico e otimização de páginas.",
-      "tecnologias": ["Shopify", "JavaScript", "CSS", "SEO"],
-      "destaques": ["Performance", "SEO técnico", "UX/UI"],
-      "marcas": ["Boca Rosa", "Stanley", "Uultis", "Alpha Co", "Korui", "Hang Loose", "Kingston"]
+      "descricao": "Desenvolvimento front-end e evolução de lojas virtuais na plataforma Shopify, com atenção especial à performance, responsividade e usabilidade. Responsável por auditorias completas de SEO técnico e otimização de páginas.",
+      "tecnologias": ["Shopify", "Liquid", "JavaScript", "CSS", "SEO"],
+      "destaques": [],
+      "marcas": ["Boca Rosa", "Stanley", "Uultis", "Sextante", "Alpha Co", "Korui", "Hang Loose", "Patbo"]
     },
     {
       "empresa": "Avanti",
@@ -36,7 +36,7 @@
       "tipo": "passado",
       "descricao": "Implementação, personalização e manutenção de e-commerces em VTEX IO. Desenvolvimento de soluções customizadas e componentes reutilizáveis com foco em performance e responsividade.",
       "tecnologias": ["VTEX IO", "React", "JavaScript", "CSS"],
-      "destaques": ["VTEX IO", "Componentes reutilizáveis", "E-commerce"],
+      "destaques": [],
       "marcas": ["Olympikus", "Smiles", "Savegnago/Paulistão", "WebJóias", "Farmácias São João"]
     }
   ]

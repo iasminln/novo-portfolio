@@ -18,8 +18,9 @@ export default function Inicio(data: HomePageProps["inicio"]) {
         </h2>
 
         <div className="button-container">
-          <Button href="#sobre">Veja meu trabalho</Button>
-          <Button variant="secondary" href="#contato">Entre em contato</Button>
+          <Button href="#contato">Vamos conversar</Button>
+          <Button variant="secondary" href="#sobre">Saiba mais</Button>
+
         </div>
       </div>
     </section>

@@ -7,6 +7,7 @@ export type SectionData = {
     imagem?: string;
     altImagem?: string;
     skills: string[]; 
+    soft_skills: string[];
   };
   formacao: { 
     intro: string;

@@ -23,7 +23,7 @@ export default function Footer() {
                 className="footer__social-link"
                 aria-label="GitHub"
               >
-                <IconGithub color="var(--main-color)" size={22} />
+                <IconGithub color="var(--main-color-stronger)" size={22} />
                 GitHub
               </a>
               <a 
@@ -33,7 +33,7 @@ export default function Footer() {
                 className="footer__social-link"
                 aria-label="LinkedIn"
               >
-                <IconLinkedin color="var(--main-color)" size={22} />
+                <IconLinkedin color="var(--main-color-stronger)" size={22} />
                 LinkedIn
               </a>
               <a 
@@ -41,7 +41,7 @@ export default function Footer() {
                 className="footer__social-link"
                 aria-label="Email"
               >
-                <IconEmail color="var(--main-color)" size={22} />
+                <IconEmail color="var(--main-color-stronger)" size={22} />
                 Email
               </a>
             </div>

@@ -18,7 +18,10 @@ html.scroll-auto {
 :root {
   --font-heading: 'Lora', serif;
   --font-body: 'Inter', sans-serif;
-  --main-color: #5B1D5F;
+
+  --main-color-stronger: #5B1D5F;
+  --main-color-lighter: #B57EBC;
+
   --background-color: #FEFEFE;
   --background-color-secondary: #FAFAFA;
   --background-effect: #EDEDED;
@@ -38,7 +41,9 @@ html.scroll-auto {
 /* dark mode */
 
 :root.dark {
-  --main-color: #B57EBC;
+  --main-color-stronger: #B57EBC;
+  --main-color-lighter: #5B1D5F;
+
   --background-color: #111111;
   --background-color-secondary: #2D2C2E;
   --background-effect: #2D2C2E;
@@ -55,14 +60,6 @@ html.scroll-auto {
   --button-secondary-background-color-hover: #B57EBC;
 }
 
-/* Main content wrapper for sliding effect */
-.main-content {
-  border-top: 1px solid #f4f4f4;
-  position: relative;
-  z-index: 1000;
-  background-color: var(--background-color);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -75,6 +72,10 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   letter-spacing: .2px;
+}
+
+.main-content {
+  border-top: 1px solid #f4f4f4;
 }
 
 .container {
@@ -130,7 +131,7 @@ header {
 }
 
 .title-dot {
-  color: var(--main-color);
+  color: var(--main-color-stronger);
   font-size: 2rem;
 }
 
@@ -150,7 +151,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-  color: var(--main-color);
+  color: var(--main-color-stronger);
   background-color: var(--background-effect);
 }
 
@@ -399,94 +400,6 @@ header nav ul li a:hover {
   }
 }
 
-.card .card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  border: 1px solid var(--background-effect);
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: var(--background-color);
-  transition: all 0.3s ease;
-  height: 100%;
-}
-
-.card .card-content:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-color: var(--main-color);
-}
-
-.card .card-content h2 {
-  font-family: var(--font-heading), serif;
-  font-size: 1.4rem;
-  color: var(--text-color);
-  margin: 0 0 8px 0;
-  line-height: 1.3;
-}
-
-.card .card-content h3 {
-  font-family: var(--font-body), sans-serif;
-  font-size: 1.1rem;
-  color: var(--main-color);
-  margin: 0 0 8px 0;
-  font-weight: 600;
-}
-
-.card .card-content p {
-  color: var(--text-color);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.card .card-content p.period {
-  font-weight: 500;
-  color: var(--main-color);
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-}
-
-.card-image {
-  border-radius: 8px;
-  object-fit: cover;
-  align-self: center;
-  margin-bottom: 10px;
-}
-
-/* Responsive card adjustments */
-@media (max-width: 768px) {
-  .card .card-content {
-    padding: 20px;
-    gap: 12px;
-  }
-  
-  .card .card-content h2 {
-    font-size: 1.2rem;
-  }
-  
-  .card .card-content h3 {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .card .card-content {
-    padding: 15px;
-    gap: 10px;
-  }
-  
-  .card .card-content h2 {
-    font-size: 1.1rem;
-  }
-  
-  .card .card-content h3 {
-    font-size: 0.95rem;
-  }
-}
-
 /* Theme Toggle Styles */
 .theme-toggle {
   background: none;
@@ -505,13 +418,13 @@ header nav ul li a:hover {
   border-radius: 20px;
   position: relative;
   transition: all 0.3s ease;
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--main-color-stronger);
 }
 
 .theme-toggle__thumb {
   width: 36px;
   height: 36px;
-  background-color: var(--main-color);
+  background-color: var(--main-color-stronger);
   border-radius: 50%;
   transition: all 0.3s ease;
   display: flex;
@@ -533,7 +446,7 @@ header nav ul li a:hover {
 }
 
 .theme-toggle:focus .theme-toggle__track {
-  outline: 2px solid var(--main-color);
+  outline: 2px solid var(--main-color-stronger);
   outline-offset: 3px;
 }
 
@@ -541,6 +454,12 @@ header nav ul li a:hover {
 .section__sobre {
   padding-top: 60px;
   padding-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+  .section__sobre h2 {
+    text-align: center;
+  }
 }
 
 .sobre__content {
@@ -589,6 +508,11 @@ header nav ul li a:hover {
   margin-bottom: 20px;
   color: var(--text-color);
 }
+@media (max-width: 768px) {
+  .sobre__skills h3 {
+    text-align: center;
+  }
+}
 
 .skills__container {
   display: flex;
@@ -597,11 +521,11 @@ header nav ul li a:hover {
 }
 
 .skill__pill {
-  background-color: var(--main-color);
+  background-color: var(--main-color-stronger);
   color: var(--background-color);
-  padding: 8px 16px;
+  padding: 6px 12px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
   transition: all 0.3s ease;
   cursor: default;
@@ -609,6 +533,18 @@ header nav ul li a:hover {
 }
 
 .skill__pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 51, 125, 0.3);
+}
+
+.soft_skill__pill {
+  background-color: var(--main-color-lighter);
+  color: var(--text-color);
+  padding: 7px 14px;
+  border-radius: 20px;
+}
+
+.soft_skill__pill:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(124, 51, 125, 0.3);
 }
@@ -797,7 +733,7 @@ header nav ul li a:hover {
 }
 
 .mobile-menu__close:focus {
-  outline: 2px solid var(--main-color);
+  outline: 2px solid var(--main-color-lighter);
   outline-offset: 2px;
 }
 
@@ -835,12 +771,12 @@ header nav ul li a:hover {
 
 .mobile-menu__link:hover {
   background-color: var(--background-effect);
-  border-left-color: var(--main-color);
-  color: var(--main-color);
+  border-left-color: var(--main-color-lighter);
+  color: var(--main-color-lighter);
 }
 
 .mobile-menu__link:focus {
-  outline: 2px solid var(--main-color);
+  outline: 2px solid var(--main-color-lighter);
   outline-offset: -2px;
   background-color: var(--background-effect);
 }
@@ -898,7 +834,7 @@ header nav ul li a:hover {
 }
 
 .hamburger:focus {
-  outline: 2px solid var(--main-color);
+  outline: 2px solid var(--main-color-lighter);
   outline-offset: 2px;
 }
 
@@ -1027,7 +963,7 @@ header nav ul li a:hover {
 }
 
 .footer__social-link:hover {
-  color: var(--main-color);
+  color: var(--main-color-lighter);
   background-color: var(--background-effect);
   transform: translateY(-2px);
 }
@@ -1061,7 +997,7 @@ header nav ul li a:hover {
 }
 
 .footer__link:hover {
-  color: var(--main-color);
+  color: var(--main-color-lighter);
   opacity: 1;
 }
 
@@ -1072,7 +1008,7 @@ header nav ul li a:hover {
 }
 
 .footer__tech-tag {
-  background-color: var(--main-color);
+  background-color: var(--main-color-stronger);
   color: var(--background-color);
   padding: 4px 12px;
   border-radius: 12px;
@@ -1171,7 +1107,7 @@ header nav ul li a:hover {
   right: 30px;
   width: 50px;
   height: 50px;
-  background-color: var(--main-color);
+  background-color: var(--main-color-stronger);
   color: var(--background-color);
   border: none;
   border-radius: 50%;
@@ -1196,7 +1132,7 @@ header nav ul li a:hover {
 }
 
 .back-to-top:focus {
-  outline: 2px solid var(--main-color);
+  outline: 2px solid var(--main-color-lighter);
   outline-offset: 2px;
 }
 
@@ -1311,7 +1247,7 @@ header nav ul li a:hover {
 
 .contact-form__input:focus,
 .contact-form__textarea:focus {
-  border-color: var(--main-color);
+  border-color: var(--main-color-lighter);
   box-shadow: 0 0 0 3px rgba(124, 51, 125, 0.1);
 }
 
@@ -1422,7 +1358,7 @@ header nav ul li a:hover {
 .contact-info__icon {
   width: 16px;
   height: 16px;
-  color: var(--main-color);
+  color: var(--main-color-lighter);
 }
 
 /* Contact Actions */
@@ -1486,9 +1422,9 @@ header nav ul li a:hover {
 }
 
 .contact-button--email {
-  background: var(--main-color);
+  background: var(--main-color-lighter);
   color: white;
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--main-color-lighter);
 }
 
 .contact-button--email:hover {
@@ -1615,7 +1551,7 @@ header nav ul li a:hover {
 }
 
 .highlight-icon {
-  color: var(--main-color);
+  color: var(--main-color-lighter);
   font-weight: bold;
   margin-right: 0.75rem;
   font-size: 1.1rem;
@@ -1630,7 +1566,7 @@ header nav ul li a:hover {
 .timeline-line-detail {
   width: 100%;
   max-width: 2px;
-  background: linear-gradient(to bottom, var(--main-color), rgba(124, 51, 125, 1));
+  background: linear-gradient(to bottom, var(--main-color-stronger), rgba(124, 51, 125, 1));
 }
 
 .timeline-item {
@@ -1639,7 +1575,7 @@ header nav ul li a:hover {
 }
 
 .timeline-item.atual .marker-dot {
-  background: var(--main-color);
+  background: var(--main-color-stronger);
   box-shadow: 0 0 0 4px rgba(124, 51, 125, 0.6);
   animation: pulse 2s infinite;
 }
@@ -1656,7 +1592,7 @@ header nav ul li a:hover {
   height: 12px;
   border-radius: 50%;
   background: var(--background-color-secondary);
-  border: 3px solid var(--main-color);
+  border: 3px solid var(--main-color-stronger);
   position: relative;
   z-index: 2;
 }
@@ -1664,7 +1600,7 @@ header nav ul li a:hover {
 .marker-line {
   width: 40px;
   height: 2px;
-  background: var(--main-color);
+  background: var(--main-color-stronger);
 }
 
 .timeline-marker-container {
@@ -1681,7 +1617,7 @@ header nav ul li a:hover {
   align-items: flex-end;
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--main-color);
+  color: var(--main-color-stronger);
 }
 
 @keyframes pulse {
@@ -1701,11 +1637,11 @@ header nav ul li a:hover {
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  border-left: 4px solid var(--main-color);
+  border-left: 4px solid var(--main-color-stronger);
 }
 
 .timeline-item.atual .experience-card {
-  border-left-color: var(--main-color);
+  border-left-color: var(--main-color-stronger);
   box-shadow: 0 8px 25px rgba(124, 51, 125, 0.15);
 }
 
@@ -1738,7 +1674,7 @@ header nav ul li a:hover {
 .job-title {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--main-color);
+  color: var(--main-color-stronger);
   font-weight: 500;
 }
 
@@ -1758,7 +1694,7 @@ header nav ul li a:hover {
 }
 
 .duration-badge {
-  background: var(--main-color);
+  background: var(--main-color-stronger);
   color: var(--background-color);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
@@ -1782,7 +1718,7 @@ header nav ul li a:hover {
 .highlights h5,
 .brands h5 {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-color);
   margin-bottom: 0.75rem;
@@ -1798,7 +1734,7 @@ header nav ul li a:hover {
 .tech-tag,
 .highlight-tag {
   background: rgba(124, 51, 125, 0.1);
-  color: var(--main-color);
+  color: var(--main-color-stronger);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -1877,7 +1813,7 @@ header nav ul li a:hover {
   border-radius: 16px;
   padding: 2.5rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--main-color-stronger);
   position: relative;
   overflow: hidden;
   gap: 1.5rem;
@@ -1904,7 +1840,7 @@ header nav ul li a:hover {
 .graduation-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-color: var(--main-color);
+  border-color: var(--main-color-stronger);
 }
 
 .education-card-header {
@@ -1921,7 +1857,7 @@ header nav ul li a:hover {
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--main-color-stronger);
 }
 
 .university-logo img {
@@ -1957,7 +1893,7 @@ header nav ul li a:hover {
 .university-name {
   font-family: var(--font-body);
   font-size: .9rem;
-  color: var(--main-color);
+  color: var(--main-color-stronger);
   font-weight: 500;
 }
 
@@ -1978,7 +1914,7 @@ header nav ul li a:hover {
 
 .year {
   background: rgba(124, 51, 125, 0.1);
-  color: var(--main-color);
+  color: var(--main-color-stronger);
   border: 1px solid rgba(124, 51, 125, 0.3);
 }
 

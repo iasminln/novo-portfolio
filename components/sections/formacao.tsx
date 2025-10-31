@@ -16,7 +16,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
           {data.pos_graduacoes && data.pos_graduacoes.length > 0 && (
             <div className="education-category">
               <h3 className="category-title">
-                <IconGraduation color="var(--main-color)" size={25} />
+                <IconGraduation color="var(--main-color-stronger)" size={25} />
                 Pós-graduação
               </h3>
               <div className="pos-graduation-grid">
@@ -64,7 +64,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
           {data.graduacoes && data.graduacoes.length > 0 && (
             <div className="education-category">
               <h3 className="category-title">
-                <IconGraduation color="var(--main-color)" size={25} />
+                <IconGraduation color="var(--main-color-stronger)" size={25} />
                 Graduações
               </h3>
               <div className="graduation-grid">

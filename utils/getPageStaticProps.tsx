@@ -10,7 +10,7 @@ export const getStaticProps: GetStaticProps<{ data: HomePageProps }> = async () 
     const dataEntries = await Promise.all(
       SECTIONS.map(async (section) => {
         const modules = await import(`@/data/${section}.json`);
-        console.log(`✅ Carregando ${section}:`, modules.default);
+        console.log(`✅ Carregando ${section}... OK`);
         return [section, modules.default];
       })
     );

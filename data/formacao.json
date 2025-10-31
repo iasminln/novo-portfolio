@@ -13,7 +13,7 @@
     {
       "nome": "Análise e Desenvolvimento de Sistemas",
       "universidade": "Unicesumar - Centro Universitário de Maringá",
-      "ano": "2021",
+      "ano": "2021-2025",
       "tipo": "graduacao",
       "descricao": "",
       "logo": "/images/logo-unicesumar.webp",
@@ -28,7 +28,7 @@
       "tipo": "pos_graduacao",
       "descricao": "Especialização focada em tecnologias modernas de desenvolvimento web, incluindo React, Node.js, bancos de dados e metodologias ágeis. Aprofundamento em arquitetura de software, performance e boas práticas de desenvolvimento.",
       "logo": "/images/logo-rocketseat.webp",
-      "destaques": ["React e Node.js", "Arquitetura de Software", "Metodologias Ágeis", "Performance Web"],
+      "destaques": ["Front-End", "Back-End", "DevOps", "Inteligência Artificial", "Produto"],
       "carga_horaria": "360 horas"
     }
   ]
