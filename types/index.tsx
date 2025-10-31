@@ -45,6 +45,18 @@ export type SectionData = {
       marcas: string[];
     }[];
   };
+  seo: {
+    title: string;
+    description: string;
+    image: string;
+    altImagem: string;
+    author: string;
+  };
+  social: {
+    linkedin: string;
+    github: string;
+    instagram: string;
+  };
 };
 
 export type HomePageProps = {

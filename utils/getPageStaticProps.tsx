@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { HomePageProps } from "@/types";
 
-const SECTIONS = ["inicio", "sobre", "experiencia", "formacao"] as const;
+const SECTIONS = ["inicio", "sobre", "experiencia", "formacao", "seo"] as const;
 
 export const getStaticProps: GetStaticProps<{ data: HomePageProps }> = async () => {
   try {
@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps<{ data: HomePageProps }> = async () 
 
     const data = Object.fromEntries(dataEntries) as HomePageProps;
 
-    console.log("📦 Dados carregados:", data);
+    console.log("📦 Dados carregados com sucesso!");
 
     return {
       props: { data },
