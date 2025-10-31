@@ -7,12 +7,7 @@ export default function Inicio(data: HomePageProps["inicio"]) {
   return (
     <section className="section__initial">
       <div className="container">
-        <h1>
-          {data.titles.map((title: string) => (
-            <span key={title}>{renderRichText(title, { as: 'span' })}</span>
-          ))}
-        </h1>
-
+        <h1>{renderRichText(data.title, { as: 'span' })}</h1>
         <h2>{data.subtitle}</h2>
 
         <div className="button-container">

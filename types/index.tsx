@@ -1,6 +1,6 @@
 export type SectionData = {
   inicio: {
-    titles: string[];
+    title: string;
     subtitle: string;
   };
   sobre: {

@@ -57,7 +57,7 @@ export default function Footer(data: HomePageProps["footer"] & HomePageProps["so
                   aria-haspopup="dialog"
                   aria-controls="curiosidades-modal"
                 >
-                  Curiosidades <span>✨</span>
+                  Curiosidades ✨
                 </button>
               </li>
             </ul>
@@ -80,7 +80,7 @@ export default function Footer(data: HomePageProps["footer"] & HomePageProps["so
             Desenvolvido com ❤️ por Iasmin © {currentYear}
           </p>
           <p className="footer__note">
-            Feito com Next.js e muito café ☕
+            Feito com Next.js e muito tererê 🧉
           </p>
         </div>
       </div>

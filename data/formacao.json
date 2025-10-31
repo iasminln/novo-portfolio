@@ -1,5 +1,5 @@
 {
-  "intro": "Minha formação acadêmica combina graduações sólidas em áreas complementares, proporcionando uma base técnica robusta e uma visão ampla do mercado e gestão.",
+  "intro": "",
   "graduacoes": [
     {
       "nome": "Engenharia civil",
@@ -13,7 +13,7 @@
     {
       "nome": "Análise e Desenvolvimento de Sistemas",
       "universidade": "Unicesumar - Centro Universitário de Maringá",
-      "ano": "2021-2025",
+      "ano": "2021 - 2025",
       "tipo": "graduacao",
       "descricao": "",
       "logo": "/images/logo-unicesumar.webp",

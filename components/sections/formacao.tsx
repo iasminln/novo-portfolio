@@ -46,7 +46,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
 
                     {pos.destaques && pos.destaques.length > 0 && (
                       <div className="course-highlights">
-                        <h5>Principais disciplinas:</h5>
+                        <h5>Áreas de estudo:</h5>
                         <div className="highlight-tags">
                           {pos.destaques.map((destaque: string, destIndex: number) => (
                             <span key={destIndex} className="highlight-tag">{destaque}</span>
