@@ -4,5 +4,6 @@
   "image": "/images/sobre-mim.webp",
   "altImagem": "Foto de perfil da Iasmin",
   "author": "Iasmin",
-  "keywords": "desenvolvedora front-end, React, TypeScript, VTEX IO, Shopify, SEO técnico, desenvolvimento web"
+  "keywords": "desenvolvedora front-end, React, TypeScript, VTEX IO, Shopify, SEO técnico, desenvolvimento web",
+  "favicon": "/images/favicon.png"
 }

@@ -26,7 +26,7 @@ export default function Home({ data }: { data: HomePageProps  }) {
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={data.seo?.favicon} />
         <link rel="canonical" href={siteUrl} />
 
         <meta name="author" content={data.seo?.author} />

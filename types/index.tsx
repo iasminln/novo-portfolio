@@ -54,6 +54,7 @@ export type SectionData = {
     altImagem: string;
     author: string;
     keywords: string[];
+    favicon: string;
   };
   social: {
     linkedin: string;
