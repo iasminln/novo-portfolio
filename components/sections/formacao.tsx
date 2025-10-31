@@ -8,7 +8,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
     <section id="formacao" className="education-section">
       <div className="container">
         <div className="education-header">
-          <h2 className="education-title">Formação Acadêmica</h2>
+          <h2 className="education-title">Formação Acadêmica<span className="title-dot">.</span></h2>
           <p className="education-intro">{data.intro}</p>
         </div>
 

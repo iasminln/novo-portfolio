@@ -1,17 +1,18 @@
 export type SectionData = {
-  inicio: { 
-    titles: string[] 
-  }; 
-  sobre: { 
-    descricao: string; 
+  inicio: {
+    titles: string[];
+    subtitle: string;
+  };
+  sobre: {
+    descricao: string;
     imagem?: string;
     altImagem?: string;
-    skills: string[]; 
+    skills: string[];
     soft_skills: string[];
   };
-  formacao: { 
+  formacao: {
     intro: string;
-    pos_graduacoes: { 
+    pos_graduacoes: {
       nome: string;
       descricao: string;
       universidade: string;
@@ -21,20 +22,20 @@ export type SectionData = {
       destaques: string[];
       carga_horaria: string;
     }[];
-    graduacoes: { 
-      nome: string; 
-      descricao: string; 
-      universidade: string; 
-      ano: string; 
+    graduacoes: {
+      nome: string;
+      descricao: string;
+      universidade: string;
+      ano: string;
       tipo: string;
       logo: string;
       destaques: string[];
-    }[]; 
+    }[];
   };
   experiencia: {
     intro: string;
     destaques: string[];
-    empregos: { 
+    empregos: {
       empresa: string;
       cargo: string;
       periodo: string;
@@ -52,11 +53,16 @@ export type SectionData = {
     image: string;
     altImagem: string;
     author: string;
+    keywords: string[];
   };
   social: {
     linkedin: string;
     github: string;
     instagram: string;
+    email: string;
+  };
+  footer: {
+    curiosidades: string[];
   };
 };
 

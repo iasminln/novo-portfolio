@@ -9,7 +9,7 @@ export default function Experiencia(data: HomePageProps["experiencia"]) {
     <section id="experiencia" className="experience-section">
       <div className="container">
         <div className="experience-header">
-          <h2 className="experience-title">Trajetória</h2>
+          <h2 className="experience-title">Trajetória<span className="title-dot">.</span></h2>
           <p className="experience-intro">{data.intro}</p>
           
           <div className="experience-highlights">

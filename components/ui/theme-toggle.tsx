@@ -50,7 +50,7 @@ export default function ThemeToggle() {
     >
       <div className="theme-toggle__track">
         <div className={`theme-toggle__thumb ${isDark ? 'theme-toggle__thumb--dark' : ''}`}>
-          {!isDark ? <IconMoon color="var(--background-color)" size={20} /> : <IconSun color="var(--background-color)" size={20} />}
+          {!isDark ? <IconMoon color="var(--background-color)" size={22} /> : <IconSun color="var(--background-color)" size={22} />}
         </div>
       </div>
     </button>

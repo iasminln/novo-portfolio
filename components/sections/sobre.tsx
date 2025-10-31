@@ -1,18 +1,17 @@
-import { HomePageProps } from "@/types";
 import Image from "next/image";
+import { renderRichText } from "@/utils/richText";
+import { HomePageProps } from "@/types/index";
+import Social from '../ui/social';
 
-export default function Sobre(data: HomePageProps["sobre"]) {
-  const paragrafos = data.descricao.split(/\n\n+/).filter(p => p.trim());
-
+export default function Sobre(data: HomePageProps["sobre"] & HomePageProps["social"]) {
   return (
     <section id="sobre" className="container section section__sobre">
-      <h2>Quem sou eu</h2>
+      <h2>Quem sou eu<span className="title-dot">.</span></h2>
       
       <div className={`sobre__content ${!data.imagem ? 'sobre__content--single' : ''}`}>
         <div className="sobre__text">
-          {paragrafos.map((paragrafo, index) => (
-            <p key={index}>{paragrafo.trim()}</p>
-          ))}
+          {renderRichText(data.descricao, { as: 'p' })}
+          <Social {...data} />
         </div>
 
         <div className="sobre__skills">

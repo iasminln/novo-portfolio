@@ -1,10 +1,34 @@
-import React from 'react';
-import { IconEmail } from '../icons/icon-email';
-import { IconLinkedin } from '../icons/icon-linkedin';
-import { IconGithub } from '../icons/icon-github';
+import React, { useEffect, useState } from 'react';
+import CuriosidadesModal from '../ui/curiosidades-modal';
+import { HomePageProps } from "@/types/index";
+import Social from '../ui/social';
 
-export default function Footer() {
+export default function Footer(data: HomePageProps["footer"] & HomePageProps["social"]) {
   const currentYear = new Date().getFullYear();
+  const [isCuriosidadesOpen, setIsCuriosidadesOpen] = useState(false);
+  const [isCuriosidadesClosing, setIsCuriosidadesClosing] = useState(false);
+
+  const openCuriosidades = () => {
+    setIsCuriosidadesClosing(false);
+    setIsCuriosidadesOpen(true);
+  };
+
+  const closeCuriosidades = () => {
+    setIsCuriosidadesClosing(true);
+    window.setTimeout(() => {
+      setIsCuriosidadesOpen(false);
+      setIsCuriosidadesClosing(false);
+    }, 260);
+  };
+ 
+  useEffect(() => {
+    if (!isCuriosidadesOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeCuriosidades();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isCuriosidadesOpen]);
 
   return (
     <footer className="footer">
@@ -15,36 +39,7 @@ export default function Footer() {
             <p className="footer__description">
               Desenvolvedora Front-end especializada em React, TypeScript e otimização de performance.
             </p>
-            <div className="footer__social">
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="footer__social-link"
-                aria-label="GitHub"
-              >
-                <IconGithub color="var(--main-color-stronger)" size={22} />
-                GitHub
-              </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="footer__social-link"
-                aria-label="LinkedIn"
-              >
-                <IconLinkedin color="var(--main-color-stronger)" size={22} />
-                LinkedIn
-              </a>
-              <a 
-                href="mailto:contato@iasmin.com" 
-                className="footer__social-link"
-                aria-label="Email"
-              >
-                <IconEmail color="var(--main-color-stronger)" size={22} />
-                Email
-              </a>
-            </div>
+            <Social {...data} />
           </div>
 
           <div className="footer__links">
@@ -54,6 +49,17 @@ export default function Footer() {
               <li><a href="#formacao" className="footer__link">Formação</a></li>
               <li><a href="#experiencia" className="footer__link">Experiência</a></li>
               <li><a href="#contato" className="footer__link">Contato</a></li>
+              <li>
+                <button
+                  type="button"
+                  className="footer__link footer__link--secret"
+                  onClick={openCuriosidades}
+                  aria-haspopup="dialog"
+                  aria-controls="curiosidades-modal"
+                >
+                  Curiosidades <span>✨</span>
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -78,6 +84,12 @@ export default function Footer() {
           </p>
         </div>
       </div>
+      <CuriosidadesModal
+        data={{ curiosidades: data.curiosidades || [] }}
+        isOpen={isCuriosidadesOpen}
+        isClosing={isCuriosidadesClosing}
+        onClose={closeCuriosidades}
+      />
     </footer>
   );
 }

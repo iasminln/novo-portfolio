@@ -55,11 +55,11 @@ export default function Home({ data }: { data: HomePageProps  }) {
         <Header/>
         <Inicio {...data.inicio} />
         <div className="main-content">
-          <Sobre {...data.sobre} />
+          <Sobre {...data.sobre} {...data.social} />
           <Experiencia {...data.experiencia} />
           <Formacao {...data.formacao} />
-          <Contato />
-          <Footer />
+          <Contato {...data.social} />
+          <Footer {...data.footer} {...data.social} />
         </div>
         <BackToTop />
       </div>
