@@ -81,6 +81,8 @@ export default function ContactForm() {
             className="contact-form__textarea"
           />
         </div>
+        
+        <div className="g-recaptcha" data-sitekey={process.env.RECAPTCHA_SITE_KEY!}></div>
 
         {/* Status messages */}
         {submitStatus === "success" && (
