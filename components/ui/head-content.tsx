@@ -38,7 +38,7 @@ export default function HeadContent({ data }: { data: HomePageProps }) {
   const title = data.seo?.title;
   const description = data.seo?.description;
   const image = `${siteUrl}${data.seo?.image}`;
-  const keywords = data.seo?.keywords.join(", ");
+  const keywords = data.seo?.keywords; 
   const author = data.seo?.author;
   const favicon = data.seo?.favicon;
   const skills = data.sobre?.skills.join(", ");
