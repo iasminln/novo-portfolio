@@ -53,6 +53,7 @@ export type SectionData = {
     image: string;
     altImagem: string;
     author: string;
+    jobTitle: string;
     keywords: string[];
     favicon: string;
   };

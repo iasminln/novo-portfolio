@@ -7,52 +7,21 @@ import Footer from "@/components/sections/footer";
 import BackToTop from "@/components/ui/back-to-top";
 import { getStaticProps } from "@/utils/getPageStaticProps";
 
-import { HomePageProps  } from "@/types";
+import { HomePageProps } from "@/types";
 import Header from "@/components/sections/header";
 import Contato from "@/components/sections/contato";
+import HeadContent from "@/components/ui/head-content";
 
 export { getStaticProps };
 
-export default function Home({ data }: { data: HomePageProps  }) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  const title = data.seo?.title;
-  const description = data.seo?.description;
-  const image = data.seo?.image ? `${siteUrl}${data.seo?.image}` : `${siteUrl}${data.sobre?.imagem}`;
-
+export default function Home({ data }: { data: HomePageProps }) {
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
-        <link rel="icon" href={data.seo?.favicon} />
-        <link rel="canonical" href={siteUrl} />
-
-        <meta name="author" content={data.seo?.author} />
-        <meta name="robots" content="index, follow" />
-        <meta name="language" content="Portuguese" />
-        <meta name="keywords" content="desenvolvedora front-end, React, TypeScript, VTEX IO, Shopify, SEO técnico, desenvolvimento web" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": data.seo?.author,
-              "jobTitle": "Desenvolvedora Front-end",
-              "description": description,
-              "image": image,
-              "url": siteUrl,
-              "sameAs": [data.social?.linkedin, data.social?.github, data.social?.instagram],
-              "knowsAbout": data.sobre?.skills
-            })
-          }}
-        />
+        <HeadContent data={data} />
       </Head>
       <div className="">
-        <Header/>
+        <Header />
         <Inicio {...data.inicio} />
         <div className="main-content">
           <Sobre {...data.sobre} {...data.social} />
