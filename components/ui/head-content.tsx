@@ -1,4 +1,4 @@
-import React from 'react';
+import Head from "next/head";
 import { HomePageProps } from '@/types';
 
 interface PersonStructuredData {
@@ -79,7 +79,7 @@ export default function HeadContent({ data }: { data: HomePageProps }) {
   }
 
   return (
-    <>
+    <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -100,6 +100,6 @@ export default function HeadContent({ data }: { data: HomePageProps }) {
 
       <StructuredData data={personData} />
       <StructuredData data={websiteData} />
-    </>
+    </Head>
   );
 }

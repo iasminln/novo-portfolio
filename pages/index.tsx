@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Experiencia from "@/components/sections/experiencia";
 import Formacao from "@/components/sections/formacao";
 import Inicio from "@/components/sections/inicio";
@@ -17,9 +16,7 @@ export { getStaticProps };
 export default function Home({ data }: { data: HomePageProps }) {
   return (
     <>
-      <Head>
-        <HeadContent data={data} />
-      </Head>
+      <HeadContent data={data} />
       <div className="">
         <Header />
         <Inicio {...data.inicio} />
