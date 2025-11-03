@@ -2079,7 +2079,7 @@ header nav ul li a:hover {
   background: var(--background-color);
   color: var(--text-color);
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 16px 4px rgba(255, 255, 255, 0.15);
   overflow: hidden;
   animation: secret-modal-in 260ms ease forwards;
 }
@@ -2131,6 +2131,12 @@ header nav ul li a:hover {
 
 .secret-modal__list li {
   display: flex;
+}
+
+@media (max-width: 768px) {
+  .secret-modal__list li {
+    font-size: 0.9rem;
+  }
 }
 
 .footer__link--secret {
