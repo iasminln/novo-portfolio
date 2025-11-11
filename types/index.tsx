@@ -13,6 +13,13 @@ export type SectionData = {
   formacao: {
     intro: string;
     pos_graduacoes: {
+      projetos_desenvolvidos: {
+        nome: string;
+        descricao: string;
+        tecnologias: string[];
+        link: string;
+        certificado?: string;
+      }[];
       nome: string;
       descricao: string;
       universidade: string;
@@ -21,6 +28,10 @@ export type SectionData = {
       logo: string;
       destaques: string[];
       carga_horaria: string;
+      certificados: {
+        nome: string;
+        certificado: string;
+      }[];
     }[];
     graduacoes: {
       nome: string;

@@ -4,6 +4,8 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   href?: string;
+  target?: string;
+  rel?: string;
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   disabled?: boolean;
@@ -13,13 +15,15 @@ interface ButtonProps {
 export default function Button({ 
   children, 
   onClick, 
-  href, 
+  href,
+  rel,
+  target,
   type = 'button', 
   className = '', 
   disabled = false,
   variant = 'primary'
 }: ButtonProps) {
-  const baseClasses = variant === 'secondary' ? 'button-secondary' : 'button';
+  const baseClasses = variant === 'secondary' ? 'button button-secondary' : 'button';
   const combinedClasses = `${baseClasses} ${className}`.trim();
 
   if (href) {
@@ -27,7 +31,8 @@ export default function Button({
       <a 
         href={href} 
         className={combinedClasses}
-        style={{ textDecoration: 'none', display: 'inline-block' }}
+        target={target}
+        rel={rel}
       >
         {children}
       </a>

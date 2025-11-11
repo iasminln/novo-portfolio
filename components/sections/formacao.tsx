@@ -1,6 +1,8 @@
 import { HomePageProps } from "@/types";
 import Image from "next/image";
 import { IconGraduation } from "../icons/icon-graduation";
+import { IconArrow } from "../icons/icon-arrow";
+import Button from "../ui/button";
 
 // pages/formacao.tsx
 export default function Formacao(data: HomePageProps["formacao"]) {
@@ -46,10 +48,72 @@ export default function Formacao(data: HomePageProps["formacao"]) {
 
                     {pos.destaques && pos.destaques.length > 0 && (
                       <div className="course-highlights">
-                        <h5>Áreas de estudo:</h5>
+                        <h5 className="education-card-subtitle">Áreas de estudo:</h5>
                         <div className="highlight-tags">
                           {pos.destaques.map((destaque: string, destIndex: number) => (
                             <span key={destIndex} className="highlight-tag">{destaque}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {pos.certificados && pos.certificados.length > 0 && (
+                      <div className="course-certifications">
+                        <h5 className="education-card-subtitle">Certificações:</h5>
+                        <div className="certifications-list">
+                          {pos.certificados.map((certificado: { nome: string; certificado: string }, certificadoIndex: number) => (
+                            <div key={certificadoIndex} className="certification-card">
+                              <h6 className="certification-name">{certificado.nome}</h6>
+                              <Button
+                                href={certificado.certificado}
+                                variant="primary"
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="project-link"
+                              >
+                                Ver certificado <IconArrow size={16} direction="right" />
+                              </Button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {pos.projetos_desenvolvidos && pos.projetos_desenvolvidos.length > 0 && (
+                      <div className="course-projects">
+                        <h5 className="education-card-subtitle">Projeto desenvolvido:</h5>
+                        <div className="projects-list">
+                          {pos.projetos_desenvolvidos.map((projeto: { nome: string; descricao: string; tecnologias: string[]; link: string }, projetoIndex: number) => (
+                            <div key={projetoIndex} className="project-card">
+                              <div className="project-header">
+                                <h6 className="project-name">{projeto.nome}</h6>
+                                {projeto.link && (
+                                  <Button
+                                    href={projeto.link}
+                                    variant="secondary"
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="project-link"
+                                  >
+                                    Ver projeto <IconArrow size={16} direction="right" />
+                                  </Button>
+                                )}
+                                
+                              </div>
+                              {projeto.descricao && (
+                                <p className="project-description">{projeto.descricao}</p>
+                              )}
+                              
+                              {projeto.tecnologias && projeto.tecnologias.length > 0 && (
+                                <div className="project-technologies">
+                                  <div className="highlight-tags">
+                                    {projeto.tecnologias.map((tech: string, techIndex: number) => (
+                                      <span key={techIndex} className="highlight-tag">{tech}</span>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
                           ))}
                         </div>
                       </div>

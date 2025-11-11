@@ -29,7 +29,21 @@
       "descricao": "Especialização focada em tecnologias modernas de desenvolvimento web, incluindo React, Node.js, bancos de dados e metodologias ágeis. Aprofundamento em arquitetura de software, performance e boas práticas de desenvolvimento.",
       "logo": "/images/logo-rocketseat.webp",
       "destaques": ["Front-End", "Back-End", "DevOps", "Inteligência Artificial", "Produto"],
-      "carga_horaria": "360 horas"
+      "carga_horaria": "360 horas",
+      "certificados": [
+        {
+          "nome": "Fundamentos Técnicos e Estratégicos",
+          "certificado": "https://app.rocketseat.com.br/certificates/d124edb7-6041-4647-ad6f-3e0cefd90e38"
+        }
+      ],
+      "projetos_desenvolvidos": [
+        {
+          "nome": "Brev.ly - Encurtador de Links",
+          "descricao": "Projeto desenvolvido para a finalização do módulo Fundamentos Técnicos e Estratégicos.",
+          "tecnologias": ["React", "TypeScript", "Node.js", "Docker", "AWS", "Postgres", "Cloudflare"],
+          "link": "https://brevly.iasmin.dev"
+        }
+      ]
     }
   ]
 }
