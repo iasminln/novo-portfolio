@@ -10,6 +10,7 @@ import { HomePageProps } from "@/types";
 import Header from "@/components/sections/header";
 import Contato from "@/components/sections/contato";
 import HeadContent from "@/components/ui/head-content";
+import HideUtmParams from "@/utils/hideUtmParams";
 
 export { getStaticProps };
 
@@ -17,6 +18,7 @@ export default function Home({ data }: { data: HomePageProps }) {
   return (
     <>
       <HeadContent data={data} />
+      <HideUtmParams />
       <div className="">
         <Header />
         <Inicio {...data.inicio} />
