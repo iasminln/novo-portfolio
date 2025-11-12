@@ -49,12 +49,22 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/lb',
-        destination: 'https://iasmin.dev/?utm_source=linkedin&utm_medium=social?utm_content=botao_contato',
+        destination: 'https://iasmin.dev/?utm_source=linkedin&utm_medium=social&utm_content=botao_contato',
         permanent: false,
       },
       {
         source: '/ld',
-        destination: 'https://iasmin.dev/?utm_source=linkedin&utm_medium=social?utm_content=descricao_linkedin',
+        destination: 'https://iasmin.dev/?utm_source=linkedin&utm_medium=social&utm_content=descricao_linkedin',
+        permanent: false,
+      },
+      {
+        source: '/gh',
+        destination: 'https://iasmin.dev/?utm_source=github&utm_medium=social&utm_content=botao_contato',
+        permanent: false,
+      },
+      {
+        source: '/gd',
+        destination: 'https://iasmin.dev/?utm_source=github&utm_medium=social&utm_content=descricao_github',
         permanent: false,
       },
       {
