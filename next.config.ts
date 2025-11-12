@@ -44,6 +44,31 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/lb',
+        destination: 'https://iasmin.dev/?utm_source=linkedin&utm_medium=social?utm_content=botao_contato',
+        permanent: false,
+      },
+      {
+        source: '/ld',
+        destination: 'https://iasmin.dev/?utm_source=linkedin&utm_medium=social?utm_content=descricao_linkedin',
+        permanent: false,
+      },
+      {
+        source: '/is',
+        destination: 'https://iasmin.dev/?utm_source=instagram&utm_medium=social',
+        permanent: false,
+      },
+      {
+        source: '/bv',
+        destination: 'https://iasmin.dev/?utm_source=brevly&utm_medium=project',
+        permanent: false,
+      }
+    ];
+  },
 };
 
 export default nextConfig;
