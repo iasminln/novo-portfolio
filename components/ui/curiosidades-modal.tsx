@@ -2,6 +2,7 @@ import { HomePageProps } from '@/types';
 import React from 'react';
 import { IconCheck } from '../icons/icon-check';
 import { renderRichText } from '@/utils/richText';
+import { useModal } from '@/hooks/useModal';
 
 type CuriosidadesModalProps = {
   data: HomePageProps["footer"];
@@ -11,6 +12,12 @@ type CuriosidadesModalProps = {
 };
 
 export default function CuriosidadesModal({ data, isOpen, isClosing, onClose }: CuriosidadesModalProps) {
+  const { contentRef } = useModal({
+    isOpen,
+    onClose,
+    closeOnClickOutside: false,
+  });
+
   if (!isOpen) return null;
 
   return (
@@ -26,6 +33,7 @@ export default function CuriosidadesModal({ data, isOpen, isClosing, onClose }: 
         onClick={onClose}
       />
       <div
+        ref={contentRef}
         className={`secret-modal__dialog ${isClosing ? 'secret-modal__dialog--closing' : ''}`}
         role="document"
       >

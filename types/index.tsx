@@ -6,6 +6,7 @@ export type SectionData = {
   sobre: {
     descricao: string;
     imagem?: string;
+    imagemFuturista?: string;
     altImagem?: string;
     skills: string[];
     soft_skills: string[];

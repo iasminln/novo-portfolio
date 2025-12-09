@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import CuriosidadesModal from '../ui/curiosidades-modal';
 import { HomePageProps } from "@/types/index";
 import Social from '../ui/social';
@@ -21,14 +21,6 @@ export default function Footer(data: HomePageProps["footer"] & HomePageProps["so
     }, 260);
   };
  
-  useEffect(() => {
-    if (!isCuriosidadesOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeCuriosidades();
-    };
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
-  }, [isCuriosidadesOpen]);
 
   return (
     <footer className="footer">

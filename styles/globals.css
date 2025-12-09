@@ -2301,3 +2301,1098 @@ header nav ul li a:hover {
     opacity: 0;
   }
 }
+
+/* ============================================
+   FUTURISTIC STYLE THEME (90s Futuristic)
+   ============================================ */
+
+/* Style Selector Component */
+.style-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 10px;
+}
+
+.style-selector__label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.style-selector__buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.style-selector__button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--background-effect);
+  border: 1px solid var(--background-effect);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.style-selector__button:hover {
+  background: var(--background-color-secondary);
+  transform: translateY(-1px);
+}
+
+.style-selector__button--active {
+  background: var(--main-color-stronger);
+  color: var(--button-primary-text-color);
+  border-color: var(--main-color-stronger);
+  box-shadow: 0 2px 8px rgba(124, 51, 125, 0.3);
+}
+
+.style-selector__icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.style-selector__name {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .header__actions .style-selector {
+    display: none;
+  }
+
+  .mobile-menu .style-selector {
+    display: flex;
+  }
+}
+
+/* ============================================
+   FLOATING STYLE SELECTOR
+   ============================================ */
+
+/* Overlay para fechar ao clicar fora */
+.style-selector__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1004;
+  animation: fadeIn 0.2s ease forwards;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+/* Container flutuante */
+.style-selector-floating {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1006;
+  display: flex;
+  align-items: center;
+}
+
+/* Botão trigger vertical */
+.style-selector-floating__trigger {
+  position: relative;
+  background: var(--main-color-stronger);
+  color: var(--button-primary-text-color);
+  border: none;
+  padding: 20px 8px;
+  border-radius: 20px 0 0 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+.style-selector-floating__trigger:hover {
+  background: var(--button-primary-background-color-hover);
+  box-shadow: -6px 0 16px rgba(0, 0, 0, 0.2);
+  transform: translateX(-2px);
+}
+
+.style-selector-floating__trigger:focus {
+  outline: 2px solid var(--main-color-lighter);
+  outline-offset: 2px;
+}
+
+.style-selector-floating__trigger-text {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+/* Drawer */
+.style-selector-floating__drawer {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%) translateX(100%);
+  background: var(--background-color);
+  border-radius: 12px 0 0 12px;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  max-width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--background-effect);
+  border-right: none;
+  overflow: hidden;
+}
+
+.style-selector-floating__drawer--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Header do drawer */
+.style-selector-floating__drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--background-effect);
+  background: var(--background-color-secondary);
+}
+
+.style-selector-floating__drawer-title {
+  font-family: var(--font-heading), serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.style-selector-floating__drawer-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  line-height: 1;
+}
+
+.style-selector-floating__drawer-close:hover {
+  background-color: var(--background-effect);
+  color: var(--main-color-stronger);
+}
+
+.style-selector-floating__drawer-close:focus {
+  outline: 2px solid var(--main-color-lighter);
+  outline-offset: 2px;
+}
+
+.style-selector-floating__drawer-close-icon {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Conteúdo do drawer */
+.style-selector-floating__drawer-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Wrapper do botão com tooltip */
+.style-selector-floating__button-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Botão de estilo */
+.style-selector-floating__button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--background-effect);
+  border: 2px solid var(--background-effect);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  position: relative;
+}
+
+.style-selector-floating__button:hover {
+  background: var(--background-color-secondary);
+  border-color: var(--main-color-lighter);
+  transform: translateX(-4px);
+  box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.style-selector-floating__button--active {
+  background: var(--main-color-stronger);
+  color: var(--button-primary-text-color);
+  border-color: var(--main-color-stronger);
+  box-shadow: 0 2px 8px rgba(124, 51, 125, 0.3);
+}
+
+.style-selector-floating__button--active:hover {
+  background: var(--button-primary-background-color-hover);
+  border-color: var(--button-primary-background-color-hover);
+}
+
+.style-selector-floating__button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Tooltip */
+.style-selector-floating__tooltip {
+  position: absolute;
+  left: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--text-color);
+  color: var(--background-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  animation: tooltipFadeIn 0.2s ease forwards;
+  pointer-events: none;
+}
+
+.style-selector-floating__tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid var(--text-color);
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .style-selector-floating__trigger {
+    padding: 16px 6px;
+    font-size: 0.8rem;
+    min-width: 45px;
+  }
+
+  .style-selector-floating__drawer {
+    min-width: 180px;
+    max-width: 220px;
+  }
+
+  .style-selector-floating__tooltip {
+    left: -100px;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .style-selector-floating__trigger {
+    padding: 14px 5px;
+    font-size: 0.75rem;
+    min-width: 40px;
+    border-radius: 15px 0 0 15px;
+  }
+
+  .style-selector-floating__drawer {
+    min-width: 160px;
+    max-width: 200px;
+    right: 40px;
+  }
+
+  .style-selector-floating__drawer-header {
+    padding: 12px 16px;
+  }
+
+  .style-selector-floating__drawer-content {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .style-selector-floating__button {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+  }
+
+  .style-selector-floating__tooltip {
+    left: -90px;
+    font-size: 0.75rem;
+    padding: 5px 8px;
+  }
+}
+
+/* Futuristic Theme Styles */
+[data-style="futuristic"] {
+  /* Neon Colors - Blue and Purple */
+  --neon-blue: #00f0ff;
+  --neon-purple: #b026ff;
+  --neon-cyan: #00ffff;
+  --neon-pink: #ff00ff;
+  --silver-gray: #c0c0c0;
+  --dark-space: #0a0a1a;
+  --space-blue: #1a1a3a;
+  --laser-blue: #0066ff;
+  --laser-purple: #9933ff;
+}
+
+[data-style="futuristic"] :root,
+[data-style="futuristic"] :root.dark {
+  --main-color-stronger: var(--neon-cyan);
+  --main-color-lighter: var(--neon-purple);
+
+  --background-color: var(--dark-space);
+  --background-color-secondary: var(--space-blue);
+  --background-effect: rgba(0, 240, 255, 0.1);
+  --text-color: var(--silver-gray);
+
+  --button-primary-text-color: var(--dark-space);
+  --button-primary-background-color: var(--neon-cyan);
+  --button-primary-text-color-hover: var(--dark-space);
+  --button-primary-background-color-hover: var(--neon-blue);
+
+  --button-secondary-text-color: var(--neon-cyan);
+  --button-secondary-background-color: transparent;
+  --button-secondary-text-color-hover: var(--dark-space);
+  --button-secondary-background-color-hover: var(--neon-cyan);
+}
+
+/* Futuristic Header */
+[data-style="futuristic"] header {
+  background: linear-gradient(180deg, var(--dark-space) 0%, var(--space-blue) 100%);
+  border-bottom: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3), 0 4px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+[data-style="futuristic"] header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    var(--neon-cyan) 20%,
+    var(--neon-purple) 50%,
+    var(--neon-cyan) 80%,
+    transparent 100%
+  );
+  animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+[data-style="futuristic"] .title-dot {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+  }
+  50% {
+    text-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+  }
+}
+
+[data-style="futuristic"] header nav ul li a {
+  color: var(--silver-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  position: relative;
+}
+
+[data-style="futuristic"] header nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  transition: width 0.3s ease;
+}
+
+[data-style="futuristic"] header nav ul li a:hover {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+  background-color: rgba(0, 240, 255, 0.1);
+}
+
+[data-style="futuristic"] header nav ul li a:hover::after {
+  width: 80%;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Futuristic Hero Section */
+[data-style="futuristic"] .section__initial {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 240, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(176, 38, 255, 0.15) 0%, transparent 50%),
+    linear-gradient(var(--dark-space) 0%, var(--space-blue) 100%);
+  background-size: 100% 100%, 100% 100%, 20px 20px;
+  box-shadow: 
+    inset 0 0 100px rgba(0, 240, 255, 0.1),
+    inset 0 8px 16px -8px rgba(0, 240, 255, 0.3),
+    inset 0 -8px 16px -8px rgba(176, 38, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-style="futuristic"] .section__initial::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 240, 255, 0.03) 2px,
+      rgba(0, 240, 255, 0.03) 4px
+    );
+  animation: grid-move 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(20px, 20px);
+  }
+}
+
+[data-style="futuristic"] .section__initial h1 {
+  color: var(--silver-gray);
+  text-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.5),
+    0 0 20px rgba(0, 240, 255, 0.3),
+    0 0 30px rgba(0, 240, 255, 0.2);
+  position: relative;
+}
+
+[data-style="futuristic"] .section__initial h1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 240, 255, 0.3),
+    transparent
+  );
+  animation: text-scan 3s ease-in-out infinite;
+}
+
+@keyframes text-scan {
+  0%, 100% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+}
+
+[data-style="futuristic"] .section__initial h2 {
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* Futuristic Buttons */
+[data-style="futuristic"] .button {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
+  color: var(--dark-space);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.5),
+    0 0 20px rgba(0, 240, 255, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-style="futuristic"] .button::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
+[data-style="futuristic"] .button:hover {
+  background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-cyan) 100%);
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.8),
+    0 0 40px rgba(0, 240, 255, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  border-color: var(--neon-blue);
+}
+
+[data-style="futuristic"] .button-secondary {
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.3),
+    inset 0 0 10px rgba(0, 240, 255, 0.1);
+}
+
+[data-style="futuristic"] .button-secondary:hover {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
+  color: var(--dark-space);
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.6),
+    0 0 40px rgba(176, 38, 255, 0.4),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+  border-color: var(--neon-purple);
+}
+
+/* Futuristic Sections */
+[data-style="futuristic"] .main-content {
+  border-top: 2px solid var(--neon-cyan);
+  box-shadow: 0 -5px 20px rgba(0, 240, 255, 0.2);
+  background: var(--dark-space);
+}
+
+[data-style="futuristic"] .section {
+  position: relative;
+}
+
+[data-style="futuristic"] .section h2 {
+  color: var(--silver-gray);
+  text-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.5),
+    0 0 20px rgba(0, 240, 255, 0.3);
+  position: relative;
+}
+
+[data-style="futuristic"] .section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Futuristic Skills Pills */
+[data-style="futuristic"] .skill__pill {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
+  color: var(--dark-space);
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.4),
+    inset 0 0 5px rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+[data-style="futuristic"] .skill__pill:hover {
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.8),
+    0 0 30px rgba(0, 240, 255, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px) scale(1.05);
+}
+
+[data-style="futuristic"] .soft_skill__pill {
+  background: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-pink) 100%);
+  color: var(--silver-gray);
+  border: 1px solid var(--neon-purple);
+  box-shadow: 
+    0 0 10px rgba(176, 38, 255, 0.4),
+    inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+[data-style="futuristic"] .soft_skill__pill:hover {
+  box-shadow: 
+    0 0 20px rgba(176, 38, 255, 0.8),
+    0 0 30px rgba(176, 38, 255, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Futuristic Image */
+[data-style="futuristic"] .sobre__img {
+  border: 3px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.5),
+    0 0 40px rgba(0, 240, 255, 0.3),
+    inset 0 0 20px rgba(0, 240, 255, 0.1);
+  position: relative;
+  filter: brightness(1.1) contrast(1.1);
+}
+
+[data-style="futuristic"] .sobre__img::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple), var(--neon-cyan));
+  border-radius: 12px;
+  z-index: -1;
+  opacity: 0.5;
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+@keyframes border-glow {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(10px);
+  }
+}
+
+[data-style="futuristic"] .sobre__img:hover {
+  box-shadow: 
+    0 0 30px rgba(0, 240, 255, 0.8),
+    0 0 60px rgba(0, 240, 255, 0.5),
+    0 0 90px rgba(176, 38, 255, 0.3),
+    inset 0 0 30px rgba(0, 240, 255, 0.2);
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Futuristic Cards */
+[data-style="futuristic"] .experience-card,
+[data-style="futuristic"] .graduation-card,
+[data-style="futuristic"] .pos-graduation-card {
+  background: linear-gradient(135deg, var(--space-blue) 0%, var(--dark-space) 100%);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 15px rgba(0, 240, 255, 0.3),
+    inset 0 0 10px rgba(0, 240, 255, 0.05);
+  position: relative;
+}
+
+[data-style="futuristic"] .experience-card::before,
+[data-style="futuristic"] .graduation-card::before,
+[data-style="futuristic"] .pos-graduation-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  opacity: 0.6;
+}
+
+[data-style="futuristic"] .experience-card:hover,
+[data-style="futuristic"] .graduation-card:hover,
+[data-style="futuristic"] .pos-graduation-card:hover {
+  box-shadow: 
+    0 0 25px rgba(0, 240, 255, 0.6),
+    0 0 50px rgba(0, 240, 255, 0.3),
+    inset 0 0 15px rgba(0, 240, 255, 0.1);
+  border-color: var(--neon-blue);
+  transform: translateY(-3px);
+}
+
+[data-style="futuristic"] .experience-card {
+  border-left: 4px solid var(--neon-cyan);
+}
+
+[data-style="futuristic"] .timeline-line-detail {
+  background: linear-gradient(to bottom, var(--neon-cyan), var(--neon-purple));
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+[data-style="futuristic"] .marker-dot {
+  background: var(--neon-cyan);
+  border: 3px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 10px var(--neon-cyan),
+    0 0 20px var(--neon-cyan);
+}
+
+[data-style="futuristic"] .timeline-item.atual .marker-dot {
+  background: var(--neon-cyan);
+  box-shadow: 
+    0 0 15px var(--neon-cyan),
+    0 0 30px var(--neon-cyan),
+    0 0 45px var(--neon-cyan);
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 15px var(--neon-cyan),
+      0 0 30px var(--neon-cyan),
+      0 0 45px var(--neon-cyan);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px var(--neon-cyan),
+      0 0 40px var(--neon-cyan),
+      0 0 60px var(--neon-cyan),
+      0 0 80px var(--neon-purple);
+  }
+}
+
+[data-style="futuristic"] .marker-line {
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  box-shadow: 0 0 5px var(--neon-cyan);
+}
+
+/* Futuristic Footer */
+[data-style="futuristic"] .footer {
+  background: linear-gradient(180deg, var(--space-blue) 0%, var(--dark-space) 100%);
+  border-top: 2px solid var(--neon-cyan);
+  box-shadow: 0 -5px 20px rgba(0, 240, 255, 0.2);
+}
+
+[data-style="futuristic"] .social-link {
+  color: var(--silver-gray);
+  border: 1px solid transparent;
+}
+
+[data-style="futuristic"] .social-link:hover {
+  color: var(--neon-cyan);
+  border-color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Futuristic Form */
+[data-style="futuristic"] .contact-form {
+  background: linear-gradient(135deg, var(--space-blue) 0%, var(--dark-space) 100%);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.3),
+    inset 0 0 15px rgba(0, 240, 255, 0.05);
+}
+
+[data-style="futuristic"] .contact-form__input,
+[data-style="futuristic"] .contact-form__textarea {
+  background: var(--dark-space);
+  border: 2px solid var(--neon-cyan);
+  color: var(--silver-gray);
+  box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.1);
+}
+
+[data-style="futuristic"] .contact-form__input:focus,
+[data-style="futuristic"] .contact-form__textarea:focus {
+  border-color: var(--neon-blue);
+  box-shadow: 
+    0 0 15px rgba(0, 240, 255, 0.5),
+    inset 0 0 15px rgba(0, 240, 255, 0.2);
+  outline: none;
+}
+
+/* Futuristic Back to Top */
+[data-style="futuristic"] .back-to-top {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
+  color: var(--dark-space);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.6),
+    0 0 40px rgba(0, 240, 255, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+[data-style="futuristic"] .back-to-top:hover {
+  background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
+  box-shadow: 
+    0 0 30px rgba(0, 240, 255, 0.8),
+    0 0 60px rgba(176, 38, 255, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+  border-color: var(--neon-purple);
+}
+
+/* Futuristic Theme Toggle */
+[data-style="futuristic"] .theme-toggle__track {
+  border: 2px solid var(--neon-cyan);
+  background: var(--space-blue);
+  box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+[data-style="futuristic"] .theme-toggle__thumb {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
+  box-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.6),
+    inset 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+[data-style="futuristic"] .theme-toggle:hover .theme-toggle__track {
+  box-shadow: 
+    0 0 15px rgba(0, 240, 255, 0.5),
+    inset 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+/* Futuristic Style Selector */
+[data-style="futuristic"] .style-selector__button {
+  background: var(--space-blue);
+  border: 1px solid var(--neon-cyan);
+  color: var(--silver-gray);
+}
+
+[data-style="futuristic"] .style-selector__button:hover {
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+[data-style="futuristic"] .style-selector__button--active {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
+  color: var(--dark-space);
+  border-color: var(--neon-cyan);
+  box-shadow: 
+    0 0 15px rgba(0, 240, 255, 0.6),
+    inset 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Futuristic Floating Style Selector */
+[data-style="futuristic"] .style-selector__overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+[data-style="futuristic"] .style-selector-floating__trigger {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
+  color: var(--dark-space);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 
+    -4px 0 12px rgba(0, 240, 255, 0.4),
+    0 0 20px rgba(0, 240, 255, 0.2),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+[data-style="futuristic"] .style-selector-floating__trigger:hover {
+  background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
+  box-shadow: 
+    -6px 0 16px rgba(0, 240, 255, 0.6),
+    0 0 30px rgba(176, 38, 255, 0.4),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+  border-color: var(--neon-purple);
+  transform: translateX(-3px);
+}
+
+[data-style="futuristic"] .style-selector-floating__drawer {
+  background: linear-gradient(135deg, var(--space-blue) 0%, var(--dark-space) 100%);
+  border: 2px solid var(--neon-cyan);
+  border-right: none;
+  box-shadow: 
+    -4px 0 20px rgba(0, 240, 255, 0.3),
+    inset 0 0 15px rgba(0, 240, 255, 0.05);
+}
+
+[data-style="futuristic"] .style-selector-floating__drawer-header {
+  background: var(--space-blue);
+  border-bottom: 2px solid var(--neon-cyan);
+  box-shadow: 0 2px 10px rgba(0, 240, 255, 0.2);
+}
+
+[data-style="futuristic"] .style-selector-floating__drawer-title {
+  color: var(--silver-gray);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+[data-style="futuristic"] .style-selector-floating__drawer-close:hover {
+  background-color: rgba(0, 240, 255, 0.1);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+[data-style="futuristic"] .style-selector-floating__button {
+  background: var(--space-blue);
+  border: 2px solid var(--neon-cyan);
+  color: var(--silver-gray);
+  box-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.2),
+    inset 0 0 5px rgba(0, 240, 255, 0.05);
+}
+
+[data-style="futuristic"] .style-selector-floating__button:hover {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: var(--neon-blue);
+  box-shadow: 
+    0 0 15px rgba(0, 240, 255, 0.4),
+    -2px 4px 8px rgba(0, 240, 255, 0.2),
+    inset 0 0 10px rgba(0, 240, 255, 0.1);
+  transform: translateX(-4px);
+}
+
+[data-style="futuristic"] .style-selector-floating__button--active {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
+  color: var(--dark-space);
+  border-color: var(--neon-cyan);
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.6),
+    0 0 40px rgba(0, 240, 255, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+}
+
+[data-style="futuristic"] .style-selector-floating__button--active:hover {
+  background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
+  border-color: var(--neon-purple);
+  box-shadow: 
+    0 0 25px rgba(0, 240, 255, 0.8),
+    0 0 50px rgba(176, 38, 255, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+[data-style="futuristic"] .style-selector-floating__tooltip {
+  background: var(--neon-cyan);
+  color: var(--dark-space);
+  box-shadow: 
+    0 0 15px rgba(0, 240, 255, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+[data-style="futuristic"] .style-selector-floating__tooltip::after {
+  border-left-color: var(--neon-cyan);
+}
+
+/* Futuristic Text Colors */
+[data-style="futuristic"] .company-name,
+[data-style="futuristic"] .course-name {
+  color: var(--silver-gray);
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.3);
+}
+
+[data-style="futuristic"] .job-title,
+[data-style="futuristic"] .university-name {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+[data-style="futuristic"] p,
+[data-style="futuristic"] .job-description,
+[data-style="futuristic"] .course-description {
+  color: var(--silver-gray);
+}
+
+/* Futuristic Highlights */
+[data-style="futuristic"] .highlight-tag {
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 5px rgba(0, 240, 255, 0.3);
+}
+
+[data-style="futuristic"] .highlight-tag:hover {
+  background: rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Futuristic Badges */
+[data-style="futuristic"] .duration-badge,
+[data-style="futuristic"] .year {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
+  color: var(--dark-space);
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+[data-style="futuristic"] .workload {
+  background: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-pink) 100%);
+  color: var(--silver-gray);
+  border: 1px solid var(--neon-purple);
+  box-shadow: 0 0 10px rgba(176, 38, 255, 0.4);
+}
+
+/* Futuristic University Logo Border */
+[data-style="futuristic"] .university-logo {
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.4),
+    inset 0 0 5px rgba(0, 240, 255, 0.1);
+}
+
+/* Responsive adjustments for futuristic theme */
+@media (max-width: 768px) {
+  [data-style="futuristic"] .header__actions .style-selector {
+    display: none;
+  }
+
+  [data-style="futuristic"] .mobile-menu .style-selector {
+    display: flex;
+  }
+}

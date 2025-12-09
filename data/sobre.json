@@ -1,6 +1,7 @@
 {
   "descricao": "Desenvolvedora Front-End focada em e-commerce e dedicada a criar experiências digitais rápidas, acessíveis e fiéis ao design. Atuo com Shopify e VTEX IO, unindo desenvolvimento e SEO técnico para impulsionar resultados.",
   "imagem": "/images/sobre-mim.webp",
+  "imagemFuturista": "/images/sobre-mim-futuristic.webp",
   "altImagem": "Foto de perfil da Iasmin",
   "skills": [
     "HTML", "JavaScript", "TypeScript", "CSS", "Sass", "ReactJS", "VTEX IO", "Shopify", "Liquid", "REST API"

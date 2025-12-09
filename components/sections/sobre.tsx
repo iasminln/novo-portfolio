@@ -1,9 +1,19 @@
+'use client';
+
 import Image from "next/image";
 import { renderRichText } from "@/utils/richText";
 import { HomePageProps } from "@/types/index";
 import Social from '../ui/social';
+import { useStyle } from '@/contexts/StyleContext';
 
 export default function Sobre(data: HomePageProps["sobre"] & HomePageProps["social"]) {
+  const { currentStyle } = useStyle();
+
+  const selectedImage = {
+    default: data.imagem,
+    futuristic: data.imagemFuturista,
+  }
+
   return (
     <section id="sobre" className="container section section__sobre">
       <h2>Quem sou eu<span className="title-dot">.</span></h2>
@@ -33,7 +43,7 @@ export default function Sobre(data: HomePageProps["sobre"] & HomePageProps["soci
         {data.imagem && (
           <div className="sobre__image">
             <Image
-              src={data.imagem}
+              src={selectedImage[currentStyle] || data.imagem}
               alt={data.altImagem || 'Imagem de perfil'}
               width={400}
               height={500}

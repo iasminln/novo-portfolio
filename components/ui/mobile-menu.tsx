@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import ThemeToggle from './theme-toggle';
+import { useModal } from '@/hooks/useModal';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -9,65 +10,10 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  const menuRef = useRef<HTMLDivElement>(null);
-  const firstFocusableRef = useRef<HTMLButtonElement>(null);
-  const lastFocusableRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      setTimeout(() => {
-        firstFocusableRef.current?.focus();
-      }, 100);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen, onClose]);
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (!isOpen) return;
-
-      if (event.key === 'Escape') {
-        onClose();
-        return;
-      }
-
-      if (event.key === 'Tab') {
-        if (event.shiftKey) {
-          if (document.activeElement === firstFocusableRef.current) {
-            event.preventDefault();
-            lastFocusableRef.current?.focus();
-          }
-        } else {
-          if (document.activeElement === lastFocusableRef.current) {
-            event.preventDefault();
-            firstFocusableRef.current?.focus();
-          }
-        }
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen, onClose]);
+  const { contentRef } = useModal({
+    isOpen,
+    onClose,
+  });
 
   const handleLinkClick = () => {
     onClose();
@@ -91,7 +37,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       />
       
       <div 
-        ref={menuRef}
+        ref={contentRef}
         className="mobile-menu"
         role="dialog"
         aria-modal="true"
@@ -100,7 +46,6 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <div className="mobile-menu__header">
           <h2 id="mobile-menu-title" className="mobile-menu__title">Menu</h2>
           <button
-            ref={firstFocusableRef}
             className="mobile-menu__close"
             onClick={onClose}
             aria-label="Fechar menu"
@@ -127,7 +72,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </nav>
 
         <div className="mobile-menu__footer">
-          <div ref={lastFocusableRef} className="mobile-menu__theme">
+          <div className="mobile-menu__theme">
             <span className="mobile-menu__theme-label">Tema:</span>
             <ThemeToggle />
           </div>
