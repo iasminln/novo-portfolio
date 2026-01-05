@@ -4,7 +4,7 @@ import Inicio from "@/components/sections/inicio";
 import Sobre from "@/components/sections/sobre";
 import Footer from "@/components/sections/footer";
 import BackToTop from "@/components/ui/back-to-top";
-import StyleSelector from "@/components/ui/style-selector";
+// import StyleSelector from "@/components/ui/style-selector";
 import { getStaticProps } from "@/utils/getPageStaticProps";
 
 import { HomePageProps } from "@/types";
