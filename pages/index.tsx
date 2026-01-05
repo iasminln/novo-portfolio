@@ -29,7 +29,7 @@ export default function Home({ data }: { data: HomePageProps }) {
           <Footer {...data.footer} {...data.social} />
         </div>
         <BackToTop />
-        <StyleSelector />
+        {/* <StyleSelector /> */}
       </div>
     </>
   );
