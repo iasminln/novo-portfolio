@@ -12,10 +12,10 @@
       "periodo": "set de 2025 - atual",
       "duracao": "Atual",
       "tipo": "atual",
-      "descricao": "Desenvolvimento front-end e manutenção de soluções em lojas Shopify, com ênfase em performance, responsividade, fidelidade ao design e experiência do usuário.",
-      "tecnologias": ["Shopify", "Liquid", "JavaScript", "CSS"],
+      "descricao": "Atuo no desenvolvimento e manutenção da marca Rove Lab. Lidero o processo de refatoração do e-commerce, com a finalidade de melhorar a performance, usabilidade e manutenabilidade do código. Participo de reuniões com o cliente para orientar as decisões técnicas.",
+      "tecnologias": ["Shopify", "Liquid", "JavaScript", "CSS", "HTML"],
       "destaques": [],
-      "marcas": ["Rove Lab (Canadá, EUA, Hong Kong, Reino Unido e Austrália)"]
+      "marcas": ["Rove Lab (Canadá, EUA, Hong Kong, Reino Unido, Austrália e Taiwan)"]
     },
     {
       "empresa": "Check",
@@ -23,10 +23,10 @@
       "periodo": "set de 2023 - set de 2025",
       "duracao": "2 anos e 1 mês",
       "tipo": "passado",
-      "descricao": "Desenvolvimento front-end e evolução de lojas virtuais na plataforma Shopify, com atenção especial à performance, responsividade e usabilidade. Responsável por auditorias completas de SEO técnico e otimização de páginas.",
-      "tecnologias": ["Shopify", "Liquid", "JavaScript", "CSS", "SEO"],
+      "descricao": "Atuei no desenvolvimento front-end e evolução de lojas virtuais na plataforma Shopify, com atenção especial à performance, responsividade e usabilidade. Entreguei interfaces fiéis ao design e com experiência de navegação fluida e acessível. Fui a responsável por auditorias completas de SEO técnico e otimização de páginas para a melhora de visibilidade orgânica.",
+      "tecnologias": ["Shopify", "Liquid", "JavaScript", "CSS", "HTML", "SEO Técnico"],
       "destaques": [],
-      "marcas": ["Boca Rosa", "Stanley", "Uultis", "Sextante", "Alpha Co", "Korui", "Hang Loose", "Patbo"]
+      "marcas": ["Stanley", "Boca Rosa", "Sextante", "Uultis", "Alpha Co", "Korui", "Hang Loose", "Patbo", "Kingston"]
     },
     {
       "empresa": "Avanti",
@@ -34,8 +34,8 @@
       "periodo": "set de 2021 - ago de 2023",
       "duracao": "2 anos",
       "tipo": "passado",
-      "descricao": "Implementação, personalização e manutenção de e-commerces em VTEX IO. Desenvolvimento de soluções customizadas e componentes reutilizáveis com foco em performance e responsividade.",
-      "tecnologias": ["VTEX IO", "React", "JavaScript", "CSS"],
+      "descricao": "Atuai na implementação, personalização e manutenção de e-commerces em VTEX IO. Desenvolvi soluções customizadas e componentes reutilizáveis com foco em performance e responsividade.",
+      "tecnologias": ["VTEX IO", "React", "TypeScript", "CSS", "HTML"],
       "destaques": [],
       "marcas": ["Olympikus", "Smiles", "Savegnago/Paulistão", "WebJóias", "Farmácias São João"]
     }
