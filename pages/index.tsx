@@ -4,7 +4,6 @@ import Inicio from "@/components/sections/inicio";
 import Sobre from "@/components/sections/sobre";
 import Footer from "@/components/sections/footer";
 import BackToTop from "@/components/ui/back-to-top";
-// import StyleSelector from "@/components/ui/style-selector";
 import { getStaticProps } from "@/utils/getPageStaticProps";
 
 import { HomePageProps } from "@/types";
@@ -23,13 +22,12 @@ export default function Home({ data }: { data: HomePageProps }) {
         <Inicio {...data.inicio} />
         <div className="main-content">
           <Sobre {...data.sobre} {...data.social} />
-          <Experiencia {...data.experiencia} />
+          <Experiencia {...data.experiencia} /> 
           <Formacao {...data.formacao} />
           <Contato {...data.social} />
           <Footer {...data.footer} {...data.social} />
         </div>
         <BackToTop />
-        {/* <StyleSelector /> */}
       </div>
     </>
   );
