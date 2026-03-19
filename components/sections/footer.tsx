@@ -39,7 +39,6 @@ export default function Footer(data: HomePageProps["footer"] & HomePageProps["so
             <ul className="footer__links-list">
               <li><a href="#sobre" className="footer__link">Sobre</a></li>
               <li><a href="#experiencia" className="footer__link">Experiência</a></li>
-              <li><a href="#marcas" className="footer__link">Marcas</a></li>
               <li><a href="#formacao" className="footer__link">Formação</a></li>
               <li><a href="#contato" className="footer__link">Contato</a></li>
               <li>
