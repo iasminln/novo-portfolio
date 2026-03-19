@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { HomePageProps } from "@/types";
 
-const SECTIONS = ["inicio", "sobre", "experiencia", "formacao", "seo", "footer", "social"] as const;
+const SECTIONS = ["inicio", "sobre", "experiencia", "marcas", "formacao", "seo", "footer", "social"] as const;
 
 export const getStaticProps: GetStaticProps<{ data: HomePageProps }> = async () => {
   try {

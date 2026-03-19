@@ -1,0 +1,79 @@
+{
+  "title": "Marcas atendidas",
+  "subtitle": "",
+  "itens": [
+    { 
+      "nome": "Stanley", 
+      "url": "https://www.stanley1913.com.br/", 
+      "logo": "/logos/logo-stanley.png",
+      "cor": "#ffffff"
+    },
+    { 
+      "nome": "Boca Rosa", 
+      "url": "https://bocarosa.com.br/", 
+      "logo": "/logos/logo-boca-rosa.svg",
+      "cor": "#f8f8f8"
+    },
+    { 
+      "nome": "Olympikus", 
+      "url": "https://www.olympikus.com.br/", 
+      "logo": "/logos/logo-olympikus.svg",
+      "cor": "#2735d4"
+    },
+    { 
+      "nome": "Savegnago", 
+      "url": "https://www.savegnago.com.br/", 
+      "logo": "/logos/logo-savegnago.png",
+      "cor": "#ffffff"
+    },
+    { 
+      "nome": "Farmácias São João", 
+      "url": "https://www.saojoaofarmacias.com.br/", 
+      "logo": "/logos/logo-farmacias-sao-joao.png",
+      "cor": "#ffffff"
+    },
+    { 
+      "nome": "Care", 
+      "url": "https://carenb.com/", 
+      "logo": "/logos/logo-care.png",
+      "cor": "#3e5d58"
+    },
+    { 
+      "nome": "Korui", 
+      "url": "https://korui.com.br/", 
+      "logo": "/logos/logo-korui.png",
+      "cor": "#ffffff"
+    },
+    { 
+      "nome": "Kingston", 
+      "url": "https://www.kingston.com/br", 
+      "logo": "/logos/logo-kingston.svg",
+      "cor": "#ffffff"
+    },
+    { 
+      "nome": "Rove Lab", 
+      "url": "https://rovelab.ca/", 
+      "logo": "/logos/logo-rovelab.svg",
+      "cor": "#778ea1"
+    },
+    { 
+      "nome": "Alpha Co", 
+      "url": "https://usealphaco.com.br/", 
+      "logo": "/logos/logo-alphaco.png",
+      "cor": "#1b1b1b"
+    },
+    { 
+      "nome": "Sextante", 
+      "url": "https://sextante.com.br/", 
+      "logo": "/logos/logo-sextante.svg",
+      "cor": "#ffffff"
+    },
+    { 
+      "nome": "Uultis", 
+      "url": "https://www.uultis.com/", 
+      "logo": "/logos/logo-uultis.png",
+      "cor": "#ffffff"
+    }
+  ]
+}
+

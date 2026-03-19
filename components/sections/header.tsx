@@ -24,8 +24,9 @@ export default function Header() {
           <nav>
             <ul>
               <li><a href="#sobre">Sobre</a></li>
-              <li><a href="#formacao">Formação</a></li>
               <li><a href="#experiencia">Experiência</a></li>
+              <li><a href="#marcas">Marcas</a></li>
+              <li><a href="#formacao">Formação</a></li>
               <li><a href="#contato">Contato</a></li>
             </ul>
           </nav>

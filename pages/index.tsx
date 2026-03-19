@@ -10,6 +10,7 @@ import { HomePageProps } from "@/types";
 import Header from "@/components/sections/header";
 import Contato from "@/components/sections/contato";
 import HeadContent from "@/components/ui/head-content";
+import Marcas from "@/components/sections/marcas";
 
 export { getStaticProps };
 
@@ -22,7 +23,8 @@ export default function Home({ data }: { data: HomePageProps }) {
         <Inicio {...data.inicio} />
         <div className="main-content">
           <Sobre {...data.sobre} {...data.social} />
-          <Experiencia {...data.experiencia} /> 
+          <Experiencia {...data.experiencia} />
+          <Marcas {...data.marcas} />
           <Formacao {...data.formacao} />
           <Contato {...data.social} />
           <Footer {...data.footer} {...data.social} />

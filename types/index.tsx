@@ -11,6 +11,16 @@ export type SectionData = {
     skills: string[];
     soft_skills: string[];
   };
+  marcas: {
+    title: string;
+    subtitle: string;
+    itens: {
+      nome: string;
+      logo?: string;
+      url?: string;
+      cor?: string;
+    }[];
+  };
   formacao: {
     intro: string;
     pos_graduacoes: {
