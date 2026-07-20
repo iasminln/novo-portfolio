@@ -1713,6 +1713,18 @@ header nav ul li a:hover {
   font-weight: 500;
 }
 
+.company-blurb {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  opacity: 0.8;
+  font-style: italic;
+  margin: 0 0 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(124, 51, 125, 0.12);
+}
+
 .job-period {
   text-align: right;
   display: flex;
@@ -2156,7 +2168,7 @@ header nav ul li a:hover {
 .secret-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.6);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
 }
@@ -2167,10 +2179,9 @@ header nav ul li a:hover {
   top: 40%;
   transform: translate(-50%, -50%);
   width: min(92vw, 560px);
-  background: var(--background-color);
+  background: var(--background-color-secondary);
   color: var(--text-color);
   border-radius: 12px;
-  box-shadow: 0 0px 16px 4px rgba(255, 255, 255, 0.15);
   overflow: hidden;
   animation: secret-modal-in 260ms ease forwards;
 }
@@ -2180,8 +2191,14 @@ header nav ul li a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--background-effect);
+  padding: 14px 36px;
+  border-bottom: 1px solid var(--background-color);
+}
+
+@media (max-width: 768px) {
+  .secret-modal__header {
+    padding: 14px 22px;
+  }
 }
 
 .secret-modal__title {
@@ -2207,17 +2224,23 @@ header nav ul li a:hover {
 
 .secret-modal__close:focus-visible,
 .secret-modal__close:hover {
-  background: rgba(0, 0, 0, 0.06);
+  background: var(--background-color);
 }
 
 .secret-modal__content {
-  padding: 16px;
+  padding: 22px 36px;
+}
+
+@media (max-width: 768px) {
+  .secret-modal__content {
+    padding: 22px;
+  }
 }
 
 .secret-modal__list {
   margin: 0;
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .secret-modal__list li {
