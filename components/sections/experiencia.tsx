@@ -36,48 +36,56 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
 
       <div className="timeline-content">
         <div className="experience-card">
-          <div className="experience-card-header">
-            <div className="company-info">
-              <h3 className="company-name">{emprego.empresa}</h3>
-              <h4 className="job-title">{emprego.cargo}</h4>
-            </div>
-            <div className="job-period">
-              <span className="period-text">{periodo}</span>
-              <span className="duration-badge">{duracao}</span>
-            </div>
+          <div className="experience-company">
+            <h3 className="company-name">{emprego.empresa}</h3>
+            {emprego.sobre_empresa ? (
+              <p className="company-blurb">{emprego.sobre_empresa}</p>
+            ) : null}
           </div>
 
-          <p className="job-description">{emprego.descricao}</p>
+          <div className="experience-role">
+            <div className="experience-role-header">
+              <h4 className="job-title">{emprego.cargo}</h4>
+              <div className="job-period">
+                <span className="period-text">{periodo}</span>
+                <span className="duration-badge">{duracao}</span>
+              </div>
+            </div>
 
-          <div className="job-details">
-            {emprego.tecnologias && emprego.tecnologias.length > 0 && (
-              <div className="technologies">
-                <h5>Tecnologias:</h5>
-                <div className="tech-tags">
-                  {emprego.tecnologias.map((tech: string, techIndex: number) => (
-                    <span key={techIndex} className="tech-tag">{tech}</span>
-                  ))}
+            {emprego.descricao ? (
+              <p className="job-description">{emprego.descricao}</p>
+            ) : null}
+
+            <div className="job-details">
+              {emprego.tecnologias && emprego.tecnologias.length > 0 && (
+                <div className="technologies">
+                  <h5>Tecnologias:</h5>
+                  <div className="tech-tags">
+                    {emprego.tecnologias.map((tech: string, techIndex: number) => (
+                      <span key={techIndex} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {emprego.destaques && emprego.destaques.length > 0 && (
-              <div className="highlights">
-                <h5>Destaques:</h5>
-                <div className="highlight-tags">
-                  {emprego.destaques.map((destaque: string, destIndex: number) => (
-                    <span key={destIndex} className="highlight-tag">{destaque}</span>
-                  ))}
+              {emprego.destaques && emprego.destaques.length > 0 && (
+                <div className="highlights">
+                  <h5>Destaques:</h5>
+                  <div className="highlight-tags">
+                    {emprego.destaques.map((destaque: string, destIndex: number) => (
+                      <span key={destIndex} className="highlight-tag">{destaque}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {emprego.marcas && emprego.marcas.length > 0 && (
-              <div className="brands">
-                <h5>Marcas atendidas:</h5>
-                <p className="brands-text">{emprego.marcas.join(", ")}</p>
-              </div>
-            )}
+              {emprego.marcas && emprego.marcas.length > 0 && (
+                <div className="brands">
+                  <h5>Marcas atendidas:</h5>
+                  <p className="brands-text">{emprego.marcas.join(", ")}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -60,10 +60,9 @@ export type SectionData = {
     empregos: {
       empresa: string;
       cargo: string;
-      /** Mês (1–12) e ano de início */
       inicio: { mes: number; ano: number };
-      /** Mês/ano de saída, ou `null` se for o emprego atual */
       fim: { mes: number; ano: number } | null;
+      sobre_empresa?: string;
       descricao: string;
       tecnologias: string[];
       destaques: string[];
