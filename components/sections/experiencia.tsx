@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { HomePageProps } from "@/types/index";
 import { IconCheck } from "../icons/icon-check";
+import { IconCaret } from "../icons/icon-caret";
 import {
   calcularDuracao,
   formatarPeriodo,
@@ -37,10 +38,21 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
       <div className="timeline-content">
         <div className="experience-card">
           <div className="experience-company">
-            <h3 className="company-name">{emprego.empresa}</h3>
             {emprego.sobre_empresa ? (
-              <p className="company-blurb">{emprego.sobre_empresa}</p>
-            ) : null}
+              <details className="company-dropdown">
+                <summary className="company-dropdown__summary">
+                  <h3 className="company-name">{emprego.empresa}</h3>
+                  <span className="company-dropdown__caret">
+                    <IconCaret size={18} color="var(--main-color-stronger)" />
+                  </span>
+                </summary>
+                <div className="company-dropdown__panel">
+                  <p className="company-blurb">{emprego.sobre_empresa}</p>
+                </div>
+              </details>
+            ) : (
+              <h3 className="company-name">{emprego.empresa}</h3>
+            )}
           </div>
 
           <div className="experience-role">

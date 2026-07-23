@@ -1572,6 +1572,12 @@ header nav ul li a:hover {
   background: linear-gradient(to bottom, var(--main-color-stronger), rgba(124, 51, 125, 1));
 }
 
+@media (max-width: 768px) {
+  .timeline-line-detail {
+    margin-left: -5px;
+  }
+}
+
 .timeline-item {
   margin-bottom: 3rem;
   display: flex;
@@ -1620,7 +1626,7 @@ header nav ul li a:hover {
 
 @media (max-width: 768px) {
   .marker-line {
-    width: 30px;
+    width: 25px;
   }
 }
 
@@ -1643,7 +1649,7 @@ header nav ul li a:hover {
 
 @media (max-width: 768px) {
   .timeline-initial-year {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 }
 
@@ -1689,6 +1695,29 @@ header nav ul li a:hover {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--main-color-lighter);
+  interpolate-size: allow-keywords;
+}
+
+.company-dropdown {
+  width: 100%;
+}
+
+.company-dropdown__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.company-dropdown__summary::-webkit-details-marker {
+  display: none;
+}
+
+.company-dropdown__summary::marker {
+  content: "";
 }
 
 .company-name {
@@ -1696,12 +1725,41 @@ header nav ul li a:hover {
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-color);
-  margin-bottom: 0.35rem;
+  margin: 0;
+}
+
+.company-dropdown__caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.35s ease;
+}
+
+.company-dropdown[open] .company-dropdown__caret {
+  transform: rotate(180deg);
+}
+
+.company-dropdown::details-content {
+  block-size: 0;
+  overflow-y: clip;
+  transition:
+    block-size 0.35s ease,
+    content-visibility 0.35s allow-discrete;
+}
+
+.company-dropdown[open]::details-content {
+  block-size: auto;
+}
+
+.company-dropdown__panel {
+  padding-top: 0.5rem;
 }
 
 .company-blurb {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 300;
   font-style: italic;
   line-height: 1.5;
   color: var(--text-color);
@@ -2146,7 +2204,7 @@ header nav ul li a:hover {
   .experience-card,
   .graduation-card,
   .pos-graduation-card {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
 
   .timeline::before {
