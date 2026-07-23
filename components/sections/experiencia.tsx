@@ -15,6 +15,7 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
   const [duracao, setDuracao] = useState(() =>
     calcularDuracao(emprego.inicio, emprego.fim)
   );
+  const [techsExpandidas, setTechsExpandidas] = useState(false);
 
   // Emprego atual: recalcula com a data do visitante (evita mismatch de hidratação)
   useEffect(() => {
@@ -24,6 +25,10 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
 
   const periodo = formatarPeriodo(emprego.inicio, emprego.fim);
   const tipo = atual ? "atual" : "passado";
+  const techsExtras =
+    emprego.tecnologias && emprego.tecnologias.length > 3
+      ? emprego.tecnologias.length - 3
+      : 0;
 
   return (
     <div className={`timeline-item ${tipo}`}>
@@ -72,10 +77,27 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
               {emprego.tecnologias && emprego.tecnologias.length > 0 && (
                 <div className="technologies">
                   <h5>Tecnologias:</h5>
-                  <div className="tech-tags">
+                  <div
+                    className={`tech-tags${techsExpandidas ? " tech-tags--expanded" : ""}`}
+                  >
                     {emprego.tecnologias.map((tech: string, techIndex: number) => (
                       <span key={techIndex} className="tech-tag">{tech}</span>
                     ))}
+                    {techsExtras > 0 && (
+                      <button
+                        type="button"
+                        className="tech-tag tech-tag--more"
+                        aria-expanded={techsExpandidas}
+                        aria-label={
+                          techsExpandidas
+                            ? "Ocultar tecnologias"
+                            : `Mostrar mais ${techsExtras} tecnologias`
+                        }
+                        onClick={() => setTechsExpandidas((v) => !v)}
+                      >
+                        {techsExpandidas ? "−" : `+${techsExtras}`}
+                      </button>
+                    )}
                   </div>
                 </div>
               )}

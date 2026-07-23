@@ -1757,10 +1757,18 @@ header nav ul li a:hover {
 .highlight-tag {
   background: rgba(124, 51, 125, 0.1);
   color: var(--main-color-stronger);
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 0.7rem;
   border-radius: 20px;
   font-size: 11px;
   border: 1px solid rgba(124, 51, 125, 0.2);
+}
+
+.tech-tag--more {
+  display: none;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: inherit;
 }
 
 .brands-text {
@@ -1769,6 +1777,20 @@ header nav ul li a:hover {
 }
 
 @media (max-width: 768px) {
+  .tech-tags > .tech-tag:not(.tech-tag--more):nth-child(n + 4) {
+    display: none;
+  }
+
+  .tech-tags--expanded > .tech-tag:not(.tech-tag--more):nth-child(n + 4) {
+    display: inline-flex;
+  }
+
+  .tech-tag--more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .brands-text {
     font-size: 0.9rem;
   }
