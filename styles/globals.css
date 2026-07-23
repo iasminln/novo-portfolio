@@ -388,7 +388,6 @@ header nav ul li a:hover {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
@@ -730,16 +729,6 @@ header nav ul li a:hover {
   padding: 20px 0;
 }
 
-.mobile-menu__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.mobile-menu__item {
-  margin: 0;
-}
-
 .mobile-menu__link {
   display: block;
   padding: 16px 20px;
@@ -781,7 +770,6 @@ header nav ul li a:hover {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
   z-index: 12;
   position: relative;
 }
@@ -952,9 +940,6 @@ header nav ul li a:hover {
 }
 
 .footer__links-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1487,12 +1472,6 @@ header nav ul li a:hover {
   text-align: center;
 }
 
-.highlights-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 .highlight-item {
   display: flex;
   align-items: flex-start;
@@ -1654,7 +1633,6 @@ header nav ul li a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  list-style: none;
   cursor: pointer;
   user-select: none;
 }
@@ -1721,7 +1699,6 @@ header nav ul li a:hover {
   font-size: 1.2rem;
   color: var(--main-color-stronger);
   font-weight: 600;
-  margin: 0;
 }
 
 .job-period {
@@ -2168,7 +2145,6 @@ header nav ul li a:hover {
 }
 
 .secret-modal__title {
-  margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
   font-family: var(--font-heading), serif;
@@ -2204,7 +2180,6 @@ header nav ul li a:hover {
 }
 
 .secret-modal__list {
-  margin: 0;
   display: grid;
   gap: 10px;
 }
@@ -2222,7 +2197,6 @@ header nav ul li a:hover {
 .footer__link--secret {
   background: none;
   border: 0;
-  padding: 0;
   font: inherit;
   cursor: pointer;
   color: inherit;
