@@ -20,23 +20,28 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${lora.variable} ${inter.variable}`}>
+      {GA_MEASUREMENT_ID ? (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="ga-init" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            `}
+          </Script>
+        </>
+      ) : null}
+
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
+        src="https://www.google.com/recaptcha/api.js"
+        strategy="lazyOnload"
       />
-      
-      <Script id="ga-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
 
-          gtag('config', '${GA_MEASUREMENT_ID}');
-        `}
-      </Script>
-
-      <Script src="https://www.google.com/recaptcha/api.js" async defer></Script>
-      
       <Component {...pageProps} />
     </div>
   );

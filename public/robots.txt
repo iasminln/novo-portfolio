@@ -1,17 +1,8 @@
-# Robots.txt para SEO
+# Robots.txt
 
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://iasmin.dev/sitemap.xml
-
-# Descomente as linhas abaixo para bloquear bots específicos, se necessário
-# User-agent: BadBot
-# Disallow: /
-
-# Bloquear acesso a arquivos de configuração
 Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
 
+Sitemap: https://iasmin.dev/sitemap.xml
