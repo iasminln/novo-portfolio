@@ -74,6 +74,13 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
             ) : null}
 
             <div className="job-details">
+              {emprego.marcas && emprego.marcas.length > 0 && (
+                <div className="brands">
+                  <h5>Marcas atendidas:</h5>
+                  <p className="brands-text">{emprego.marcas.join(", ")}</p>
+                </div>
+              )}
+
               {emprego.tecnologias && emprego.tecnologias.length > 0 && (
                 <div className="technologies">
                   <h5>Tecnologias:</h5>
@@ -110,13 +117,6 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
                       <span key={destIndex} className="highlight-tag">{destaque}</span>
                     ))}
                   </div>
-                </div>
-              )}
-
-              {emprego.marcas && emprego.marcas.length > 0 && (
-                <div className="brands">
-                  <h5>Marcas atendidas:</h5>
-                  <p className="brands-text">{emprego.marcas.join(", ")}</p>
                 </div>
               )}
             </div>

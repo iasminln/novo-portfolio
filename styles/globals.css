@@ -992,7 +992,7 @@ header nav ul li a:hover {
 /* Footer Responsive Design */
 @media (max-width: 768px) {
   .footer {
-    padding: 40px 0 20px;
+    padding: 40px 0 30px;
     margin-top: 60px;
   }
 
@@ -1023,7 +1023,7 @@ header nav ul li a:hover {
 
 @media (max-width: 480px) {
   .footer {
-    padding: 30px 0 15px;
+    padding: 30px 0;
     margin-top: 40px;
   }
 
@@ -1772,8 +1772,10 @@ header nav ul li a:hover {
 }
 
 .brands-text {
-  opacity: 0.8;
-  font-style: italic;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--main-color-stronger);
+  margin: 0;
 }
 
 @media (max-width: 768px) {
