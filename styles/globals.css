@@ -99,7 +99,12 @@ h2 {
 
 p {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+a {
+  color: var(--text-color);
 }
 
 header {
@@ -126,7 +131,6 @@ header {
 }
 
 .header__title {
-  margin: 0;
   letter-spacing: .5px;
 }
 
@@ -141,7 +145,6 @@ header nav ul {
 }
 
 header nav ul li a {
-  color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -464,12 +467,6 @@ header nav ul li a:hover {
   gap: 10px;
 }
 
-.sobre__text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--text-color);
-}
-
 @media (max-width: 768px) {
   .sobre__text p {
     text-align: center;
@@ -492,7 +489,6 @@ header nav ul li a:hover {
   font-family: var(--font-heading), serif;
   font-size: 1.3rem;
   margin-bottom: 20px;
-  color: var(--text-color);
 }
 
 @media (max-width: 768px) {
@@ -513,7 +509,6 @@ header nav ul li a:hover {
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 0.8rem;
-  font-weight: 500;
   transition: all 0.3s ease;
   cursor: default;
   user-select: none;
@@ -617,14 +612,10 @@ header nav ul li a:hover {
 .section__experiencia p {
   text-align: center;
   margin-bottom: 30px;
-  color: var(--text-color);
-  font-size: 1.1rem;
-  line-height: 1.6;
 }
 
 /* Responsive section adjustments */
 @media (max-width: 768px) {
-
   .section__formacao,
   .section__experiencia {
     padding-top: 40px;
@@ -700,7 +691,6 @@ header nav ul li a:hover {
 .mobile-menu__title {
   font-family: var(--font-heading), serif;
   font-size: 1.5rem;
-  color: var(--text-color);
   margin: 0;
 }
 
@@ -753,10 +743,8 @@ header nav ul li a:hover {
 .mobile-menu__link {
   display: block;
   padding: 16px 20px;
-  color: var(--text-color);
   text-decoration: none;
   font-size: 1.1rem;
-  font-weight: 500;
   transition: all 0.2s ease;
   border-left: 3px solid transparent;
 }
@@ -783,11 +771,6 @@ header nav ul li a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-}
-
-.mobile-menu__theme-label {
-  font-weight: 500;
-  color: var(--text-color);
 }
 
 /* Hamburger Button Styles */
@@ -929,14 +912,9 @@ header nav ul li a:hover {
 .footer__title {
   font-family: var(--font-heading), serif;
   font-size: 1.8rem;
-  color: var(--text-color);
-  margin: 0;
 }
 
 .footer__description {
-  color: var(--text-color);
-  line-height: 1.6;
-  margin: 0;
   opacity: 0.8;
 }
 
@@ -950,9 +928,7 @@ header nav ul li a:hover {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--text-color);
   text-decoration: none;
-  font-weight: 500;
   transition: all 0.3s ease;
   padding: 8px 12px;
   border-radius: 6px;
@@ -972,7 +948,6 @@ header nav ul li a:hover {
 .footer__tech-title {
   font-family: var(--font-heading), serif;
   font-size: 1.2rem;
-  color: var(--text-color);
   margin: 0 0 15px 0;
 }
 
@@ -986,7 +961,6 @@ header nav ul li a:hover {
 }
 
 .footer__link {
-  color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease;
   opacity: 0.8;
@@ -1009,7 +983,6 @@ header nav ul li a:hover {
   padding: 4px 12px;
   border-radius: 12px;
   font-size: 0.85rem;
-  font-weight: 500;
 }
 
 .footer__bottom {
@@ -1023,14 +996,10 @@ header nav ul li a:hover {
 }
 
 .footer__copyright {
-  color: var(--text-color);
-  margin: 0;
   font-weight: 500;
 }
 
 .footer__note {
-  color: var(--text-color);
-  margin: 0;
   opacity: 0.7;
   font-size: 0.9rem;
 }
@@ -1207,7 +1176,6 @@ header nav ul li a:hover {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 600;
-  color: var(--text-color);
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -1221,10 +1189,8 @@ header nav ul li a:hover {
 
 .contact-form__label {
   display: block;
-  font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-color);
   margin-bottom: 0.5rem;
 }
 
@@ -1320,18 +1286,13 @@ header nav ul li a:hover {
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-color);
   text-align: center;
   margin-bottom: 1rem;
 }
 
 .contact-section__subtitle {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--text-color);
   text-align: center;
   margin-bottom: 3rem;
-  opacity: 0.8;
 }
 
 .contact-info {
@@ -1347,9 +1308,6 @@ header nav ul li a:hover {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: var(--text-color);
   opacity: 0.8;
 }
 
@@ -1374,9 +1332,6 @@ header nav ul li a:hover {
   gap: 0.75rem;
   padding: 0.875rem 1.5rem;
   border-radius: 8px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
@@ -1501,17 +1456,12 @@ header nav ul li a:hover {
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-color);
   margin-bottom: 1.5rem;
 }
 
 .experience-intro {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--text-color);
   max-width: 800px;
   margin: 0 auto 2rem;
-  line-height: 1.6;
   opacity: 0.9;
 }
 
@@ -1533,7 +1483,6 @@ header nav ul li a:hover {
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--text-color);
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -1548,8 +1497,6 @@ header nav ul li a:hover {
   display: flex;
   align-items: flex-start;
   margin-bottom: 0.75rem;
-  font-family: var(--font-body);
-  color: var(--text-color);
   text-align: left;
 }
 
@@ -1724,8 +1671,6 @@ header nav ul li a:hover {
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--text-color);
-  margin: 0;
 }
 
 .company-dropdown__caret {
@@ -1757,14 +1702,9 @@ header nav ul li a:hover {
 }
 
 .company-blurb {
-  font-family: var(--font-body);
   font-size: 0.9rem;
-  font-weight: 300;
   font-style: italic;
-  line-height: 1.5;
-  color: var(--text-color);
   opacity: 0.8;
-  margin: 0;
 }
 
 .experience-role-header {
@@ -1793,9 +1733,7 @@ header nav ul li a:hover {
 }
 
 .period-text {
-  font-family: var(--font-body);
   font-size: 0.9rem;
-  color: var(--text-color);
   opacity: 0.8;
 }
 
@@ -1809,9 +1747,6 @@ header nav ul li a:hover {
 }
 
 .job-description {
-  font-family: var(--font-body);
-  color: var(--text-color);
-  line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
@@ -1829,10 +1764,8 @@ header nav ul li a:hover {
 .technologies h5,
 .highlights h5,
 .brands h5 {
-  font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-color);
   margin-bottom: 0.75rem;
 }
 
@@ -1850,13 +1783,10 @@ header nav ul li a:hover {
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 11px;
-  font-weight: 500;
   border: 1px solid rgba(124, 51, 125, 0.2);
 }
 
 .brands-text {
-  font-family: var(--font-body);
-  color: var(--text-color);
   opacity: 0.8;
   font-style: italic;
 }
@@ -1882,17 +1812,12 @@ header nav ul li a:hover {
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-color);
   margin-bottom: 1.5rem;
 }
 
 .education-intro {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--text-color);
   max-width: 800px;
   margin: 0 auto;
-  line-height: 1.6;
   opacity: 0.9;
 }
 
@@ -1909,7 +1834,6 @@ header nav ul li a:hover {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 600;
-  color: var(--text-color);
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -1924,6 +1848,12 @@ header nav ul li a:hover {
 .pos-graduation-grid {
   display: grid;
   gap: 2rem;
+}
+
+.pos-graduation-item {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
 }
 
 .pos-graduation-card {
@@ -2017,11 +1947,9 @@ header nav ul li a:hover {
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--text-color);
 }
 
 .university-name {
-  font-family: var(--font-body);
   font-size: .9rem;
   color: var(--main-color-stronger);
   font-weight: 500;
@@ -2053,11 +1981,9 @@ header nav ul li a:hover {
 
 .year,
 .workload {
-  font-family: var(--font-body);
   font-size: 0.8rem;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
-  font-weight: 500;
 }
 
 .year {
@@ -2071,12 +1997,6 @@ header nav ul li a:hover {
   color: #007bff;
 }
 
-.course-description {
-  font-family: var(--font-body);
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
 @media (max-width: 768px) {
   .course-description {
     font-size: 0.9rem;
@@ -2084,18 +2004,12 @@ header nav ul li a:hover {
 }
 
 .education-card-subtitle {
-  font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-color);
   margin-bottom: 0.75rem;
 }
 
 /* Course Projects Styles */
-.course-projects {
-  margin-top: 1.5rem;
-}
-
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -2103,7 +2017,7 @@ header nav ul li a:hover {
 }
 
 .project-card {
-  padding: 1rem 0;
+  padding-top: 1rem;
   border-top: 1px solid rgba(124, 51, 125, .5);
   transition: all 0.3s ease;
 }
@@ -2121,8 +2035,6 @@ header nav ul li a:hover {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-color);
-  margin: 0;
   flex: 1;
 }
 
@@ -2132,12 +2044,8 @@ header nav ul li a:hover {
 }
 
 .project-description {
-  font-family: var(--font-body);
   font-size: 0.9rem;
-  color: var(--text-color);
-  line-height: 1.6;
   margin: 0 0 0.75rem 0;
-  opacity: 0.9;
 }
 
 .project-technologies {
@@ -2239,7 +2147,6 @@ header nav ul li a:hover {
   transform: translate(-50%, -50%);
   width: min(92vw, 560px);
   background: var(--background-color-secondary);
-  color: var(--text-color);
   border-radius: 12px;
   overflow: hidden;
   animation: secret-modal-in 260ms ease forwards;
@@ -2394,19 +2301,14 @@ header nav ul li a:hover {
   font-family: var(--font-heading), serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-color);
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
 .brands-subtitle {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--text-color);
   text-align: center;
   max-width: 800px;
   margin: 0 auto 2rem;
-  line-height: 1.6;
   opacity: 0.9;
 }
 
