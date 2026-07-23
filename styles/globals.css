@@ -14,6 +14,28 @@ html.scroll-auto {
   scroll-behavior: auto;
 }
 
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  background: var(--main-color-stronger);
+  color: var(--button-primary-text-color);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-120%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+
 /* light mode */
 :root {
   --font-heading: 'Lora', serif;
@@ -131,7 +153,12 @@ header {
 }
 
 .header__title {
+  font-family: var(--font-heading), serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
   letter-spacing: .5px;
+  margin: 0;
 }
 
 .title-dot {
@@ -212,7 +239,7 @@ header nav ul li a:hover {
     padding: 0 10px;
   }
 
-  .section__initial h2 {
+  .section__initial-subtitle {
     font-size: 1.2rem;
     padding: 0 20px;
   }
@@ -239,7 +266,7 @@ header nav ul li a:hover {
     font-size: 32px;
   }
 
-  .section__initial h2 {
+  .section__initial-subtitle {
     font-size: 1rem;
   }
 
@@ -250,14 +277,50 @@ header nav ul li a:hover {
   }
 }
 
-/* Desabilita parallax em dispositivos que preferem movimento reduzido */
+/* Desabilita parallax e animações não essenciais quando o usuário prefere menos movimento */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.scroll-smooth {
+    scroll-behavior: auto;
+  }
+
   .section__initial {
     background-attachment: scroll;
   }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-.section__initial h2 {
+:focus-visible {
+  outline: 2px solid var(--main-color-stronger);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+.tech-tag--more:focus-visible,
+.company-dropdown__summary:focus-visible,
+.button:focus-visible,
+.button-secondary:focus-visible,
+.social-link:focus-visible,
+.brand-card:focus-visible,
+.footer__link:focus-visible {
+  outline: 2px solid var(--main-color-stronger);
+  outline-offset: 2px;
+}
+
+.section__initial-subtitle {
   text-align: center;
 }
 
@@ -900,6 +963,9 @@ header nav ul li a:hover {
 .footer__title {
   font-family: var(--font-heading), serif;
   font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
 }
 
 .footer__description {
@@ -936,6 +1002,8 @@ header nav ul li a:hover {
 .footer__tech-title {
   font-family: var(--font-heading), serif;
   font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
   margin: 0 0 15px 0;
 }
 
@@ -985,7 +1053,6 @@ header nav ul li a:hover {
 }
 
 .footer__note {
-  opacity: 0.7;
   font-size: 0.9rem;
 }
 
@@ -1294,6 +1361,15 @@ header nav ul li a:hover {
   align-items: center;
   gap: 0.5rem;
   opacity: 0.8;
+}
+
+.contact-info__item a {
+  text-decoration: none;
+}
+
+.contact-info__item a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .contact-info__icon {

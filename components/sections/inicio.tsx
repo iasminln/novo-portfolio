@@ -3,12 +3,11 @@ import Button from "@/components/ui/button";
 import { renderRichText } from "@/utils/richText";
 
 export default function Inicio(data: HomePageProps["inicio"]) {
-
   return (
-    <section className="section__initial">
+    <section className="section__initial" aria-label="Início">
       <div className="container">
         <h1>{renderRichText(data.title, { as: 'span' })}</h1>
-        <h2>{data.subtitle}</h2>
+        <p className="section__initial-subtitle">{data.subtitle}</p>
 
         <div className="button-container">
           <Button href="#contato">Vamos conversar</Button>

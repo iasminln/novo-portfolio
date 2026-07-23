@@ -21,23 +21,25 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
   const menuItems = [
     { href: '#sobre', label: 'Sobre' },
-    { href: '#formacao', label: 'Formação' },
+    { href: '#marcas', label: 'Marcas' },
     { href: '#experiencia', label: 'Experiência' },
-    { href: '#contato', label: 'Contato' }
+    { href: '#formacao', label: 'Formação' },
+    { href: '#contato', label: 'Contato' },
   ];
 
   if (!isOpen) return null;
 
   return (
     <>
-      <div 
+      <div
         className="mobile-menu__overlay"
         onClick={onClose}
         aria-hidden="true"
       />
-      
-      <div 
+
+      <div
         ref={contentRef}
+        id="mobile-menu"
         className="mobile-menu"
         role="dialog"
         aria-modal="true"
@@ -50,19 +52,18 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             onClick={onClose}
             aria-label="Fechar menu"
           >
-            <span className="mobile-menu__close-icon">×</span>
+            <span className="mobile-menu__close-icon" aria-hidden="true">×</span>
           </button>
         </div>
 
-        <nav className="mobile-menu__nav">
-          <ul className="mobile-menu__list">
+        <nav className="mobile-menu__nav" aria-label="Mobile">
+          <ul className="mobile-menu__list" role="list">
             {menuItems.map((item) => (
               <li key={item.href} className="mobile-menu__item">
                 <a
                   href={item.href}
                   className="mobile-menu__link"
                   onClick={handleLinkClick}
-                  tabIndex={0}
                 >
                   {item.label}
                 </a>

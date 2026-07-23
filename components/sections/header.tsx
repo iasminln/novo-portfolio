@@ -20,9 +20,9 @@ export default function Header() {
     <>
       <header>
         <div className="header__content container">
-          <h2 className="header__title">Iasmin<span className="title-dot">.</span></h2>
-          <nav>
-            <ul>
+          <p className="header__title">Iasmin<span className="title-dot" aria-hidden="true">.</span></p>
+          <nav aria-label="Principal">
+            <ul role="list">
               <li><a href="#sobre">Sobre</a></li>
               <li><a href="#marcas">Marcas</a></li>
               <li><a href="#experiencia">Experiência</a></li>
@@ -32,16 +32,16 @@ export default function Header() {
           </nav>
           <div className="header__actions">
             <ThemeToggle />
-            <HamburgerButton 
+            <HamburgerButton
               isOpen={isMobileMenuOpen}
               onClick={toggleMobileMenu}
-              ariaLabel="Abrir menu"
+              ariaLabel={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             />
           </div>
         </div>
       </header>
-      
-      <MobileMenu 
+
+      <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={closeMobileMenu}
       />

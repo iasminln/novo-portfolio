@@ -39,55 +39,66 @@ export default function ContactForm() {
   return (
     <div className="contact-form">
       <h3 className="contact-form__title">Envie sua mensagem</h3>
-      
-      <form ref={form} onSubmit={sendEmail} className="contact-form__form">
+
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        className="contact-form__form"
+        aria-busy={isSubmitting}
+      >
         <div className="contact-form__field">
           <label htmlFor="from_name" className="contact-form__label">
             Nome *
           </label>
-          <input 
-            type="text" 
-            name="from_name" 
+          <input
+            type="text"
+            name="from_name"
             id="from_name"
-            placeholder="Seu nome completo" 
-            required 
+            placeholder="Seu nome completo"
+            required
+            autoComplete="name"
             className="contact-form__input"
           />
         </div>
-        
+
         <div className="contact-form__field">
           <label htmlFor="from_email" className="contact-form__label">
             Email *
           </label>
-          <input 
-            type="email" 
-            name="from_email" 
+          <input
+            type="email"
+            name="from_email"
             id="from_email"
-            placeholder="seu@email.com" 
-            required 
+            placeholder="seu@email.com"
+            required
+            autoComplete="email"
             className="contact-form__input"
           />
         </div>
-        
+
         <div className="contact-form__field">
           <label htmlFor="message" className="contact-form__label">
             Mensagem *
           </label>
-          <textarea 
-            name="message" 
+          <textarea
+            name="message"
             id="message"
-            placeholder="Conte-me sobre seu projeto ou pergunta..." 
-            required 
+            placeholder="Conte-me sobre seu projeto ou pergunta..."
+            required
+            autoComplete="off"
             className="contact-form__textarea"
           />
         </div>
-        
+
         <div className="g-recaptcha" data-sitekey={process.env.RECAPTCHA_SITE_KEY!}></div>
 
-        {/* Status messages */}
         {submitStatus === "success" && (
-          <div className="contact-form__message contact-form__message--success">
-            <svg className="contact-form__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div
+            className="contact-form__message contact-form__message--success"
+            role="status"
+            aria-live="polite"
+          >
+            <svg className="contact-form__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             <span>Mensagem enviada com sucesso! Retornarei em breve.</span>
@@ -95,22 +106,26 @@ export default function ContactForm() {
         )}
 
         {submitStatus === "error" && (
-          <div className="contact-form__message contact-form__message--error">
-            <svg className="contact-form__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div
+            className="contact-form__message contact-form__message--error"
+            role="alert"
+          >
+            <svg className="contact-form__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
             <span>Erro ao enviar mensagem. Tente novamente.</span>
           </div>
         )}
 
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           disabled={isSubmitting}
           className="contact-form__button"
+          ariaBusy={isSubmitting}
         >
           {isSubmitting ? (
             <>
-              <span className="contact-form__spinner"></span>
+              <span className="contact-form__spinner" aria-hidden="true"></span>
               Enviando...
             </>
           ) : (

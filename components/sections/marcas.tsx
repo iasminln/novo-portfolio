@@ -3,26 +3,26 @@ import { HomePageProps } from "@/types";
 
 export default function Marcas(data: HomePageProps["marcas"]) {
   return (
-    <section id="marcas" className="brands-section">
+    <section id="marcas" className="brands-section" aria-labelledby="marcas-title">
       <div className="container">
-        <h2 className="brands-title">
+        <h2 id="marcas-title" className="brands-title">
           {data.title}
-          <span className="title-dot">.</span>
-        </h2> 
+          <span className="title-dot" aria-hidden="true">.</span>
+        </h2>
 
         {data.subtitle ? <p className="brands-subtitle">{data.subtitle}</p> : null}
 
         <div className="brands-grid" role="list" aria-label="Marcas atendidas">
           {data.itens.map((item, index) => {
             const key = `${item.nome}-${index}`;
-
             const cardStyle = item.cor ? { backgroundColor: item.cor } : undefined;
+            const opensInNewTabLabel = `${item.nome} (abre em nova aba)`;
 
             const content = item.logo ? (
               <div className="brand-logo-wrap">
                 <Image
                   src={item.logo}
-                  alt={item.nome}
+                  alt=""
                   fill
                   sizes="(max-width: 768px) 45vw, 160px"
                   className="brand-logo"
@@ -44,7 +44,7 @@ export default function Marcas(data: HomePageProps["marcas"]) {
                 style={cardStyle}
                 role="listitem"
                 title={item.nome}
-                aria-label={item.nome}
+                aria-label={opensInNewTabLabel}
               >
                 {content}
               </a>
@@ -65,4 +65,3 @@ export default function Marcas(data: HomePageProps["marcas"]) {
     </section>
   );
 }
-

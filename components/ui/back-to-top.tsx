@@ -23,14 +23,16 @@ export default function BackToTop() {
   }, []);
 
   const scrollToTop = () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     document.documentElement.classList.remove('scroll-smooth');
     document.documentElement.classList.add('scroll-auto');
-    
+
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
     });
-    
+
     setTimeout(() => {
       document.documentElement.classList.remove('scroll-auto');
       document.documentElement.classList.add('scroll-smooth');

@@ -9,7 +9,7 @@ export default function Sobre(data: HomePageProps["sobre"] & HomePageProps["soci
 
   return (
     <section id="sobre" className="container section section__sobre">
-      <h2>Quem sou eu<span className="title-dot">.</span></h2>
+      <h2>Quem sou eu<span className="title-dot" aria-hidden="true">.</span></h2>
       
       <div className={`sobre__content ${!data.imagem ? 'sobre__content--single' : ''}`}>
         <div className="sobre__text">

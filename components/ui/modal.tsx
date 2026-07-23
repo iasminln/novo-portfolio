@@ -51,11 +51,12 @@ export default function Modal({
   if (!isOpen) return null;
 
   return (
-    <div
-      className={overlayClassName}
-      onClick={closeOnClickOutside ? onClose : undefined}
-      aria-hidden="true"
-    >
+    <>
+      <div
+        className={overlayClassName}
+        onClick={closeOnClickOutside ? onClose : undefined}
+        aria-hidden="true"
+      />
       <div
         ref={contentRef}
         className={contentClassName}
@@ -71,12 +72,11 @@ export default function Modal({
             onClick={onClose}
             aria-label={closeButtonLabel}
           >
-            <span className="modal__close-icon">×</span>
+            <span className="modal__close-icon" aria-hidden="true">×</span>
           </button>
         )}
         {children}
       </div>
-    </div>
+    </>
   );
 }
-

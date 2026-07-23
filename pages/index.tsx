@@ -18,19 +18,20 @@ export default function Home({ data }: { data: HomePageProps }) {
   return (
     <>
       <HeadContent data={data} />
-      <div className="">
-        <Header />
+      <a href="#main" className="skip-link">
+        Ir para o conteúdo
+      </a>
+      <Header />
+      <main id="main">
         <Inicio {...data.inicio} />
-        <div className="main-content">
-          <Sobre {...data.sobre} {...data.social} />
-          <Marcas {...data.marcas} />
-          <Experiencia {...data.experiencia} />
-          <Formacao {...data.formacao} />
-          <Contato {...data.social} />
-          <Footer {...data.footer} {...data.social} />
-        </div>
-        <BackToTop />
-      </div>
+        <Sobre {...data.sobre} {...data.social} />
+        <Marcas {...data.marcas} />
+        <Experiencia {...data.experiencia} />
+        <Formacao {...data.formacao} />
+        <Contato {...data.social} />
+      </main>
+      <Footer {...data.footer} {...data.social} />
+      <BackToTop />
     </>
   );
 }

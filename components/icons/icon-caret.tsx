@@ -17,6 +17,7 @@ export const IconCaret = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
+      focusable="false"
     >
       <path d="M6 9l6 6 6-6" />
     </svg>

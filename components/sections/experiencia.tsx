@@ -129,18 +129,20 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
 
 export default function Experiencia(data: HomePageProps["experiencia"]) {
   return (
-    <section id="experiencia" className="experience-section">
+    <section id="experiencia" className="experience-section" aria-labelledby="experiencia-title">
       <div className="container">
         <div className="experience-header">
-          <h2 className="experience-title">Trajetória<span className="title-dot">.</span></h2>
+          <h2 id="experiencia-title" className="experience-title">Trajetória<span className="title-dot" aria-hidden="true">.</span></h2>
           <p className="experience-intro">{data.intro}</p>
 
           <div className="experience-highlights">
             <h3>Principais Conquistas:</h3>
-            <ul className="highlights-list">
+            <ul className="highlights-list" role="list">
               {data.destaques.map((destaque: string, index: number) => (
                 <li key={index} className="highlight-item">
-                  <span className="highlight-icon"><IconCheck color="var(--main-color-stronger)" size={20} /></span>
+                  <span className="highlight-icon" aria-hidden="true">
+                    <IconCheck color="var(--main-color-stronger)" size={20} />
+                  </span>
                   {destaque}
                 </li>
               ))}

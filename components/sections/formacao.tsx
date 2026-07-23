@@ -71,6 +71,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
                                   target="_blank" 
                                   rel="noopener noreferrer"
                                   className="project-link"
+                                  ariaLabel={`Ver certificado ${certificado.nome} (abre em nova aba)`}
                                 >
                                   Ver certificado <IconArrow size={16} direction="right" />
                                 </Button>
@@ -97,6 +98,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
                                       target="_blank" 
                                       rel="noopener noreferrer"
                                       className="project-link"
+                                      ariaLabel={`Ver projeto ${projeto.nome} (abre em nova aba)`}
                                     >
                                       Ver projeto <IconArrow size={16} direction="right" />
                                     </Button>
