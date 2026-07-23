@@ -7,7 +7,7 @@
   ],
   "empregos": [
     {
-      "empresa": "Disco",
+      "empresa": "Agência Disco",
       "cargo": "Desenvolvedora Front-End",
       "inicio": { "mes": 5, "ano": 2026 },
       "fim": null,
@@ -18,7 +18,7 @@
       "marcas": []
     },
     {
-      "empresa": "Akag",
+      "empresa": "Akag Digital",
       "cargo": "Desenvolvedora Front-End",
       "inicio": { "mes": 9, "ano": 2025 },
       "fim": { "mes": 5, "ano": 2026 },
