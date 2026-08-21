@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import { Lora, Inter } from 'next/font/google';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/next';
 
 const lora = Lora({
   subsets: ['latin'],
@@ -43,6 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
       />
 
       <Component {...pageProps} />
+      <Analytics />
     </div>
   );
 }
