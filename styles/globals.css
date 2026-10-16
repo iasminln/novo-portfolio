@@ -317,7 +317,7 @@ a:focus-visible,
 button:focus-visible,
 summary:focus-visible,
 .tech-tag--more:focus-visible,
-.company-dropdown__summary:focus-visible,
+.dropdown__summary:focus-visible,
 .button:focus-visible,
 .button-secondary:focus-visible,
 .social-link:focus-visible,
@@ -1701,14 +1701,15 @@ summary:focus-visible,
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(var(--main-color-rgb), 0.3);
+}
+
+/* Dropdown (details/summary) com animação via ::details-content — reutilizado em Experiência e Formação */
+.dropdown {
+  width: 100%;
   interpolate-size: allow-keywords;
 }
 
-.company-dropdown {
-  width: 100%;
-}
-
-.company-dropdown__summary {
+.dropdown__summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1717,21 +1718,15 @@ summary:focus-visible,
   user-select: none;
 }
 
-.company-dropdown__summary::-webkit-details-marker {
+.dropdown__summary::-webkit-details-marker {
   display: none;
 }
 
-.company-dropdown__summary::marker {
+.dropdown__summary::marker {
   content: "";
 }
 
-.company-name {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.company-dropdown__caret {
+.dropdown__caret {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1739,11 +1734,11 @@ summary:focus-visible,
   transition: transform 0.35s ease;
 }
 
-.company-dropdown[open] .company-dropdown__caret {
+.dropdown[open] .dropdown__caret {
   transform: rotate(180deg);
 }
 
-.company-dropdown::details-content {
+.dropdown::details-content {
   block-size: 0;
   overflow-y: clip;
   transition:
@@ -1751,12 +1746,18 @@ summary:focus-visible,
     content-visibility 0.35s allow-discrete;
 }
 
-.company-dropdown[open]::details-content {
+.dropdown[open]::details-content {
   block-size: auto;
 }
 
-.company-dropdown__panel {
+.dropdown__panel {
   padding-top: 0.5rem;
+}
+
+.company-name {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .company-blurb {
@@ -1945,7 +1946,7 @@ summary:focus-visible,
   border: 2px solid var(--main-color-stronger);
   position: relative;
   overflow: hidden;
-  gap: 1.5rem;
+  gap: 2rem;
   display: flex;
   flex-direction: column;
 }
@@ -2042,22 +2043,84 @@ summary:focus-visible,
   flex-wrap: wrap;
 }
 
+.course-certifications {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .course-certifications {
+    grid-template-columns: 1fr;
+  }
+}
+
 .certifications-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px 10px;
+  flex-direction: column;
+}
+
+.certification-dropdown {
+  border-top: 1px solid rgba(var(--main-color-rgb), .3);
+}
+
+.certification-dropdown:last-child {
+  border-bottom: 1px solid rgba(var(--main-color-rgb), .3);
+}
+
+.certification-dropdown .dropdown__summary {
+  padding: .75rem 0;
+}
+
+.certification-dropdown .dropdown__summary h6 {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.certification-dropdown .dropdown__panel {
+  padding-top: 0;
+  padding-bottom: 1rem;
 }
 
 .certification-card {
-  flex: 1 1 250px;
+  padding-bottom: 1rem;
+}
+
+.certification-card {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
 }
 
 .certification-card h6 {
   font-size: 0.75rem;
   font-weight: 500;
+}
+
+.certification-card--final {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(var(--main-color-rgb), .3);
+  background: rgba(var(--main-color-rgb), .06);
+}
+
+.certification-card--final h6 {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.certification-module {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--main-color-stronger);
+}
+
+.certification-meta {
+  font-size: 0.75rem;
+  opacity: 0.75;
 }
 
 .year,

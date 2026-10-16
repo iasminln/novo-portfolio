@@ -3,6 +3,13 @@ import Image from "next/image";
 import { IconGraduation } from "../icons/icon-graduation";
 import { IconArrow } from "../icons/icon-arrow";
 import Button from "../ui/button";
+import { IconCaret } from "../icons/icon-caret";
+
+// "2025-11-11" -> "11/11/2025" (sem new Date para evitar desvio de fuso horário)
+function formatarData(data: string) {
+  const [ano, mes, dia] = data.split("-");
+  return dia && mes ? `${dia}/${mes}/${ano}` : data;
+}
 
 // pages/formacao.tsx
 export default function Formacao(data: HomePageProps["formacao"]) {
@@ -58,26 +65,69 @@ export default function Formacao(data: HomePageProps["formacao"]) {
                         </div>
                       )}
 
-                      {pos.certificados && pos.certificados.length > 0 && (
+                      {((pos.certificados && pos.certificados.length > 0) || pos.certificado_final?.certificado) && (
                         <div className="course-certifications">
-                          <h5 className="education-card-subtitle">Certificações:</h5>
-                          <div className="certifications-list">
-                            {pos.certificados.map((certificado: { nome: string; certificado: string }, certificadoIndex: number) => (
-                              <div key={certificadoIndex} className="certification-card">
-                                <h6 className="certification-name">{certificado.nome}</h6>
+                          {pos.certificados && pos.certificados.length > 0 && (
+                            <div className="certifications-column">
+                              <h5 className="education-card-subtitle">Micro certificados:</h5>
+                              <div className="certifications-list">
+                                {pos.certificados.map((certificado: HomePageProps["formacao"]["pos_graduacoes"][number]["certificados"][number], certificadoIndex: number) => (
+                                  <details key={certificadoIndex} className="dropdown certification-dropdown">
+                                    <summary className="dropdown__summary">
+                                      <h6 className="certification-name">{certificado.nome}</h6>
+                                      <span className="dropdown__caret">
+                                        <IconCaret size={16} color="var(--main-color-stronger)" />
+                                      </span>
+                                    </summary>
+                                    <div className="dropdown__panel certification-card">
+                                      {certificado.modulo && (
+                                        <span className="certification-module">{certificado.modulo}</span>
+                                      )} 
+                                      {certificado.emissao && (
+                                        <p className="certification-meta">
+                                          Emitido em <time dateTime={certificado.emissao}>{formatarData(certificado.emissao)}</time>
+                                        </p>
+                                      )}
+                                      <Button
+                                        href={certificado.certificado}
+                                        variant="primary"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="project-link"
+                                        ariaLabel={`Ver certificado ${certificado.nome} (abre em nova aba)`}
+                                      >
+                                        Ver certificado <IconArrow size={16} direction="right" />
+                                      </Button>
+                                    </div>
+                                  </details>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {pos.certificado_final?.certificado && (
+                            <div className="certifications-column">
+                              <h5 className="education-card-subtitle">Certificado de conclusão:</h5>
+                              <div className="certification-card certification-card--final">
+                                <h6 className="certification-name">{pos.certificado_final.nome}</h6>
+                                {pos.certificado_final.emissao && (
+                                  <p className="certification-meta">
+                                    Emitido em <time dateTime={pos.certificado_final.emissao}>{formatarData(pos.certificado_final.emissao)}</time>
+                                  </p>
+                                )}
                                 <Button
-                                  href={certificado.certificado}
+                                  href={pos.certificado_final.certificado}
                                   variant="primary"
-                                  target="_blank" 
+                                  target="_blank"
                                   rel="noopener noreferrer"
                                   className="project-link"
-                                  ariaLabel={`Ver certificado ${certificado.nome} (abre em nova aba)`}
+                                  ariaLabel={`Ver certificado de conclusão ${pos.certificado_final.nome} (abre em nova aba)`}
                                 >
                                   Ver certificado <IconArrow size={16} direction="right" />
                                 </Button>
                               </div>
-                            ))}
-                          </div>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -85,7 +135,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
                     <div className="pos-graduation-card">
                       {pos.projetos_desenvolvidos && pos.projetos_desenvolvidos.length > 0 && (
                         <div className="course-projects">
-                          <h5 className="education-card-subtitle">Projeto desenvolvido:</h5>
+                          <h5 className="education-card-subtitle">Projetos desenvolvidos:</h5>
                           <div className="projects-list">
                             {pos.projetos_desenvolvidos.map((projeto: { nome: string; descricao: string; tecnologias: string[]; link: string }, projetoIndex: number) => (
                               <div key={projetoIndex} className="project-card">

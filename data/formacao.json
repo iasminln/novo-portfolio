@@ -24,20 +24,35 @@
     {
       "nome": "Especialização em Desenvolvimento Full Stack",
       "universidade": "Faculdade de Tecnologia Rocketseat",
-      "ano": "2025 - andamento",
+      "ano": "2025 - 2026",
       "tipo": "pos_graduacao",
       "descricao": "Especialização focada em tecnologias modernas de desenvolvimento web, incluindo React, Node.js, bancos de dados e metodologias ágeis. Aprofundamento em arquitetura de software, performance e boas práticas de desenvolvimento.",
       "logo": "/images/logo-rocketseat.webp",
       "destaques": ["Front-End", "Back-End", "DevOps", "Inteligência Artificial", "Produto"],
       "carga_horaria": "360 horas",
+      "certificado_final": {
+        "nome": "Especialização em Desenvolvimento Full Stack",
+        "emissao": "2026-09-10",
+        "certificado": "https://ftr.rocketseat.com.br/certificates/ae1be6ec-a79e-44dc-9898-b0935f8c353b"
+      },
       "certificados": [
         {
-          "nome": "Fundamentos Técnicos e Estratégicos",
+          "nome": "Desenvolvimento Web Full Stack, Cloud, DevOps e IA",
+          "modulo": "Fundamentos Técnicos e Estratégicos",
+          "emissao": "2025-11-11",
           "certificado": "https://app.rocketseat.com.br/certificates/d124edb7-6041-4647-ad6f-3e0cefd90e38"
         },
         {
-          "nome": "Estratégia e Inovação",
+          "nome": "Arquitetura de Software e Sistemas Escaláveis",
+          "modulo": "Estratégia e Inovação",
+          "emissao": "2026-04-02",
           "certificado": "https://app.rocketseat.com.br/certificates/9d98af5a-54bd-4da5-b788-84899d27dcdf"
+        },
+        {
+          "nome": "Desenvolvimento de Software com IA Aplicada e Alta Performance",
+          "modulo": "Expansão de Habilidades",
+          "emissao": "2026-08-21",
+          "certificado": "https://ftr.rocketseat.com.br/certificates/e6914ca8-c6a0-424d-9f4d-b38a9b99ec63"
         }
       ],
       "projetos_desenvolvidos": [
@@ -46,6 +61,12 @@
           "descricao": "Projeto desenvolvido para a finalização do módulo Fundamentos Técnicos e Estratégicos.",
           "tecnologias": ["React", "TypeScript", "Node.js", "Docker", "AWS", "Postgres", "Cloudflare"],
           "link": "https://brevly.iasmin.dev"
+        },
+        {
+          "nome": "Financy - Controle Financeiro Pessoal",
+          "descricao": "Projeto desenvolvido para a finalização do módulo Expansão de Habilidades.",
+          "tecnologias": ["React", "TypeScript", "GraphQL", "Node.js", "Prisma", "Postgres", "Tailwind CSS"],
+          "link": "https://financy.iasmin.dev"
         }
       ]
     }

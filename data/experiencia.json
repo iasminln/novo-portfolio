@@ -1,9 +1,9 @@
 {
-  "intro": "Com mais de 5 anos de experiência em desenvolvimento front-end, tenho trabalhado com grandes marcas e plataformas de e-commerce, sempre focando em performance, usabilidade e experiência do usuário.",
+  "intro": "Há 5 anos desenvolvo e-commerces para marcas nacionais e internacionais, atuando em agências de referência do mercado, incluindo uma Shopify Premier Partner.",
   "destaques": [
     "Desenvolvimento de e-commerces para marcas como Boca Rosa, Stanley e Olympikus",
-    "Esperiência em VTEX IO e Shopify",
-    "Auditora de SEO técnico e otimização de performance"
+    "Experiência em Shopify e VTEX IO",
+    "Atuação como auditora de SEO técnico"
   ],
   "empregos": [
     {
@@ -15,7 +15,7 @@
       "descricao": "",
       "tecnologias": ["Shopify", "Liquid", "JavaScript", "CSS", "HTML"],
       "destaques": [],
-      "marcas": []
+      "marcas": ["Clube Café", "Let's Eat It"]
     },
     {
       "empresa": "Akag Digital",

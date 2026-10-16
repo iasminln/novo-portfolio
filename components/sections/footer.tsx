@@ -70,10 +70,7 @@ export default function Footer(data: HomePageProps["footer"] & HomePageProps["so
 
         <div className="footer__bottom">
           <p className="footer__copyright">
-            Desenvolvido com <span aria-hidden="true">❤️</span> por Iasmin © {currentYear}
-          </p>
-          <p className="footer__note">
-            Feito com Next.js e muito tererê <span aria-hidden="true">🧉</span>
+            Desenvolvido com muito <span aria-hidden="true">🧉</span> por Iasmin © {currentYear}
           </p>
         </div>
       </div>

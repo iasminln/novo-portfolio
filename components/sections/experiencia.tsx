@@ -44,14 +44,14 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
         <div className="experience-card">
           <div className="experience-company">
             {emprego.sobre_empresa ? (
-              <details className="company-dropdown">
-                <summary className="company-dropdown__summary">
+              <details className="dropdown">
+                <summary className="dropdown__summary">
                   <h3 className="company-name">{emprego.empresa}</h3>
-                  <span className="company-dropdown__caret">
+                  <span className="dropdown__caret">
                     <IconCaret size={18} color="var(--main-color-stronger)" />
                   </span>
                 </summary>
-                <div className="company-dropdown__panel">
+                <div className="dropdown__panel">
                   <p className="company-blurb">{emprego.sobre_empresa}</p>
                 </div>
               </details>

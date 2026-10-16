@@ -39,8 +39,15 @@ export type SectionData = {
       logo: string;
       destaques: string[];
       carga_horaria: string;
+      certificado_final?: {
+        nome: string;
+        emissao?: string;
+        certificado: string;
+      };
       certificados: {
         nome: string;
+        modulo?: string;
+        emissao?: string;
         certificado: string;
       }[];
     }[];
