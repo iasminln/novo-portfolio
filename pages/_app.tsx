@@ -38,11 +38,6 @@ export default function App({ Component, pageProps }: AppProps) {
         </>
       ) : null}
 
-      <Script
-        src="https://www.google.com/recaptcha/api.js"
-        strategy="lazyOnload"
-      />
-
       <Component {...pageProps} />
       <Analytics />
     </div>

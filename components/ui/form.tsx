@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import Button from "./button";
 import { IconSendMessage } from "../icons/icon-send-message";
@@ -8,6 +8,29 @@ export default function ContactForm() {
   const form = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  // Carrega o reCAPTCHA só quando o formulário se aproxima da tela
+  useEffect(() => {
+    const element = form.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        if (document.querySelector('script[src^="https://www.google.com/recaptcha/api.js"]')) return;
+        const script = document.createElement("script");
+        script.src = "https://www.google.com/recaptcha/api.js";
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
+      },
+      { rootMargin: "600px 0px" }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();

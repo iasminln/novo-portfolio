@@ -6,8 +6,8 @@ export default function Inicio(data: HomePageProps["inicio"]) {
   return (
     <section className="section__initial" aria-label="Início">
       <div className="container">
-        <h1>{renderRichText(data.title, { as: 'span' })}</h1>
-        <p className="section__initial-subtitle">{data.subtitle}</p>
+        <p className="section__initial-title">{renderRichText(data.title, { as: 'span' })}</p>
+        <h1 className="section__initial-subtitle">{data.subtitle}</h1>
 
         <div className="button-container">
           <Button href="#contato">Vamos conversar</Button>

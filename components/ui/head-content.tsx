@@ -3,9 +3,14 @@ import { HomePageProps } from "@/types";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://iasmin.dev";
 
+type Organization = {
+  "@type": "Organization" | "EducationalOrganization";
+  name: string;
+};
+
 interface PersonStructuredData {
-  "@context": string;
   "@type": "Person";
+  "@id": string;
   name?: string;
   jobTitle?: string;
   url?: string;
@@ -14,16 +19,32 @@ interface PersonStructuredData {
   sameAs?: string[];
   knowsAbout?: string[];
   email?: string;
+  worksFor?: Organization[];
+  alumniOf?: Organization[];
+  address?: { "@type": "PostalAddress"; addressCountry: string };
+}
+
+interface ProfilePageStructuredData {
+  "@type": "ProfilePage";
+  "@id": string;
+  url: string;
+  name?: string;
+  inLanguage: string;
+  mainEntity: { "@id": string };
 }
 
 interface WebsiteStructuredData {
-  "@context": string;
   "@type": "WebSite";
+  "@id": string;
   name?: string;
   url?: string;
+  inLanguage: string;
 }
 
-type StructuredData = PersonStructuredData | WebsiteStructuredData;
+type StructuredData = {
+  "@context": string;
+  "@graph": (PersonStructuredData | ProfilePageStructuredData | WebsiteStructuredData)[];
+};
 
 function StructuredDataScript({ data }: { data: StructuredData }) {
   return (
@@ -36,6 +57,7 @@ function StructuredDataScript({ data }: { data: StructuredData }) {
 
 export default function HeadContent({ data }: { data: HomePageProps }) {
   const siteUrl = SITE_URL.replace(/\/$/, "");
+  const pageUrl = `${siteUrl}/`;
   const title = data.seo?.title ?? "";
   const description = data.seo?.description ?? "";
   const imagePath = data.seo?.image ?? "";
@@ -58,9 +80,18 @@ export default function HeadContent({ data }: { data: HomePageProps }) {
     ? data.sobre.skills
     : undefined;
 
+  const worksFor: Organization[] = (data.experiencia?.empregos ?? [])
+    .filter((emprego) => emprego.fim === null)
+    .map((emprego) => ({ "@type": "Organization", name: emprego.empresa }));
+
+  const alumniOf: Organization[] = [
+    ...(data.formacao?.pos_graduacoes ?? []),
+    ...(data.formacao?.graduacoes ?? []),
+  ].map((curso) => ({ "@type": "EducationalOrganization", name: curso.universidade }));
+
   const personData: PersonStructuredData = {
-    "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${siteUrl}/#person`,
     name: author,
     jobTitle,
     url: siteUrl,
@@ -69,13 +100,31 @@ export default function HeadContent({ data }: { data: HomePageProps }) {
     sameAs: sameAs.length ? sameAs : undefined,
     knowsAbout,
     email: data.social?.email || undefined,
+    worksFor: worksFor.length ? worksFor : undefined,
+    alumniOf: alumniOf.length ? alumniOf : undefined,
+    address: { "@type": "PostalAddress", addressCountry: "BR" },
+  };
+
+  const profilePageData: ProfilePageStructuredData = {
+    "@type": "ProfilePage",
+    "@id": `${pageUrl}#profilepage`,
+    url: pageUrl,
+    name: title,
+    inLanguage: "pt-BR",
+    mainEntity: { "@id": personData["@id"] },
   };
 
   const websiteData: WebsiteStructuredData = {
-    "@context": "https://schema.org",
     "@type": "WebSite",
-    name: title,
+    "@id": `${siteUrl}/#website`,
+    name: author,
     url: siteUrl,
+    inLanguage: "pt-BR",
+  };
+
+  const structuredData: StructuredData = {
+    "@context": "https://schema.org",
+    "@graph": [profilePageData, personData, websiteData],
   };
 
   return (
@@ -84,8 +133,9 @@ export default function HeadContent({ data }: { data: HomePageProps }) {
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-      <link rel="icon" href={favicon} type="image/png" />
-      <link rel="canonical" href={siteUrl} />
+      <link rel="icon" href={favicon} type="image/png" sizes="512x512" />
+      <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" sizes="180x180" />
+      <link rel="canonical" href={pageUrl} />
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -93,8 +143,8 @@ export default function HeadContent({ data }: { data: HomePageProps }) {
       <meta property="og:image:alt" content={imageAlt} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:url" content={siteUrl} />
-      <meta property="og:type" content="website" />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:type" content="profile" />
       <meta property="og:locale" content="pt_BR" />
       <meta property="og:site_name" content="Iasmin Lisboa" />
 
@@ -105,11 +155,10 @@ export default function HeadContent({ data }: { data: HomePageProps }) {
       <meta name="twitter:image:alt" content={imageAlt} />
 
       <meta name="author" content={author} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content="index, follow, max-image-preview:large" />
       {keywords ? <meta name="keywords" content={keywords} /> : null}
 
-      <StructuredDataScript data={personData} />
-      <StructuredDataScript data={websiteData} />
+      <StructuredDataScript data={structuredData} />
     </Head>
   );
 }

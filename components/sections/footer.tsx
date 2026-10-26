@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import CuriosidadesModal from '../ui/curiosidades-modal';
 import { HomePageProps } from "@/types/index";
 import Social from '../ui/social';
@@ -37,10 +38,10 @@ export default function Footer(data: HomePageProps["footer"] & HomePageProps["so
             <p className="footer__links-title">Navegação</p>
             <nav aria-label="Rodapé">
               <ul className="footer__links-list" role="list">
-                <li><a href="#sobre" className="footer__link">Sobre</a></li>
-                <li><a href="#experiencia" className="footer__link">Experiência</a></li>
-                <li><a href="#formacao" className="footer__link">Formação</a></li>
-                <li><a href="#contato" className="footer__link">Contato</a></li>
+                <li><Link href="/#sobre" className="footer__link">Sobre</Link></li>
+                <li><Link href="/#experiencia" className="footer__link">Experiência</Link></li>
+                <li><Link href="/#formacao" className="footer__link">Formação</Link></li>
+                <li><Link href="/#contato" className="footer__link">Contato</Link></li>
                 <li>
                   <button
                     type="button"

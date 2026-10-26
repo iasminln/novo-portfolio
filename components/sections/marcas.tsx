@@ -22,7 +22,7 @@ export default function Marcas(data: HomePageProps["marcas"]) {
               <div className="brand-logo-wrap">
                 <Image
                   src={item.logo}
-                  alt=""
+                  alt={item.nome}
                   fill
                   sizes="(max-width: 768px) 45vw, 160px"
                   className="brand-logo"

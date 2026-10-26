@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import ThemeToggle from './theme-toggle';
 import { useModal } from '@/hooks/useModal';
 
@@ -20,11 +21,11 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   };
 
   const menuItems = [
-    { href: '#sobre', label: 'Sobre' },
-    { href: '#marcas', label: 'Marcas' },
-    { href: '#experiencia', label: 'Experiência' },
-    { href: '#formacao', label: 'Formação' },
-    { href: '#contato', label: 'Contato' },
+    { href: '/#sobre', label: 'Sobre' },
+    { href: '/#marcas', label: 'Marcas' },
+    { href: '/#experiencia', label: 'Experiência' },
+    { href: '/#formacao', label: 'Formação' },
+    { href: '/#contato', label: 'Contato' },
   ];
 
   if (!isOpen) return null;
@@ -60,13 +61,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <ul className="mobile-menu__list" role="list">
             {menuItems.map((item) => (
               <li key={item.href} className="mobile-menu__item">
-                <a
+                <Link
                   href={item.href}
                   className="mobile-menu__link"
                   onClick={handleLinkClick}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

@@ -228,7 +228,9 @@ header nav ul li a:hover {
   padding-right: 20px;
 }
 
-.section__initial h1 {
+.section__initial-title {
+  font-family: var(--font-heading), serif;
+  font-weight: 700;
   padding: 0 20px;
   font-size: 60px;
   line-height: 1.2;
@@ -239,9 +241,18 @@ header nav ul li a:hover {
   flex-direction: column;
 }
 
+/* O H1 da página é o subtítulo: mantém o visual de parágrafo */
+.section__initial-subtitle {
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
 /* Responsive Design para Seção Inicial */
 @media (max-width: 768px) {
-  .section__initial h1 {
+  .section__initial-title {
     font-size: 40px;
     padding: 0 10px;
   }
@@ -269,7 +280,7 @@ header nav ul li a:hover {
 }
 
 @media (max-width: 480px) {
-  .section__initial h1 {
+  .section__initial-title {
     font-size: 32px;
   }
 
@@ -2529,5 +2540,20 @@ summary:focus-visible,
 
   .brands-grid {
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+}
+
+/* Página 404 */
+.not-found {
+  min-height: 60vh;
+}
+
+.not-found .section__initial-title {
+  font-size: 120px;
+}
+
+@media (max-width: 768px) {
+  .not-found .section__initial-title {
+    font-size: 80px;
   }
 }

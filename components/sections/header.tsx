@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import ThemeToggle from "@/components/ui/theme-toggle";
 import HamburgerButton from "@/components/ui/hamburger-button";
 import MobileMenu from "@/components/ui/mobile-menu";
@@ -23,11 +24,11 @@ export default function Header() {
           <p className="header__title">Iasmin<span className="title-dot" aria-hidden="true">.</span></p>
           <nav aria-label="Principal">
             <ul role="list">
-              <li><a href="#sobre">Sobre</a></li>
-              <li><a href="#marcas">Marcas</a></li>
-              <li><a href="#experiencia">Experiência</a></li>
-              <li><a href="#formacao">Formação</a></li>
-              <li><a href="#contato">Contato</a></li>
+              <li><Link href="/#sobre">Sobre</Link></li>
+              <li><Link href="/#marcas">Marcas</Link></li>
+              <li><Link href="/#experiencia">Experiência</Link></li>
+              <li><Link href="/#formacao">Formação</Link></li>
+              <li><Link href="/#contato">Contato</Link></li>
             </ul>
           </nav>
           <div className="header__actions">
