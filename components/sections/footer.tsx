@@ -29,7 +29,7 @@ export default function Footer(data: HomePageProps["footer"] & HomePageProps["so
           <div className="footer__main">
             <p className="footer__title">Iasmin<span className="title-dot" aria-hidden="true">.</span></p>
             <p className="footer__description">
-              Desenvolvedora Front-end especializada em React, TypeScript e otimização de performance.
+              Desenvolvedora Front-end especializada em E-commerces.
             </p>
             <Social {...data} />
           </div>

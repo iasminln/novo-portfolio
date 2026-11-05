@@ -24,11 +24,14 @@ export default function Home({ data }: { data: HomePageProps }) {
       <Header />
       <main id="main">
         <Inicio {...data.inicio} />
-        <Sobre {...data.sobre} {...data.social} />
-        <Marcas {...data.marcas} />
-        <Experiencia {...data.experiencia} />
-        <Formacao {...data.formacao} />
-        <Contato {...data.social} />
+        {/* Conteúdo que sobe por cima da seção inicial (fixa via sticky) */}
+        <div className="page-content">
+          <Sobre {...data.sobre} {...data.social} />
+          <Marcas {...data.marcas} />
+          <Experiencia {...data.experiencia} />
+          <Formacao {...data.formacao} />
+          <Contato {...data.social} />
+        </div>
       </main>
       <Footer {...data.footer} {...data.social} />
       <BackToTop />
