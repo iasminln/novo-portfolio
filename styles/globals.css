@@ -245,11 +245,20 @@ header nav ul li a:hover {
 }
 
 .section__initial {
+  /* Papel milimetrado + réguas: linhas finas a cada 20px, marcadas a cada 100px */
+  /* Linha fina: cor de efeito suavizada em direção ao fundo */
+  --grid-minor: color-mix(in srgb, var(--background-effect), var(--background-color) 30%);
+  --grid-major: rgba(var(--main-color-rgb), 0.07);
+  --ruler-size: 24px;
+  --ruler-tick: rgba(var(--main-color-rgb), 0.4);
+
   padding: 100px 0;
   background-image:
-    linear-gradient(var(--background-effect) 1px, transparent 1px),
-    linear-gradient(90deg, var(--background-effect) 1px, transparent 1px);
-  background-size: 20px 20px;
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   box-shadow:
     inset 0 8px 16px -8px rgba(0, 0, 0, 0.2),
     inset 0 -8px 16px -8px rgba(0, 0, 0, 0.2);
@@ -263,6 +272,183 @@ header nav ul li a:hover {
   position: sticky;
   top: 0;
   z-index: 0;
+}
+
+/* Réguas (topo e esquerda): marcas a cada 10px, médias a cada 50px, longas a cada 100px */
+.section__initial::before,
+.section__initial::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  background-color: rgba(var(--main-color-rgb), 0.04);
+  background-repeat: repeat-x;
+}
+
+.section__initial::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--ruler-size);
+  border-bottom: 1px solid var(--ruler-tick);
+  background-image:
+    linear-gradient(90deg, var(--ruler-tick) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ruler-tick) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ruler-tick) 1px, transparent 1px);
+  background-size: 100px 16px, 50px 10px, 10px 5px;
+}
+
+.section__initial::after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--ruler-size);
+  border-right: 1px solid var(--ruler-tick);
+  background-repeat: repeat-y;
+  background-image:
+    linear-gradient(var(--ruler-tick) 1px, transparent 1px),
+    linear-gradient(var(--ruler-tick) 1px, transparent 1px),
+    linear-gradient(var(--ruler-tick) 1px, transparent 1px);
+  background-size: 16px 100px, 10px 50px, 5px 10px;
+}
+
+@media (max-width: 480px) {
+  .section__initial {
+    --ruler-size: 16px;
+  }
+
+  .section__initial::before {
+    background-size: 100px 12px, 50px 8px, 10px 4px;
+  }
+
+  .section__initial::after {
+    background-size: 12px 100px, 8px 50px, 4px 10px;
+  }
+}
+
+/* Camada "blueprint" da seção inicial (components/ui/hero-blueprint.tsx):
+   números das réguas, breakpoints do site e mira que segue o cursor */
+.hero-blueprint {
+  --cursor-x: 0px;
+  --cursor-y: 0px;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--main-color-stronger);
+}
+
+.hero-blueprint__ruler {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-blueprint__ruler--x {
+  right: 0;
+  height: var(--ruler-size);
+}
+
+.hero-blueprint__ruler--y {
+  bottom: 0;
+  width: var(--ruler-size);
+}
+
+.hero-blueprint__number {
+  position: absolute;
+  font-size: 9px;
+  line-height: 1;
+  opacity: 0.75;
+}
+
+.hero-blueprint__ruler--x .hero-blueprint__number {
+  bottom: 2px;
+  margin-left: 3px;
+}
+
+/* Régua vertical lê de baixo para cima, como no Figma */
+.hero-blueprint__ruler--y .hero-blueprint__number {
+  right: 2px;
+  margin-top: 3px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.hero-blueprint__breakpoint {
+  position: absolute;
+  top: calc(var(--ruler-size) + 6px);
+  transform: translateX(-50%);
+  font-size: 9px;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  background: rgba(var(--main-color-rgb), 0.1);
+  border: 1px solid rgba(var(--main-color-rgb), 0.25);
+}
+
+.hero-blueprint__breakpoint::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 1px;
+  height: 6px;
+  background: rgba(var(--main-color-rgb), 0.45);
+}
+
+.hero-blueprint__guide,
+.hero-blueprint__marker,
+.hero-blueprint__coords {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hero-blueprint.is-tracking .hero-blueprint__guide,
+.hero-blueprint.is-tracking .hero-blueprint__marker,
+.hero-blueprint.is-tracking .hero-blueprint__coords {
+  opacity: 1;
+}
+
+.hero-blueprint__guide--x {
+  right: 0;
+  border-top: 1px dashed rgba(var(--main-color-rgb), 0.4);
+  transform: translateY(var(--cursor-y));
+}
+
+.hero-blueprint__guide--y {
+  bottom: 0;
+  border-left: 1px dashed rgba(var(--main-color-rgb), 0.4);
+  transform: translateX(var(--cursor-x));
+}
+
+.hero-blueprint__marker--x {
+  width: 2px;
+  height: var(--ruler-size);
+  background: var(--main-color-stronger);
+  transform: translateX(calc(var(--cursor-x) - 1px));
+}
+
+.hero-blueprint__marker--y {
+  width: var(--ruler-size);
+  height: 2px;
+  background: var(--main-color-stronger);
+  transform: translateY(calc(var(--cursor-y) - 1px));
+}
+
+.hero-blueprint__coords {
+  font-size: 10px;
+  line-height: 1;
+  padding: 4px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  background: var(--main-color-stronger);
+  color: var(--background-color);
+  transform: translate(calc(var(--cursor-x) + 14px), calc(var(--cursor-y) + 14px));
 }
 
 .page-content {
@@ -366,26 +552,17 @@ header nav ul li a:hover {
   }
 }
 
-/* Desabilita parallax e animações não essenciais quando o usuário prefere menos movimento */
+/* Reduz animações quando o sistema pede menos movimento */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  html.scroll-smooth {
-    scroll-behavior: auto;
-  }
-
-  .section__initial {
-    background-attachment: scroll;
-  }
-
+  html,
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
 }
@@ -901,6 +1078,9 @@ summary:focus-visible,
 }
 
 .mobile-menu__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   padding: 20px;
   border-top: 1px solid var(--background-effect);
 }
@@ -1387,6 +1567,7 @@ summary:focus-visible,
 .contact-form__textarea {
   resize: vertical;
   min-height: 120px;
+  max-height: 320px;
 }
 
 /* Loading spinner */
