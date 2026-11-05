@@ -5,7 +5,7 @@ export default function Marcas(data: HomePageProps["marcas"]) {
   return (
     <section id="marcas" className="brands-section" aria-labelledby="marcas-title">
       <div className="container">
-        <h2 id="marcas-title" className="brands-title">
+        <h2 id="marcas-title">
           {data.title}
           <span className="title-dot" aria-hidden="true">.</span>
         </h2>

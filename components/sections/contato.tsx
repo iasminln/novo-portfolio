@@ -8,7 +8,7 @@ export default function Contato(data: HomePageProps["social"]) {
   return (
     <section id="contato" className="contact-section" aria-labelledby="contato-title">
       <div className="container">
-        <h2 id="contato-title" className="contact-section__title">
+        <h2 id="contato-title">
           Vamos conversar<span className="title-dot" aria-hidden="true">!</span>
         </h2>
         <p className="contact-section__subtitle">

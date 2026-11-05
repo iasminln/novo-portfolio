@@ -46,7 +46,7 @@ function EmpregoItem({ emprego, isNovo = false }: { emprego: Emprego; isNovo?: b
             {emprego.sobre_empresa ? (
               <details className="dropdown">
                 <summary className="dropdown__summary">
-                  <h3 className="company-name">{emprego.empresa}</h3>
+                  <h3>{emprego.empresa}</h3>
                   <span className="dropdown__caret">
                     <IconCaret size={18} color="var(--main-color-stronger)" />
                   </span>
@@ -56,7 +56,7 @@ function EmpregoItem({ emprego, isNovo = false }: { emprego: Emprego; isNovo?: b
                 </div>
               </details>
             ) : (
-              <h3 className="company-name">{emprego.empresa}</h3>
+              <h3>{emprego.empresa}</h3>
             )}
           </div>
 
@@ -123,7 +123,7 @@ export default function Experiencia(data: HomePageProps["experiencia"]) {
     <section id="experiencia" className="experience-section" aria-labelledby="experiencia-title">
       <div className="container">
         <div className="experience-header">
-          <h2 id="experiencia-title" className="experience-title">Trajetória<span className="title-dot" aria-hidden="true">.</span></h2>
+          <h2 id="experiencia-title">Trajetória<span className="title-dot" aria-hidden="true">.</span></h2>
           <p className="experience-intro">{data.intro}</p>
 
           <div className="experience-highlights">
