@@ -39,6 +39,7 @@ export type SectionData = {
       logo: string;
       destaques: string[];
       carga_horaria: string;
+      exibir_certificados?: boolean;
       certificado_final?: {
         nome: string;
         emissao?: string;
@@ -64,6 +65,7 @@ export type SectionData = {
   experiencia: {
     intro: string;
     destaques: string[];
+    tecnologias?: string[];
     empregos: {
       empresa: string;
       cargo: string;
@@ -71,7 +73,6 @@ export type SectionData = {
       fim: { mes: number; ano: number } | null;
       sobre_empresa?: string;
       descricao: string;
-      tecnologias: string[];
       destaques: string[];
       marcas: string[];
     }[];

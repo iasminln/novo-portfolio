@@ -1,6 +1,7 @@
 import { HomePageProps } from '@/types';
 import React from 'react';
 import { IconCheck } from '../icons/icon-check';
+import { IconClose } from '../icons/icon-close';
 import { renderRichText } from '@/utils/richText';
 import { useModal } from '@/hooks/useModal';
 
@@ -45,7 +46,7 @@ export default function CuriosidadesModal({ data, isOpen, isClosing, onClose }: 
             aria-label="Fechar"
             onClick={onClose}
           >
-            <span aria-hidden="true">×</span>
+            <IconClose size={24} />
           </button>
         </div>
         <div className="secret-modal__content">

@@ -1,20 +1,42 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import ThemeToggle from "@/components/ui/theme-toggle";
 import HamburgerButton from "@/components/ui/hamburger-button";
 import MobileMenu from "@/components/ui/mobile-menu";
 
+// Mesma duração da animação de saída em .mobile-menu--closing
+const MOBILE_MENU_CLOSE_DURATION = 300;
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuClosing, setIsMobileMenuClosing] = useState(false);
+  const closeTimeoutRef = useRef<number | null>(null);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  useEffect(() => () => {
+    if (closeTimeoutRef.current) window.clearTimeout(closeTimeoutRef.current);
+  }, []);
+
+  const openMobileMenu = () => {
+    if (closeTimeoutRef.current) window.clearTimeout(closeTimeoutRef.current);
+    setIsMobileMenuClosing(false);
+    setIsMobileMenuOpen(true);
   };
 
+  // Roda a animação de saída antes de desmontar o menu
   const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
+    if (!isMobileMenuOpen || isMobileMenuClosing) return;
+    setIsMobileMenuClosing(true);
+    closeTimeoutRef.current = window.setTimeout(() => {
+      setIsMobileMenuOpen(false);
+      setIsMobileMenuClosing(false);
+    }, MOBILE_MENU_CLOSE_DURATION);
+  };
+
+  const toggleMobileMenu = () => {
+    if (isMobileMenuOpen && !isMobileMenuClosing) closeMobileMenu();
+    else openMobileMenu();
   };
 
   return (
@@ -44,6 +66,7 @@ export default function Header() {
 
       <MobileMenu
         isOpen={isMobileMenuOpen}
+        isClosing={isMobileMenuClosing}
         onClose={closeMobileMenu}
       />
     </>

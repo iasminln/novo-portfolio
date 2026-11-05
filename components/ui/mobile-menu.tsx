@@ -4,13 +4,15 @@ import React from 'react';
 import Link from 'next/link';
 import ThemeToggle from './theme-toggle';
 import { useModal } from '@/hooks/useModal';
+import { IconClose } from '../icons/icon-close';
 
 interface MobileMenuProps {
   isOpen: boolean;
+  isClosing?: boolean;
   onClose: () => void;
 }
 
-export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, isClosing = false, onClose }: MobileMenuProps) {
   const { contentRef } = useModal({
     isOpen,
     onClose,
@@ -33,7 +35,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   return (
     <>
       <div
-        className="mobile-menu__overlay"
+        className={`mobile-menu__overlay${isClosing ? ' mobile-menu__overlay--closing' : ''}`}
         onClick={onClose}
         aria-hidden="true"
       />
@@ -41,7 +43,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       <div
         ref={contentRef}
         id="mobile-menu"
-        className="mobile-menu"
+        className={`mobile-menu${isClosing ? ' mobile-menu--closing' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="mobile-menu-title"
@@ -53,7 +55,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             onClick={onClose}
             aria-label="Fechar menu"
           >
-            <span className="mobile-menu__close-icon" aria-hidden="true">×</span>
+            <IconClose size={24} />
           </button>
         </div>
 

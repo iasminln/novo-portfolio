@@ -30,6 +30,7 @@
       "logo": "/images/logo-rocketseat.webp",
       "destaques": ["Front-End", "Back-End", "DevOps", "Inteligência Artificial", "Produto"],
       "carga_horaria": "360 horas",
+      "exibir_certificados": false,
       "certificado_final": {
         "nome": "Especialização em Desenvolvimento Full Stack",
         "emissao": "2026-09-10",

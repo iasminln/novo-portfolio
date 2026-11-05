@@ -327,7 +327,6 @@ header nav ul li a:hover {
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible,
-.tech-tag--more:focus-visible,
 .dropdown__summary:focus-visible,
 .button:focus-visible,
 .button-secondary:focus-visible,
@@ -902,6 +901,34 @@ summary:focus-visible,
   to {
     opacity: 1;
   }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.mobile-menu--closing {
+  animation: slideOutRight 0.3s ease forwards;
+}
+
+.mobile-menu__overlay--closing {
+  animation: fadeOut 0.3s ease forwards;
 }
 
 /* Show hamburger on mobile */
@@ -1568,6 +1595,41 @@ summary:focus-visible,
   text-align: center;
 }
 
+.experience-technologies {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(var(--main-color-rgb), 0.3);
+}
+
+.experience-technologies .tech-tags {
+  justify-content: center;
+}
+
+ul.tech-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-tag--hidden {
+  display: none;
+}
+
+.tech-tags__more {
+  display: flex;
+}
+
+.tech-tags__more.tech-tag--hidden {
+  display: none;
+}
+
+.tech-tag--more {
+  font-family: inherit;
+  font-weight: 600;
+  line-height: inherit;
+  cursor: pointer;
+}
+
 .highlight-item {
   display: flex;
   align-items: flex-start;
@@ -1830,7 +1892,6 @@ summary:focus-visible,
   gap: 1.5rem;
 }
 
-.technologies h5,
 .highlights h5,
 .brands h5 {
   font-size: 0.8rem;
@@ -1855,14 +1916,6 @@ summary:focus-visible,
   border: 1px solid rgba(var(--main-color-rgb), 0.2);
 }
 
-.tech-tag--more {
-  display: none;
-  font-family: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  line-height: inherit;
-}
-
 .brands-text {
   font-weight: 500;
   line-height: 1.55;
@@ -1871,20 +1924,6 @@ summary:focus-visible,
 }
 
 @media (max-width: 768px) {
-  .tech-tags > .tech-tag:not(.tech-tag--more):nth-child(n + 4) {
-    display: none;
-  }
-
-  .tech-tags--expanded > .tech-tag:not(.tech-tag--more):nth-child(n + 4) {
-    display: inline-flex;
-  }
-
-  .tech-tag--more {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .brands-text {
     font-size: 0.9rem;
   }
@@ -2327,14 +2366,16 @@ summary:focus-visible,
   font-size: 1.2rem;
   font-weight: 600;
   font-family: var(--font-heading), serif;
+  margin-bottom: 0;
 }
 
 .secret-modal__close {
   appearance: none;
   border: 0;
   background: transparent;
-  font-size: 2.4rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 4px 6px;
   cursor: pointer;
   color: inherit;

@@ -4,6 +4,7 @@ import { IconGraduation } from "../icons/icon-graduation";
 import { IconArrow } from "../icons/icon-arrow";
 import Button from "../ui/button";
 import { IconCaret } from "../icons/icon-caret";
+import TechTags from "../ui/tech-tags";
 
 // "2025-11-11" -> "11/11/2025" (sem new Date para evitar desvio de fuso horário)
 function formatarData(data: string) {
@@ -65,7 +66,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
                         </div>
                       )}
 
-                      {((pos.certificados && pos.certificados.length > 0) || pos.certificado_final?.certificado) && (
+                      {pos.exibir_certificados !== false && ((pos.certificados && pos.certificados.length > 0) || pos.certificado_final?.certificado) && (
                         <div className="course-certifications">
                           {pos.certificados && pos.certificados.length > 0 && (
                             <div className="certifications-column">
@@ -161,11 +162,7 @@ export default function Formacao(data: HomePageProps["formacao"]) {
                                 
                                 {projeto.tecnologias && projeto.tecnologias.length > 0 && (
                                   <div className="project-technologies">
-                                    <div className="highlight-tags">
-                                      {projeto.tecnologias.map((tech: string, techIndex: number) => (
-                                        <span key={techIndex} className="highlight-tag">{tech}</span>
-                                      ))}
-                                    </div>
+                                    <TechTags tags={projeto.tecnologias} />
                                   </div>
                                 )}
                               </div>
