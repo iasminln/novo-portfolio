@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HomePageProps } from "@/types/index";
 import { IconCheck } from "../icons/icon-check";
 import { IconCaret } from "../icons/icon-caret";
 import TechTags from "../ui/tech-tags";
+import Button from "../ui/button";
 import {
   calcularDuracao,
   formatarPeriodo,
@@ -11,7 +12,10 @@ import {
 
 type Emprego = HomePageProps["experiencia"]["empregos"][number];
 
-function EmpregoItem({ emprego }: { emprego: Emprego }) {
+// Quantos cards aparecem de início e quantos cada clique em "Carregar mais" adiciona
+const EMPREGOS_POR_PAGINA = 3;
+
+function EmpregoItem({ emprego, isNovo = false }: { emprego: Emprego; isNovo?: boolean }) {
   const atual = isEmpregoAtual(emprego.fim);
   const [duracao, setDuracao] = useState(() =>
     calcularDuracao(emprego.inicio, emprego.fim)
@@ -27,7 +31,7 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
   const tipo = atual ? "atual" : "passado";
 
   return (
-    <div className={`timeline-item ${tipo}`}>
+    <div className={`timeline-item ${tipo}${isNovo ? " timeline-item--novo" : ""}`} tabIndex={-1}>
       <div className="timeline-marker-container">
         <div className="timeline-marker">
           <div className="marker-dot"></div>
@@ -96,6 +100,25 @@ function EmpregoItem({ emprego }: { emprego: Emprego }) {
 }
 
 export default function Experiencia(data: HomePageProps["experiencia"]) {
+  const [visiveis, setVisiveis] = useState(EMPREGOS_POR_PAGINA);
+  const itemsRef = useRef<HTMLDivElement>(null);
+  const primeiroNovoRef = useRef<number | null>(null);
+
+  const restantes = data.empregos.length - visiveis;
+
+  // Leva o foco ao primeiro card carregado (quem usa teclado ou leitor de tela continua de onde parou)
+  useEffect(() => {
+    if (primeiroNovoRef.current === null) return;
+    const item = itemsRef.current?.children[primeiroNovoRef.current] as HTMLElement | undefined;
+    item?.focus({ preventScroll: true });
+    primeiroNovoRef.current = null;
+  }, [visiveis]);
+
+  const carregarMais = () => {
+    primeiroNovoRef.current = visiveis;
+    setVisiveis((v) => v + EMPREGOS_POR_PAGINA);
+  };
+
   return (
     <section id="experiencia" className="experience-section" aria-labelledby="experiencia-title">
       <div className="container">
@@ -127,12 +150,24 @@ export default function Experiencia(data: HomePageProps["experiencia"]) {
 
         <div className="timeline">
           <div className="timeline-line-detail"></div>
-          <div className="timeline-items">
-            {data.empregos.map((emprego, index) => (
-              <EmpregoItem key={`${emprego.empresa}-${index}`} emprego={emprego} />
+          <div ref={itemsRef} id="experiencia-items" className="timeline-items">
+            {data.empregos.slice(0, visiveis).map((emprego, index) => (
+              <EmpregoItem
+                key={`${emprego.empresa}-${index}`}
+                emprego={emprego}
+                isNovo={index >= EMPREGOS_POR_PAGINA}
+              />
             ))}
           </div>
         </div>
+
+        {restantes > 0 && (
+          <div className="experience-load-more">
+            <Button variant="secondary" onClick={carregarMais} ariaControls="experiencia-items">
+              Carregar mais experiências ({restantes})
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

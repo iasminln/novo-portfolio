@@ -12,6 +12,7 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary';
   ariaLabel?: string;
   ariaBusy?: boolean;
+  ariaControls?: string;
 }
 
 export default function Button({
@@ -26,6 +27,7 @@ export default function Button({
   variant = 'primary',
   ariaLabel,
   ariaBusy,
+  ariaControls,
 }: ButtonProps) {
   const baseClasses = variant === 'secondary' ? 'button button-secondary' : 'button';
   const combinedClasses = `${baseClasses} ${className}`.trim();
@@ -58,6 +60,7 @@ export default function Button({
       disabled={disabled}
       aria-label={ariaLabel}
       aria-busy={ariaBusy}
+      aria-controls={ariaControls}
     >
       {children}
     </button>
